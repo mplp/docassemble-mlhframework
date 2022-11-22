@@ -16,7 +16,7 @@ fields:
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
-mandatory: True
+mandatory: False
 question: |
   Display court info
 subquestion: |
