@@ -6,17 +6,25 @@ modules:
 objects:
   - court_list: ALCourtLoader.using(file_name='court_sample.xlsx')
 ---
+ # mandatory: False
+ # question: |
+ #   Pick a court
+ # fields:
+ #   - Court: court_index
+ #     code: court_list.filter_courts(None)      
+ # ---
 mandatory: False
 question: |
-  Pick a court
+  Pick a county
 fields:
-  - Court: court_index
-    code: court_list.filter_courts(None)      
+  - County: court_index
+    code: court_list.filter_court_counties(None)  
+    # how implement filtering? (here's syntax from documentation: def filter_courts(court_types: Optional[List], column="department"))
 ---
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
-mandatory: False
+mandatory: True  
 question: |
   Display court info
 subquestion: |

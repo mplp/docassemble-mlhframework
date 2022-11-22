@@ -111,6 +111,13 @@ class ALCourtLoader(DAObject):
     """
     df = self._load_courts()
     return df['name'].items()
+  
+  def filter_court_counties(self, court_types):
+    """
+    Return a subset of counties. 
+    """
+    df = self._load_courts()
+    return df['county'].items()
 
   def as_court(self, intrinsicName, index):
     court = ALCourt(intrinsicName)
