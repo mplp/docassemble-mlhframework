@@ -6,7 +6,7 @@ modules:
 objects:
   - court_list: ALCourtLoader.using(file_name='court_sample.xlsx')
 ---
-mandatory: True
+mandatory: False
 question: |
   Pick a court
 fields:
