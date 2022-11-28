@@ -41,7 +41,7 @@ subquestion: |
   % endif
 fields:
   - County: county_choice
-    code: court_list._load_courts()["county"].unique()
+    code: court_list._load_courts()["address_county"].unique()
 ---
 template: help_user_choose_court_template
 subject: |
@@ -64,12 +64,12 @@ subquestion: |
   % endif
 fields:
   - Court: court_index
-    code: court_list.filter_courts([county_choice], column='county')  
+    code: court_list.filter_courts([county_choice], column='address_county')  
 ---
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
-mandatory: False
+mandatory: True
 question: |
   Display court info
 subquestion: |
