@@ -1,4 +1,4 @@
-#####################################
+ ######################################
 # Package for a very simple / MVP list of courts that is mostly signature compatible w/ MACourts for now
 
 from docassemble.base.util import path_and_mimetype, Address, LatitudeLongitude, DAStaticFile, markdown_to_html, prevent_dependency_satisfaction, DAObject, DAList, DADict, log, space_to_underscore
@@ -27,7 +27,7 @@ class ALCourt(Court):
 
     def __str__(self):
         return str(self.name)
-
+      
     def _map_info(self)->str:
         the_info = str(self.name)
         the_info += "  [NEWLINE]  " + self.address.block()
@@ -35,7 +35,7 @@ class ALCourt(Court):
         if hasattr(self, 'icon'):
             result['icon'] = self.icon
         return [result]
-
+      
     def short_label(self)->str:
       """
       Returns a string that represents a nice, disambiguated label for the court.
@@ -47,14 +47,14 @@ class ALCourt(Court):
         return str(self.name)
       else:
         return str(self.name) + ' (' + self.address.city + ')'
-
+    
     def short_label_and_address(self)->str:
       """
       Returns a markdown formatted string with the name and address of the court.
       More concise version without description; suitable for a responsive case.
       """
       return '**' + self.short_label() + '**' + '[BR]' + self.address.on_one_line()
-
+    
     def short_description(self)->str:
       """
       Returns a Markdown formatted string that includes the disambiguated name and 
@@ -62,8 +62,8 @@ class ALCourt(Court):
       buttons.
       """
       return '**' + self.short_label() + '**' + '[BR]' + self.address.on_one_line() + '[BR]' + self.description
-
-    def from_row(self, df_row)->None:
+  
+    def from_row(self, df_row, ensure_lat_long=True)->None:
       """
       Loads data from a single Pandas Dataframe into a court object.
       Note: It will try to convert column names that don't make valid
@@ -79,14 +79,19 @@ class ALCourt(Court):
       # location_latitude and location_latitude will fill the location.latitude/longitude attributes
       # Other columns will be turned into arbitrary attributes if possible, followed by transforming
       # underscores.
+      df_row = df_row.dropna() # Remove any Not a Number entries (null/empty cells)
+      # Handle location specially since we made it on the top level and address object
       if 'location_latitude' in df_row:
         self.location.latitude = df_row['location_latitude']
+        self.address.location.latitude = df_row['location_latitude']
       if 'location_longitude' in df_row:        
         self.location.longitude = df_row['location_longitude']
+        self.address.location.longitude = df_row['location_longitude']
       for attribute_candidate in set(df_row.keys()) - {'location_latitude','location_longitude'}:
         if attribute_candidate.startswith('address_') and attribute_candidate.isidentifier():
           setattr(self.address, attribute_candidate[8:], df_row[attribute_candidate])
         else:
+          # Handle the rest. We hope to see `name` here at least.
           if attribute_candidate.isidentifier():
             setattr(self, attribute_candidate, df_row[attribute_candidate])
           else:
@@ -96,39 +101,59 @@ class ALCourt(Court):
               log('Skipping invalid column name in court list: ' + attribute_name)
               pass # People really need to use sensical column names that can be converted to attributes
                    # but we don't need to throw an exception about it.
-
-
+ #        if ensure_lat_long and not (hasattr(self.location, 'latitude') and hasattr(self.location, 'longitude') and self.location.latitude and self.location.longitude):
+ #          # Use Google Maps to geocode if we don't have coordinates and that is desired
+ #          # NOTE: this is causing a problem w/ intrinsic name in the _load_courts method below.
+ #          pass
+ #          # self.address.geolocate() # Note that Docassemble has misnamed geocoding to "geolocate"
+ #          # self.location = self.address.location
+          
+    def geolocate(self):
+      self.address.geolocate()
+      self.location = self.address.location
+      
 class ALCourtLoader(DAObject):
   """
   Object to hold some methods surrounding loading/filtering courts.
   
   Built around Pandas dataframe.
   """
-
-  def filter_courts(self, court_types):
-    """
-    Return a subset of courts. 
-    """
-    df = self._load_courts()
-    return df['name'].items()
+  # TODO: I think this design makes sense vs saving/storing ALL courts in the Docassemble session. 
+  # But we might want to at least cache data in Redis to reduce disk hits.
+  # Also: think about how to handle court information changing if someone loads data far in the future
+  # from a saved interview.
+  # Only solution I can think of would require court database owners to assign each court a unique ID
+  # and something that triggers recalculating the court address/etc info.
   
-  def filter_court_counties(self, court_types):
+  def all_courts(self)->list:
+    return self.filter_courts(None)
+  
+  def filter_courts(self, court_types: list, column='department')->list:
     """
-    Return a subset of counties. 
+    Return a subset of courts, only the name column and index. 
+    
+    If you do not want the list to be filtered, set court_types to None (or falsy value)
     """
     df = self._load_courts()
-    return df['county'].items()
-
-  def as_court(self, intrinsicName, index):
+    if court_types:
+      # Return only the names for matching values in the specified column
+      return df[df[column].isin(court_types)]['name'].items()
+    else:
+      return df['name'].items()
+    
+  def as_court(self, intrinsicName, index, ensure_lat_long=True):
+    """
+    Return the court at the specified index as an ALCourt object
+    """
     court = ALCourt(intrinsicName)
     df = self._load_courts()    
-    #try:
-    row = df.loc[int(index)]
-    #except:
-    #  return None
-    court.from_row(row)
+    try:
+      row = df.loc[int(index)]
+    except:
+      return court
+    court.from_row(row, ensure_lat_long = ensure_lat_long)
     return court    
-
+  
   def _load_courts(self):
     """
     Return list of courts 
@@ -137,7 +162,14 @@ class ALCourtLoader(DAObject):
       to_load = path_and_mimetype(self.file_name)[0]
     else:
       to_load = path_and_mimetype(os.path.join("data/sources", self.file_name))[0]
-
-    # TODO: this could be a place to allow handling other data formats, like JSON or CSV
-    df = pd.read_excel(to_load)
+    
+    if self.file_name.lower().endswith('.xlsx'):
+      df = pd.read_excel(to_load)
+    elif self.file_name.lower().endswith('.csv'):
+      df = pd.read_csv(to_load)
+    elif self.file_name.lower().endswith('.json'):
+      # TODO: we may need to normalize a JSON file
+      df = pd.read_json(to_load)
+    else:
+      raise Exception('The datafile must be a CSV, XLSX, or JSON file. Unknown file type: ' + to_load)
     return df

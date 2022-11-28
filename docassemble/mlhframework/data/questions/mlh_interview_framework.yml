@@ -1,4 +1,12 @@
 ---
+include:
+  - docassemble.AssemblyLine:assembly_line.yml
+  - docassemble.ALAnyState:any_state.yml
+---
+code: |
+  # This controls the default state in address field questions
+  AL_DEFAULT_STATE = "MI"
+---
 modules:
   - .al_courts
   - google_drive_downloader
@@ -6,25 +14,62 @@ modules:
 objects:
   - court_list: ALCourtLoader.using(file_name='court_sample.xlsx')
 ---
+code: |
+  # al_form_type = "appeal" 
+  # leave this in to test in this interview, leave out to pull into other interviews
+---
  # mandatory: False
  # question: |
  #   Pick a court
  # fields:
  #   - Court: court_index
- #     code: court_list.filter_courts(None)      
+ #     code: court_list.filter_courts(None) 
  # ---
+id: Choose a court
 mandatory: False
 question: |
-  Pick a county
+  % if al_form_type == 'starts_case':
+  What county do you want to file in?
+  % elif al_form_type == 'appeal':
+  What is the county of the trial court your case was originally filed in?
+  % else:
+  Please choose the county of the court where your case is.
+  % endif
+subquestion: |
+  % if al_form_type != 'starts_case':
+  ${ collapse_template(help_user_choose_court_template) }
+  % endif
 fields:
-  - County: court_index
-    code: court_list.filter_court_counties(None)  
-    # how implement filtering? (here's syntax from documentation: def filter_courts(court_types: Optional[List], column="department"))
+  - County: county_choice
+    code: court_list._load_courts()["county"].unique()
+---
+template: help_user_choose_court_template
+subject: |
+  How do I know?
+content: |
+  You can find the case number, county and court by looking at the top of court papers from your case such as the summons, complaint, petition, or answer in your case. 
+---
+mandatory: False
+question: |
+  % if al_form_type == 'starts_case':
+  What court do you want to file in?
+  % elif al_form_type == 'appeal':
+  What trial court was your case originally filed in?
+  % else:
+  Please choose the court where your case is.
+  % endif
+subquestion: |
+  % if al_form_type != 'starts_case':
+  ${ collapse_template(help_user_choose_court_template) }
+  % endif
+fields:
+  - Court: court_index
+    code: court_list.filter_courts([county_choice], column='county')  
 ---
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
-mandatory: True  
+mandatory: False
 question: |
   Display court info
 subquestion: |
@@ -32,6 +77,10 @@ subquestion: |
   
   ${ the_court.address.block() }
   
+  % if defined('the_court.description'):
   ${ the_court.description }
+  % else:
+  % endif
   
-  ${ map_of(the_court) }
+# ${ map_of(the_court) }
+# getting errors when latitude and longitude are empty, so commenting this out for now
