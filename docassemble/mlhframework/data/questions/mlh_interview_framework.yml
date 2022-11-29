@@ -64,7 +64,12 @@ subquestion: |
   % endif
 fields:
   - Court: court_index
-    code: court_list.filter_courts([county_choice], column='address_county')  
+    code: court_list.filter_courts([county_choice], column='address_county') 
+    # filter by two columns code 
+    # error if you filter by district & county but there is no district court for that county
+    # same should probably be true of the simple 1-column filter? 
+    # presumably should just never filter down to something that doesn't exist
+    # code: court_list.filter_courts_by_2([county_choice], ['district'], column_1='address_county', column_2='type')
 ---
 code: |
   the_court = court_list.as_court('the_court',court_index)

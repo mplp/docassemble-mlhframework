@@ -141,6 +141,19 @@ class ALCourtLoader(DAObject):
     else:
       return df['name'].items()
     
+  def filter_courts_by_2(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department')->list:
+    """
+    Return a subset of courts filtered on 2 columns, only the name column and index. 
+    
+    Work needed on the conditional statement and desired behavior if some arguments not specified.
+    """
+    df = self._load_courts()
+    if court_types_1 and court_types_2:
+      # Return only the names for matching values in both specified columns
+      return df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2)]['name'].items()
+    else:
+      return df['name'].items()
+    
   def as_court(self, intrinsicName, index, ensure_lat_long=True):
     """
     Return the court at the specified index as an ALCourt object
