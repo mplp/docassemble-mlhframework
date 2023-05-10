@@ -16,15 +16,8 @@ objects:
 ---
 code: |
   # al_form_type = "appeal" 
-  # leave this in to test in this interview, leave out to pull into other interviews
+  # leave this in & choose type to test in this interview, comment out to pull into other interviews
 ---
- # mandatory: False
- # question: |
- #   Pick a court
- # fields:
- #   - Court: court_index
- #     code: court_list.filter_courts(None) 
- # ---
 id: Choose a court
 mandatory: False
 question: |
@@ -74,6 +67,7 @@ fields:
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
+ # Change this to True to test in this interview.
 mandatory: False
 question: |
   Display court info
