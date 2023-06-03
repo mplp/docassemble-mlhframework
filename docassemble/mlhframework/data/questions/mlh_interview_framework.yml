@@ -8,7 +8,7 @@ code: |
   AL_DEFAULT_STATE = "MI"
 ---
 modules:
-  - .al_courts
+  - .al_courts_mi_edit
   - google_drive_downloader
 ---
 objects:
