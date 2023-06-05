@@ -68,13 +68,13 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
-mandatory: False
+mandatory: True
 question: |
   Display court info
 subquestion: |
   ${ the_court }
   
-  ${ the_court.address.block() }
+  ${ the_court.address.block(bare=True) }
   
   % if defined('the_court.description'):
   ${ the_court.description }
