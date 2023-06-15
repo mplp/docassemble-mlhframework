@@ -68,18 +68,16 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
-mandatory: True
+mandatory: False  
 question: |
   Display court info
 subquestion: |
   ${ the_court }
-  
   ${ the_court.address.block(bare=True) }
-  
   % if defined('the_court.description'):
   ${ the_court.description }
   % else:
-  % endif
-  
+  % endif  
+# adding (bare=True) strips out unit formatting that messed with PO Boxes
 # ${ map_of(the_court) }
 # getting errors when latitude and longitude are empty, so commenting this out for now

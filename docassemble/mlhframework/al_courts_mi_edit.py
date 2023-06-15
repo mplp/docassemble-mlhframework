@@ -3,6 +3,7 @@
 
 from docassemble.base.util import path_and_mimetype, Address, LatitudeLongitude, DAStaticFile, markdown_to_html, prevent_dependency_satisfaction, DAObject, DAList, DADict, log, space_to_underscore
 from docassemble.base.legal import Court
+from docassemble.AssemblyLine.al_general import ALAddress
 import pandas as pd
 import os
 #import io, json, sys, requests, bs4, re, os
@@ -19,7 +20,7 @@ class ALCourt(Court):
     def init(self, *pargs, **kwargs):
         super(ALCourt, self).init(*pargs, **kwargs)
         if 'address' not in kwargs:
-            self.initializeAttribute('address', Address)
+            self.initializeAttribute('address', ALAddress)
         if 'jurisdiction' not in kwargs: # This attribute isn't used. Could be a better way to handle court locating
             self.jurisdiction = list()
         if 'location' not in kwargs:
