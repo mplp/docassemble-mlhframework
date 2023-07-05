@@ -12,7 +12,7 @@ modules:
   - google_drive_downloader
 ---
 objects:
-  - court_list: ALCourtLoader.using(file_name='court_sample.xlsx')
+  - court_list: ALCourtLoader.using(file_name='Michigan_Court_Contact_Information_7-5-23_Copy.xlsx')
 ---
 code: |
   # al_form_type = "appeal" 
@@ -57,18 +57,16 @@ subquestion: |
   % endif
 fields:
   - Court: court_index
-    code: court_list.filter_courts([county_choice], column='address_county') 
-    # filter by two columns code 
-    # error if you filter by district & county but there is no district court for that county
-    # same should probably be true of the simple 1-column filter? 
-    # presumably should just never filter down to something that doesn't exist
-    # code: court_list.filter_courts_by_2([county_choice], ['district'], column_1='address_county', column_2='type')
+    # below filters only by county. All possible courts will come up.
+    # code: court_list.filter_courts([county_choice], column='address_county') 
+    # below filters by county & type. Only shows district & circ courts.
+    code: court_list.filter_courts_by_2([county_choice], ['district', 'circuit'], column_1='address_county', column_2='type')
 ---
 code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
-mandatory: False  
+mandatory: False
 question: |
   Display court info
 subquestion: |
