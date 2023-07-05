@@ -12,7 +12,7 @@ modules:
   - google_drive_downloader
 ---
 objects:
-  - court_list: ALCourtLoader.using(file_name='michigan_court_contact_information_current.xlsx')
+  - court_list: ALCourtLoader.using(file_name='court_sample.xlsx')
 ---
 code: |
   # al_form_type = "appeal" 
