@@ -66,7 +66,7 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
-mandatory: True
+mandatory: False
 question: |
   Display court info
 subquestion: |
