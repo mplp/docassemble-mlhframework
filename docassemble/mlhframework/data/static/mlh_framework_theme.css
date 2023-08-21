@@ -1,0 +1,20 @@
+.al-logo img {
+  max-height: 40px;
+}
+
+.navbarZ, #dapagetitleZ, .containerZ {
+  background-color: #ccc
+}
+
+.al-logo {
+  #background-color: #005A7C
+  background-color: #fff;
+}
+
+body {
+  background-color: #fefefe
+}
+
+.da-review > * > p:first-of-type {
+  background-color: #ddd
+}
