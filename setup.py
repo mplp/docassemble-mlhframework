@@ -44,7 +44,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.mlhframework',
-      version='0.1.8',
+      version='0.1.8.1',
       description=('A docassemble extension.'),
       long_description='# docassemble.mlhframework\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\n8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison\r\nDec 2022   NEW. Emily K. Miller, ekressmiller@lsscm.org\r\n\r\n',
       long_description_content_type='text/markdown',
