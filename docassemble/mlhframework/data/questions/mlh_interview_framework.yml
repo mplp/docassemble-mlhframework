@@ -6,13 +6,17 @@ include:
 code: |
   # This controls the default state in address field questions
   AL_DEFAULT_STATE = "MI"
+  AL_DEFAULT_COUNTRY = "US"
+  AL_ORGANIZATION_TITLE = "Michigan Legal Help"
+  AL_ORGANIZATION_HOMEPAGE = "https://michiganlegalhelp.org/"
+---
+objects:
+  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png")
+  - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
 ---
 modules:
   - .al_courts_mi_edit
   - google_drive_downloader
----
-objects:
-  - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
 ---
 code: |
   # al_form_type = "appeal" 
