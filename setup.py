@@ -44,7 +44,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.mlhframework',
-      version='0.1.8.2',
+      version='0.1.8',
       description=('A docassemble extension.'),
       long_description='# docassemble.mlhframework\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\n8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison\r\nDec 2022   NEW. Emily K. Miller, ekressmiller@lsscm.org\r\n\r\n',
       long_description_content_type='text/markdown',
@@ -54,7 +54,7 @@ setup(name='docassemble.mlhframework',
       url='https://docassemble.org',
       packages=find_packages(),
       namespace_packages=['docassemble'],
-      install_requires=['docassemble.AssemblyLine>=2.24.0', 'googledrivedownloader>=0.4'],
+      install_requires=['docassemble.AssemblyLine>=2.26.0', 'googledrivedownloader>=0.4'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/mlhframework/', package='docassemble.mlhframework'),
      )

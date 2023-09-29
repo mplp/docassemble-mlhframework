@@ -12,12 +12,13 @@ features:
   css: mlh_framework_theme.css
 ---
 objects:
-  - al_logo: DAStaticFile.using(filename="mlh_logo.png")
+  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png")
+  - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
 
 ---
 code: |
-  AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
   AL_DEFAULT_STATE = "MI"     # default state in address fields
+  AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
   AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/terms-of-use')
   AL_ORGANIZATION_TITLE = "Michigan Legal Help"
   AL_DEFAULT_OVERFLOW_MESSAGE = " [PLEASE SEE ATTACHMENT.]"
@@ -336,9 +337,6 @@ continue button field: MLH_outro_download_forms
 # # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
----
-objects:
-  - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
 ---
 code: |
   # al_form_type = "appeal" 
