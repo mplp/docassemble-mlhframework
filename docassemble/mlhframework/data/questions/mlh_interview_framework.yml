@@ -17,26 +17,19 @@ objects:
 
 ---
 code: |
-  AL_DEFAULT_STATE = "MI"     # default state in address fields
+  # These block defines Assembly Line-level variables and MLH Organization-level variables
+  # that will most likely be consistent throughout the portfolio.
   AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
+  AL_DEFAULT_STATE = "MI"     # default state in address fields
   AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/terms-of-use')
   AL_ORGANIZATION_TITLE = "Michigan Legal Help"
   AL_DEFAULT_OVERFLOW_MESSAGE = " [PLEASE SEE ATTACHMENT.]"
 
-  # The below variables can be used to quickly and consistently include common language.
+  # The below variables can be used to quickly and consistently include common links and language.
   MLH_GUIDE = "[Guide to Legal Help](https://michiganlegalhelp.org/guide-to-legal-help)"
   MLH_GUIDE_FULL = f"You can use the {MLH_GUIDE} to search for a lawyer or legal services in your area."
   MLH_MiFILE = "[MiFILE](https://mifile.courts.michigan.gov)"
-
-  # are instructions generated with the form(s)/letter(s)?
-  MLH_instructions_included = False
-  MLH_court_forms = True        # Does this create forms to be filed with the court?
-  MLH_esign_supported = True    # Are electronic signatures supported?
-  MLH_esign = False             # Add electronic signature?
-  MLH_case_type_language = ""   # for e-filing help
-  MLH_form_type = "form(s)"     # form / forms / letter (for use in intro/outro pages)
-  MLH_time_min = 10
-  MLH_time_max = 45
+  MLH_CASE_TYPE_CODE_LIST = "[Case Type Code List](https://courts.michigan.gov/Administration/SCAO/Resources/Documents/standards/cf_casetypecodes.pdf)"
 
   # This will get the docassemble-level metadata short title
   MLH_interview_short_title = all_variables(special='metadata').get('short title')
@@ -44,6 +37,21 @@ code: |
     # This will get the AssemblyLine-level metadata short title
     #MLH_interview_title = interview_metadata["main_interview_key"]["title"]
     #MLH_interview_short_title = interview_metadata["main_interview_key"]["short title"]
+
+---
+code: |
+  # This block contains MLH Organization-level variables that will vary from tool to tool.
+  # These are the organzation defaults. 
+  # Copy this block to an individual interview yml file and override as needed. 
+  github_repo_name = "docassemble-General"  # default github repo
+  MLH_instructions_included = False  # are instructions generated with the form(s)/letter(s)?
+  MLH_court_forms = True             # Does this create forms to be filed with the court?
+  MLH_esign_supported = True         # Are electronic signatures supported?
+  MLH_esign = False                  # Add electronic signature?
+  MLH_case_type_language = ""        # for e-filing help
+  MLH_form_type = "form(s)"          # form / forms / letter (for use in intro/outro pages)
+  MLH_time_min = 10
+  MLH_time_max = 45
 
 ---
 # docassemble-level metadata. To be overridden by individual tools.
@@ -73,6 +81,10 @@ default screen parts:
   #right: This is the right screen part.
   global footer: This is the footer part.
   main page footer: This is the main footer.
+  footer: |
+    [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
+    [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
+    [:comment-dots: Feedback](${ feedback_link(user_info(), i="docassemble.mlhframeworkBH:mlh_feedback.yml", github_repo=github_repo_name) } ){:target="_blank"}
 
 ---
 # To create consistent language on generic continue buttons. If it is ever decided to change
@@ -334,9 +346,9 @@ subquestion: |
 continue button field: MLH_outro_download_forms
 
 
-# # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # # # Court Loader # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 ---
 code: |
   # al_form_type = "appeal" 
@@ -394,9 +406,14 @@ mandatory: False
 question: |
   Display court info
 subquestion: |
-  ${ the_court }
+  court_index: ${ court_index }
+  
+  ${ the_court } - ${ county_choice } County
   
   ${ the_court.address.block(bare=True) }
+  
+  ${ the_court.phone }
+  
   % if defined('the_court.description'):
   ${ the_court.description }
   % else:
@@ -404,3 +421,8 @@ subquestion: |
 # adding (bare=True) strips out unit formatting that messed with PO Boxes
 # ${ map_of(the_court) }
 # getting errors when latitude and longitude are empty, so commenting this out for now
+continue button field: court_info_display
+
+# # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
