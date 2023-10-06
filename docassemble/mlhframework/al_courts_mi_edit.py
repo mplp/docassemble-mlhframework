@@ -1,6 +1,7 @@
  ######################################
 # Package for a very simple / MVP list of courts that is mostly signature compatible w/ MACourts for now
 
+import docassemble.base.functions
 from docassemble.base.util import path_and_mimetype, Address, LatitudeLongitude, DAStaticFile, markdown_to_html, prevent_dependency_satisfaction, DAObject, DAList, DADict, log, space_to_underscore
 from docassemble.base.legal import Court
 from docassemble.AssemblyLine.al_general import ALAddress
@@ -126,6 +127,10 @@ class ALCourtLoader(DAObject):
   # Only solution I can think of would require court database owners to assign each court a unique ID
   # and something that triggers recalculating the court address/etc info.
   
+  def init(self, *pargs, **kwargs):
+    super().init(*pargs, **kwargs)
+    self.package = docassemble.base.functions.this_thread.current_question.package
+
   def all_courts(self)->list:
     return self.filter_courts(None)
   
@@ -172,11 +177,15 @@ class ALCourtLoader(DAObject):
     """
     Return list of courts 
     """
-    if "/" in self.file_name:
-      to_load = path_and_mimetype(self.file_name)[0]
+    if ":" not in self.file_name and hasattr(self, "package"):
+      load_path = self.package + ":"
+      if "/" not in str(self.file_name):
+        load_path += "data/sources/"
+      load_path += str(self.file_name)
     else:
-      to_load = path_and_mimetype(os.path.join("data/sources", self.file_name))[0]
-    
+      load_path = str(self.file_name)
+
+    to_load = path_and_mimetype(load_path)[0]
     if self.file_name.lower().endswith('.xlsx'):
       df = pd.read_excel(to_load)
     elif self.file_name.lower().endswith('.csv'):
