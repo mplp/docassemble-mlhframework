@@ -3,8 +3,10 @@
 A docassemble extension.
 
 ## Author
-*10/9/23    Merged Bryce's favicon code to set image for tabs in browsers.
-*9/29/23    MLH custom tester feedback form. bharrison
-*8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison
-*Dec 2022   NEW. Emily K. Miller, ekressmiller@lsscm.org
+* 10/9/23    Include favicon code to set image for tabs in browsers. Bryce Willey (EKMiller merged).
+* 10/6/23    Fixed error in court loader. Bryce Willey 
+* 10/2/23    Create custom tester feedback form. bharrison
+* 9/29/23    MLH custom tester feedback form. bharrison
+* 8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison
+* Dec 2022 - July 2023   NEW. Emily K. Miller, ekressmiller@lsscm.org. Built on SuffolkLITLab's al_courts programming to allow interviews to populate dropdown menus with counties and then court names usings source spreadsheet. Fixed issue with labels for PO Boxes.
 
