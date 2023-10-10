@@ -96,7 +96,7 @@ default screen parts:
 mandatory: true
 code: |
   MLH_continue_button_label = "Continue"
-  MLH_back_button_label = "Back"
+  MLH_back_button_label = "Undo"
 
   set_parts(continue_button_label = MLH_continue_button_label, back_button_label = MLH_back_button_label)
 
