@@ -14,7 +14,9 @@ features:
 objects:
   - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png")
   - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
-
+---
+code: |
+  al_logo.alt_text = "Michigan Legal Help Terms of Use"
 ---
 code: |
   # These block defines Assembly Line-level variables and MLH Organization-level variables

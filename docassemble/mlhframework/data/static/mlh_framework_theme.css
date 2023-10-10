@@ -6,13 +6,15 @@
   background-color: #ccc
 }
 
+/*
 .al-logo {
-  #background-color: #005A7C
+  background-color: #005A7C;
   background-color: #fff;
 }
+*/
 
 body {
-  background-color: #fefefe
+  background-color: #fefefe;
 }
 
 .da-review > * > p:first-of-type {
