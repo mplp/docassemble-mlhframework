@@ -104,7 +104,6 @@ code: |
 # MLH standard intro pages
 # Simply make a reference to the MLH_standard_intro_pages variable in an interview's
 # main Interview Order block in order to bring in these standard intro pages. 
-mandatory: False
 code: |
   MLH_intro_landing
   MLH_intro_navigation
@@ -125,7 +124,6 @@ code: |
 # This is the very first screen for every single interview.
 # The question text is very generic and should be overridden by each tool.
 id: MLH intro landing
-mandatory: false
 question: |
   ${ MLH_interview_short_title }
 subquestion: |
@@ -138,7 +136,6 @@ continue button field: MLH_intro_landing
 
 ---
 id: MLH intro time
-mandatory: False
 question: "Using this Tool"
 subquestion: |
   It should take you between ${ MLH_time_min } and ${ MLH_time_max } minutes to answer all the questions.
@@ -151,7 +148,6 @@ continue button field: MLH_intro_time
 
 ---
 id: MLH intro navigation
-mandatory: false
 question: "Navigation"
 subquestion: |
   If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit some of your earlier answers by clicking on the "Review your answers" button.
@@ -166,7 +162,6 @@ continue button field: MLH_intro_navigation
 
 ---
 id: MLH intro saving answers
-mandatory: false
 question: "Saving Your Answers"
 subquestion: |
   If you can't finish now or need to get additional information, you can exit this tool and save your work at any time. This lets you return later and finish, or go back and change any of your answers.
@@ -217,7 +212,6 @@ event: MLH_intro_agree_no_pii_exit
 # Simply make a reference to the MLH_standard_outro_pages variable in an interview's
 # main Interview Order block in order to bring in these standard outro pages. 
 # Or, reference and/or override each block individually.
-mandatory: False
 code: |
   if MLH_court_forms:
     MLH_outro_filing_information
@@ -237,7 +231,6 @@ code: |
 
 ---
 id: MLH outro filing information
-mandatory: false
 question: |
   Filing Information
 subquestion: |
@@ -252,7 +245,6 @@ continue button field: MLH_outro_filing_information
 
 ---
 id: MLH outro form generation
-mandatory: false
 question: |
   Form Generation
 subquestion: |
@@ -268,13 +260,14 @@ continue button field: MLH_outro_form_generation
 template: efiling_info_template
 subject: How do I know if I am going to e-file?
 content: |
-  Not all courts offer e-filing at this time. To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article. The article tells you how to find out which courts have e-filing and what kinds of cases those courts are accepting by e-filing.
+  Not all courts offer e-filing at this time.
+  To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
+  The article tells you how to find out which courts have e-filing and what kinds of cases those courts are accepting by e-filing.
   
   ${ MLH_case_type_language }
 
 ---
 id: MLH outro electronic signature
-mandatory: false
 question: |
   Electronic Signatures
 subquestion: |
@@ -291,7 +284,6 @@ continue button field: MLH_outro_electronic_signature
 
 ---
 id: MLH outro saving answers
-mandatory: false
 question: |
   Saving Answers
 subquestion: |
@@ -310,7 +302,6 @@ continue button field: MLH_outro_saving_answers
 
 ---
 id: MLH outro download forms
-mandatory: false
 question: |
   Download Your ${ MLH_form_type.capitalize() }
   % if MLH_instructions_included:
@@ -347,7 +338,6 @@ code: |
   # leave this in & choose type to test in this interview, comment out to pull into other interviews
 ---
 id: Choose a court
-mandatory: False
 question: |
   % if al_form_type == 'starts_case':
   What county do you want to file in?
@@ -370,7 +360,6 @@ subject: |
 content: |
   You can find the case number, county and court by looking at the top of court papers from your case such as the summons, complaint, petition, or answer in your case. 
 ---
-mandatory: False
 question: |
   % if al_form_type == 'starts_case':
   What court do you want to file in?
@@ -394,7 +383,6 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
-mandatory: False
 question: |
   Display court info
 subquestion: |
