@@ -6,17 +6,43 @@
   background-color: #ccc
 }
 
-/*
+/* Makes the logo have a white background with rounded corners. */
 .al-logo {
-  background-color: #005A7C;
   background-color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  padding: 3px;
 }
-*/
+
+/* Fonts and font sizes taken from https://michiganlegalhelp.org/guide-to-legal-help. */
+.al-title {
+  font-family: "Poppins",times,"Times New Roman",serif;
+}
 
 body {
   background-color: #fefefe;
+  color: black;
+  font-family: "Work Sans", "Helvetica", "Arial", sans-serif;
+  font-size:1.125rem;
+  line-height: 1.8;
 }
 
 .da-review > * > p:first-of-type {
   background-color: #ddd
+}
+
+.bg-dark.navbar {
+  /* The !important is necessary to override bootstrap's dark coloring. */
+  background-color: #005A7C !important;
+}
+
+/* Make the navigation sections slighly smaller.
+  Target: "Landlord Information" to fit on one line */
+.danavdiv {
+  font-size: 0.98rem;
+}
+
+/* Manually override hardcoded styles from Assembly Line. */
+footer a {
+  color: #005A7c;
 }
