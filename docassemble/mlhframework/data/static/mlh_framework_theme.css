@@ -41,3 +41,8 @@ body {
 .danavdiv {
   font-size: 0.98rem;
 }
+
+/* Manually override hardcoded styles from Assembly Line. */
+footer a {
+  color: #005A7c;
+}
