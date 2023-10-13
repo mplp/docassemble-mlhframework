@@ -44,9 +44,9 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.mlhframework',
-      version='0.1.9',
+      version='0.2.0',
       description=('A docassemble extension.'),
-      long_description="# docassemble.mlhframework\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n* 10/9/23    Include favicon code to set image for tabs in browsers. Bryce Willey (EKMiller merged).\r\n* 10/6/23    Fixed error in court loader. Bryce Willey \r\n* 10/2/23    Create custom tester feedback form. bharrison\r\n* 9/29/23    MLH custom tester feedback form. bharrison\r\n* 8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison\r\n* Dec 2022 - July 2023   NEW. Emily K. Miller, ekressmiller@lsscm.org. Built on SuffolkLITLab's al_courts programming to allow interviews to populate dropdown menus with counties and then court names usings source spreadsheet. Fixed issue with labels for PO Boxes.\r\n\r\n",
+      long_description="# docassemble.mlhframework\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n* 10/12/23   Sync css based on MLH's Guide to Legal Help. Bryce Willey\r\n* 10/9/23    Include favicon code to set image for tabs in browsers. Bryce Willey (EKMiller merged).\r\n* 10/6/23    Fixed error in court loader. Bryce Willey \r\n* 10/2/23    Create custom tester feedback form. bharrison\r\n* 8/21/23    Incorporate standard intro/outro screens, global variables. Brett Harrison\r\n* Dec 2022 - July 2023   NEW. Emily K. Miller, ekressmiller@lsscm.org. Built on SuffolkLITLab's al_courts programming to allow interviews to populate dropdown menus with counties and then court names usings source spreadsheet. Fixed issue with labels for PO Boxes.\r\n\r\n",
       long_description_content_type='text/markdown',
       author='Emily K. Miller',
       author_email='ekressmiller@lsscm.org',

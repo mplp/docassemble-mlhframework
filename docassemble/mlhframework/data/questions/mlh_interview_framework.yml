@@ -155,8 +155,6 @@ subquestion: |
   If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit some of your earlier answers by clicking on the "Review your answers" button.
 
   Tap the {green words} in any screen for a definition or more information.
-
-  TODO: write this out more? Perhaps using ILAO or other AL tools as a basline.  
 terms:
   green words: |
     Green words are legal terms or a short way of referring to something that needs more explanation. The definition or explanation pops up when you tap the green words.
