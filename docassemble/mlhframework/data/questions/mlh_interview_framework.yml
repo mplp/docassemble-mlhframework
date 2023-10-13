@@ -85,7 +85,7 @@ default screen parts:
   footer: |
     [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
     [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
-    [:comment-dots: Feedback](${ feedback_link(user_info(), i="docassemble.mlhframeworkBH:mlh_feedback.yml", github_repo=github_repo_name) } ){:target="_blank"}
+    [:comment-dots: Feedback](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_feedback.yml", github_repo=github_repo_name) } ){:target="_blank"}
 
 ---
 # To create consistent language on generic continue buttons. If it is ever decided to change
