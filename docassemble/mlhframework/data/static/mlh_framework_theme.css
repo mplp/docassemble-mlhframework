@@ -19,12 +19,35 @@
   font-family: "Poppins",times,"Times New Roman",serif;
 }
 
+/* Styles for the entire page. */
 body {
   background-color: #fefefe;
   color: black;
   font-family: "Work Sans", "Helvetica", "Arial", sans-serif;
   font-size:1.125rem;
   line-height: 1.8;
+}
+
+/* These only happen on desktop, not mobile. */
+@media (min-width: 768px) {
+  /* Move the required asterisk further from a field label. Only necessary with font-size 1.125rem. */
+  .da-form-group.darequired .da-form-label:after {
+      right: 0px;
+  }
+  /* Force the text of the field label to be left aligned. */
+  .da-form-group.darequired .da-form-label {
+      text-align: left !important;
+  }
+  /* Exapend the label side of yesnoradio buttons */
+  .da-field-container-inputtype-yesnoradio .col-md-4 {
+      flex: 0 0 auto;
+      width: 50%;
+  }
+  /* Shirk the yes-no options side of yesnoradio buttons */
+  .da-field-container-inputtype-yesnoradio .col-md-8 {
+      flex: 0 0 auto;
+      width: 50%;
+  }
 }
 
 .da-review > * > p:first-of-type {
