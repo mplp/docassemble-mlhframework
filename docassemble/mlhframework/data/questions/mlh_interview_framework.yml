@@ -129,11 +129,11 @@ id: MLH intro landing
 question: |
   ${ MLH_interview_short_title }
 subquestion: |
-  Welcome to ${ AL_ORGANIZATION_TITLE }’s ${ MLH_interview_short_title } tool.
+  Welcome to the ${ MLH_interview_short_title } tool.
 
-  This tool will help you prepare forms for your legal issue without the help of an attorney.
+  This tool will help you prepare forms for your legal issue without a lawyer.
   
-  If you have any questions or you aren't sure about how to proceed, you may walk to talk to an attorney. ${ MLH_GUIDE_FULL }
+  If you have any questions or you aren't sure what to do, you may want to talk to a lawyer. ${ MLH_GUIDE_FULL }
 continue button field: MLH_intro_landing
 
 ---
