@@ -27,13 +27,6 @@ id: intro
 question: |
   MLH Tester feedback form
 decoration: opinion
-subquestion: |
-  % if False:
-  This form is designed to be used by testers and community stakeholders.
-
-  The information you type here will be publicly available. 
-  That means anyone will be able to see it.
-  % endif
 fields:
   - "**What would you like to tell us about?**": reason
     input type: radio
