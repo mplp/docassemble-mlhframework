@@ -84,7 +84,7 @@
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-emphasis-color: #000;
   --bs-emphasis-color-rgb: 0, 0, 0;
-  --bs-secondary-color: rgba(33, 37, 41, 0.75);
+  --bs-secondary-color: rgba(33, 37, 41, 0.85);
   --bs-secondary-color-rgb: 33, 37, 41;
   --bs-secondary-bg: #e9ecef;
   --bs-secondary-bg-rgb: 233, 236, 239;
@@ -3866,8 +3866,8 @@ textarea.form-control-lg {
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgb(var(--bs-emphasis-color-rgb), 0.87);
-  --bs-navbar-hover-color: rgb(var(--bs-emphasis-color-rgb), 1);
+  --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.87);
+  --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
   --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-padding-y: 0.3125rem;
@@ -11859,4 +11859,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=5baf9dd3-55c0-424a-bb43-66913aa50e09.css.map */
+/*# sourceMappingURL=f98296da-c723-4017-8fa2-23ff55a5e4ad.css.map */
