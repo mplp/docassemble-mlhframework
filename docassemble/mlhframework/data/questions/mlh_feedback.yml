@@ -1,6 +1,12 @@
+# MLH-specific overrides for GithubFeedbackForm/data/questions/feedback.yml
+
 ---
 include:
   - docassemble.GithubFeedbackForm:feedback.yml
+---
+metadata:
+  title: User Feedback
+  exit url: https://da-dev.mplp.org/list
 ---
 code: |
   al_feedback_form_title = "Michigan Legal Help DIY Tool Feedback"
@@ -8,22 +14,19 @@ code: |
   al_github_label = 'MLH user feedback'
 
 ---
-# Overrides question in GithubFeedbackForm/data/questions/feedback.yml
+objects:
+  - image_github_image_paste: |
+      DAStaticFile.using(
+        filename="github_image_paste.png",
+        alt=word("Copy and paste an image or screenshot right into a GitHub Comment"))
+
+---
 if: |
   get_config('debug')
 id: intro
 question: |
   MLH Tester feedback form
 decoration: opinion
-subquestion: |
-  This form is designed to be used by testers and community
-  stakeholders....
-  
-  The information you type here will be publicly available. That means anyone
-  will be able to see it.
-  
-  ${ collapse_template(al_how_to_get_legal_help) }
-  
 fields:
   - "**What would you like to tell us about?**": reason
     input type: radio
@@ -40,9 +43,8 @@ fields:
     help: |
       We use a [5-level
       rating](https://suffolklitlab.org/legal-tech-class/docs/legal-tech-overview/maturity-model/#example-maturity-model-for-the-massaccess-project)
-      for our finished forms. Forms are usually
-      ready to publish when they meet level 1, but all kinds of
-      feedback are valuable. Categorizing feedback
+      for our finished forms. Forms are usually ready to publish when they meet 
+      level 1, but all kinds of feedback are valuable. Categorizing feedback
       helps us choose the right tasks to work on in the right order.
     show if: 
       code: |
@@ -54,7 +56,8 @@ fields:
       variable: reason
       is: language
   - note: |
-      **Tell us the steps that you followed before the bug, what you expected to happen, and what actually happened.** [BR]
+      **Tell us the steps that you followed before the bug, what you expected to 
+      happen, and what actually happened.** [BR]
 
       For example:
 
@@ -85,3 +88,61 @@ fields:
       variable: reason
       is: bug
 continue button field: intro
+
+---
+code: |
+  feedback_start_over_label = 'Start over'
+  feedback_resume_label = 'Resume where you left off'
+
+---
+id: end_results
+event: end_results
+question: |
+  Thank you for your feedback
+decoration: opinion
+subquestion: |
+  % if reason == "bug":
+  Please close the tab where you encountered the bug and restart using the 
+  **${ feedback_start_over_label }** button at the bottom of this page.
+  % else:
+  You can now close this tab, go back to the interview, and continue where you left off.
+  You can also use the **${ feedback_resume_label }** button at the bottom of the page.
+  % endif
+  
+  % if issue_url:
+  If you would like to track this issue, make updates, or add more information, you can 
+  [see it here](${issue_url}) on GitHub. 
+  You can also use GitHub to add screenshots or upload a sample document:
+  
+  * If you don't already have a GitHub account, you will need to create one. 
+  You can [create an account here](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free).
+  * Use [this link](${issue_url}) to go to the issue you reported in Github.
+  * Once at the GitHub issue, scroll down to where you can add a comment. 
+  * In this area, you can either attach an image, or you can copy and paste a screenshot directly into this area (as seen below).
+       ${ image_github_image_paste.show(width="100%") }
+  * You can also drag and drop to attach other file types, such as sample form output.
+  * Click the green **Comment** button - your image or attached file and any other comments will be included!
+  
+  % endif
+action buttons:
+  - label: ${ feedback_start_over_label }
+    action: ${ interview_url(i=filename, new_session=1) }
+    color: warning
+    icon: sign-out-alt
+    show if: reason == "bug"
+  - label: ${ feedback_resume_label }
+    action: ${ interview_url(session=orig_session_id, i=filename) }
+    color: success
+    icon: backward
+    show if: reason != "bug"
+
+
+
+# Un-comment this block in order to test the above code WITHOUT actually
+# creating a new GitHub issue each time the feedback form is used.
+# BE SURE to re-comment this when you install it!
+---
+########################## Send to GitHub code ##########################
+#code: |
+#  send_to_github = True
+#  issue_url = "https://github.com/mplp/docassemble-mlhframework/issues/17"
