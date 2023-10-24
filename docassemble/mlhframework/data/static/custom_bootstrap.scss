@@ -9,4 +9,11 @@ $danger:     #994861;
 $info:       #acd29d;
 $success:    #198754;
 
+$nav-link-color: rgb(255, 255, 255, 0.87);
+$nav-link-hover-color: rgb(255, 255, 255, 1.0);
+$navbar-light-color: rgb(var(--bs-emphasis-color-rgb), 0.87);
+$navbar-light-hover-color: rgb(var(--bs-emphasis-color-rgb), 1.0);
+$navbar-dark-color: rgb($white, 0.87);
+$navbar-dark-hover-color: rgb($white, 1.0);
+
 @import "bootstrap";
