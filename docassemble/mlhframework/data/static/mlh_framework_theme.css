@@ -14,6 +14,13 @@
   padding: 3px;
 }
 
+/* This overrides AL styles that set font-size to 60% on small screens. Big titles look fine. */
+@media only screen and (max-width: 800px) {
+  .al-title, .al-logo {
+    font-size: 100%;
+  }
+}
+
 /* Fonts and font sizes taken from https://michiganlegalhelp.org/guide-to-legal-help. */
 .al-title {
   font-family: "Poppins",times,"Times New Roman",serif;
