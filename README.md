@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 10/25/233  CSS improvements and tweaks after using it work a few weeks
 * 10/24/23   Enhancements to custom feedback form. bharrison
 * 10/12/23   Sync css based on MLH's Guide to Legal Help. Bryce Willey
 * 10/9/23    Include favicon code to set image for tabs in browsers. Bryce Willey (EKMiller merged).
