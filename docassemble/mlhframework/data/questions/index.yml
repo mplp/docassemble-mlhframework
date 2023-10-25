@@ -1,0 +1,19 @@
+metadata:
+  title: Michigan Legal Help Do-It-Yourself Forms
+  short title: MLH Forms
+  temporary session: True 
+---
+mandatory: True
+event: index
+question: |
+  Michigan Legal Help Do-It-Yourself Forms
+subquestion: |
+  [Michigan Legal Help](https://michiganlegalhelp.org/) provides Do-It-Yourself forms for people facing legal issues without a lawyer.
+  
+  [Explore Legal Resources](https://michiganlegalhelp.org/explore-legal-resources) to find forms and legal self-help information by topic.
+  
+  To browse all available forms, go to the list of [All Forms](https://michiganlegalhelp.org/all-forms)
+  
+  [FILE mlh_logo.png, None, '']
+# Null alt text tag for logo denoted by empty quotes.
+  
