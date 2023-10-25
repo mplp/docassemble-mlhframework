@@ -41,10 +41,15 @@ body {
   .da-form-group.darequired .da-form-label:after {
       right: 0px;
   }
-  /* Force the text of the field label to be left aligned. */
+  /* By default, the text of the field label is right aligned.
+   * If things go onto more than one line, consider `label above field: True`
+   */
+   /*
   .da-form-group.darequired .da-form-label {
-      text-align: left !important;
+      text-align: justify !important;
   }
+  */
+
   /* Expand the label side of yesnoradio buttons */
   .da-field-container-inputtype-yesnoradio .col-md-4 {
       flex: 0 0 auto;
