@@ -3722,8 +3722,8 @@ textarea.form-control-lg {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: rgba(255, 255, 255, 0.87);
-  --bs-nav-link-hover-color: rgb(255, 255, 255);
+  --bs-nav-link-color: var(--bs-link-color);
+  --bs-nav-link-hover-color: var(--bs-link-hover-color);
   --bs-nav-link-disabled-color: var(--bs-secondary-color);
   display: flex;
   flex-wrap: wrap;
@@ -11859,4 +11859,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=f98296da-c723-4017-8fa2-23ff55a5e4ad.css.map */
+/*# sourceMappingURL=2b40eb1d-7193-4c0c-89eb-fc0f16d82aec.css.map */
