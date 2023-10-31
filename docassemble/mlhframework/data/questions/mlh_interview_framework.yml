@@ -217,7 +217,7 @@ code: |
     MLH_outro_filing_information
     MLH_outro_form_generation
   if MLH_esign_supported:
-    MLH-esign
+    MLH_esign
     if MLH_esign:
       signature_date
   MLH_outro_saving_answers
@@ -285,14 +285,13 @@ template: signature_info_template
 subject: |
   I plan to **e-file**. What should I choose?
 content: |
-  If you **plan to e-file**, you may want to add your electronic signature. Otherwise you will need to print your forms, sign them by hand, and then scan them.
+  If you **plan to e-file**, you may want to sign electronically. Choose *Yes* to add your electronic signature now.
+  
+  If you prefer to sign by hand, choose *No*. You will need to print your forms, sign them, and then scan them before you can e-file.
+  
+  If you're **not e-filing**, you can still add your electronic signature now if you wish.
 
-  To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
-  The article tells you how to find out which courts have e-filing for which case types.
-  
-  ${ MLH_case_type_language }
-  
-  If you're **not e-filing**, you can still add your electronic signature now.
+  To find out **if your court has e-filing**, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) The article tells you how to find out which courts have e-filing for which case types. ${ MLH_case_type_language }
 ---
 id: MLH outro saving answers
 question: |
