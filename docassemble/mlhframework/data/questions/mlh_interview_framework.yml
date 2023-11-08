@@ -291,7 +291,9 @@ content: |
   
   If you're **not e-filing**, you can still add your electronic signature now if you wish.
 
-  To find out **if your court has e-filing**, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) The article tells you how to find out which courts have e-filing for which case types. ${ MLH_case_type_language }
+  To find out **if you can e-file**, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) The article tells you how to find out which courts have e-filing for which case types. 
+  
+  ${ MLH_case_type_language }
 ---
 id: MLH outro saving answers
 question: |
