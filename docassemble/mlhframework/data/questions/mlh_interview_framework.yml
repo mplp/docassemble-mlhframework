@@ -164,7 +164,7 @@ continue button field: MLH_intro_navigation
 id: MLH intro saving answers
 question: "Saving Your Answers"
 subquestion: |
-  If you can't finish now or need to get additional information, you can exit this tool and save your work at any time. This lets you return later and finish, or go back and change any of your answers.
+  If you can't finish now or need to get more information, you can save your work at any time. This lets you return later and finish, or go back and change any of your answers.
 
   If you **are signed in** to your account:
   
@@ -172,7 +172,7 @@ subquestion: |
 
   If you are **not signed in** or have **not created** an account yet:
 
-    * Go to the menu at the top of the screen and click "Sign up or sign in to save answers". 
+    * Go to the menu at the top of the screen and click "Sign in or sign up to save answers". 
   
   To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -217,7 +217,7 @@ code: |
     MLH_outro_filing_information
     MLH_outro_form_generation
   if MLH_esign_supported:
-    MLH_outro_electronic_signature
+    MLH_esign
     if MLH_esign:
       signature_date
   MLH_outro_saving_answers
@@ -260,7 +260,7 @@ continue button field: MLH_outro_form_generation
 template: efiling_info_template
 subject: How do I know if I am going to e-file?
 content: |
-  Not all courts offer e-filing at this time.
+  Only some courts and case types allow e-filing. 
   To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
   The article tells you how to find out which courts have e-filing and what kinds of cases those courts are accepting by e-filing.
   
@@ -269,19 +269,31 @@ content: |
 ---
 id: MLH outro electronic signature
 question: |
-  Electronic Signatures
+  Add your electronic signature?
 subquestion: |
-  This tool can put "/s/ ${users[0].name.full()}" where you would sign your name so you do not have to sign the forms by hand. The court will accept this as your signature. 
-
-  If you plan to e-file, you may want to add your electronic signature, otherwise you will need to print your forms, sign them by hand, and then scan them.
-
-  Would you like to add your electronic signature to your forms? 
-  ${ collapse_template(efiling_info_template) }
+  You can sign Michigan court forms electronically or by hand. The court will accept either type of signature.
 fields:
-  - no label: MLH_esign
+  - Would you like to add your electronic signature to your forms now?: MLH_esign
     datatype: yesnoradio
-continue button field: MLH_outro_electronic_signature
+    label above field: True
+    help: |
+      If you choose **Yes**, the forms will be signed "*/s/ ${users[0].name.full()}*" when you download them. 
+under: |
+  ${ collapse_template(signature_info_template) }
+---
+template: signature_info_template
+subject: |
+  I plan to **e-file**. What should I choose?
+content: |
+  If you **plan to e-file**, you may want to sign electronically. Choose *Yes* to add your electronic signature now.
+  
+  If you prefer to sign by hand, choose *No*. You will need to print your forms, sign them, and then scan them before you can e-file.
+  
+  If you're **not e-filing**, you can still add your electronic signature now if you wish.
 
+  To find out **if you can e-file**, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) The article tells you how to find out which courts have e-filing for which case types. 
+  
+  ${ MLH_case_type_language }
 ---
 id: MLH outro saving answers
 question: |
