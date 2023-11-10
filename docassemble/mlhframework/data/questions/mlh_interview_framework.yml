@@ -1,7 +1,6 @@
 ---
 include:
   - docassemble.AssemblyLine:assembly_line.yml
-  - docassemble.ALAnyState:any_state.yml
 ---
 modules:
   - .al_courts_mi_edit
@@ -14,18 +13,18 @@ features:
     - https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap
 ---
 objects:
-  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png")
+  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="Michigan Legal Help Logo")
   - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
 ---
 code: |
-  al_logo.alt_text = "Michigan Legal Help Terms of Use"
+  al_logo.alt_text = "Michigan Legal Help Logo"
 ---
 code: |
   # These block defines Assembly Line-level variables and MLH Organization-level variables
   # that will most likely be consistent throughout the portfolio.
   AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
   AL_DEFAULT_STATE = "MI"     # default state in address fields
-  AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/terms-of-use')
+  AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/')
   AL_ORGANIZATION_TITLE = "Michigan Legal Help"
   AL_DEFAULT_OVERFLOW_MESSAGE = " [PLEASE SEE ATTACHMENT.]"
 
@@ -193,6 +192,7 @@ subquestion: |
   This DIY tool will automatically produce that form if you need it.
 fields:
   - Do you understand you should not enter any personal identifying information unless this tool specifically asks for it?: MLH_intro_agree_no_pii
+    label above field: True
     datatype: yesnoradio
 ---
 id: Agree no PII exit
@@ -356,7 +356,7 @@ question: |
   % elif al_form_type == 'appeal':
   What is the county of the trial court your case was originally filed in?
   % else:
-  Please choose the county of the court where your case is.
+  Choose the county of the court where your case is
   % endif
 subquestion: |
   % if al_form_type != 'starts_case':
