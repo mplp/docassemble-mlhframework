@@ -2,3 +2,7 @@
 include:
   - docassemble.AssemblyLine:interview_list.yml
   - mlh_interview_framework.yml
+---
+metadata:
+  title: My Interviews
+  short title: My Interviews
