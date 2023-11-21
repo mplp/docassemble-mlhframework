@@ -39,20 +39,33 @@ code: |
   MLH_interview_title = all_variables(special='metadata').get('title')
 
 ---
+#######
+# These blocks contains MLH Organization-level variables that will vary from tool to tool.
+# These are the organization defaults.
+# Copy each block to an individual interview yml file and override as needed. 
 code: |
-  # This block contains MLH Organization-level variables that will vary from tool to tool.
-  # These are the organization defaults.
-  # Copy this block to an individual interview yml file and override as needed. 
   github_repo_name = "docassemble-General"  # default github repo
+---
+code: |
   MLH_instructions_included = False  # are instructions generated with the form(s)/letter(s)?
+---
+code: |
   MLH_court_forms = True             # Does this create forms to be filed with the court?
+---
+code: |
   MLH_esign_supported = True         # Are electronic signatures supported?
   MLH_esign = False                  # Add electronic signature?
+---
+code: |
   MLH_case_type_language = ""        # for e-filing help
+---
+code: |
   MLH_form_type = "form(s)"          # form / forms / letter (for use in intro/outro pages)
+---
+code: |
   MLH_time_min = 10
   MLH_time_max = 45
-
+######
 ---
 # docassemble-level metadata. To be overridden by individual tools.
 # See https://docassemble.org/docs/initial.html
