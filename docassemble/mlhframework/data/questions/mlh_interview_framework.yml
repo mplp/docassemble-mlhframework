@@ -192,7 +192,7 @@ continue button field: MLH_intro_saving_answers
 id: MLH intro PII
 question: Private Information
 subquestion: |
-  To protect privacy, you **cannot** include personal identifying information in public documents that are filed in court. Personal identifying information includes:
+  To protect privacy, you **cannot** include personal identifying information in public court documents. Personal identifying information includes:
   
   * Date of birth
   * Social security or national identification number
@@ -200,20 +200,29 @@ subquestion: |
   * Passport number
   * Financial account numbers
 
-  **If a question doesn't specifically ask for personal identifying information, do not include it in your answers.** 
-  When this information is necessary, this tool will specifically ask for the information and it will go on a separate non-public form that you will file along with the other documents. 
-  This DIY tool will automatically produce that form if you need it.
+  **Don’t** put any personal identifying information in your answers **unless we specifically ask for it.** 
 fields:
-  - Do you understand you should not enter any personal identifying information unless this tool specifically asks for it?: MLH_intro_agree_no_pii
+  - Do you understand that you should **not** enter personal identifying information **unless** this tool specifically asks for it?: MLH_intro_agree_no_pii
     label above field: True
     datatype: yesnoradio
+  - note: |
+      ${ collapse_template(PII_info_template) }
+---
+template: PII_info_template
+subject: |
+  What if personal identifying information is needed?
+content: |
+  If the judge needs any personal identifying information, this tool will:
+  
+  * specifically ask for it, and 
+  * put the information on a special **non-public** court form for you to file.
 ---
 id: Agree no PII exit
 question: You cannot use this tool. 
 subquestion: |
   You cannot continue with this tool unless you understand that you should not enter any personal identifying information that the tool does not specifically ask for.
   
-  If you made a mistake, click the **< ${ MLH_back_button_label }** button to change your answer. Otherwise, click 'Exit' to return to Michigan Legal Help.
+  If you made a mistake, click the **< ${ MLH_back_button_label }** button to change your answer. Otherwise, click **Exit** to return to Michigan Legal Help.
 buttons:
   - Exit: exit
 event: MLH_intro_agree_no_pii_exit
