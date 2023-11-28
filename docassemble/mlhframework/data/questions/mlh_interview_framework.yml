@@ -4,7 +4,6 @@ include:
 ---
 modules:
   - .al_courts_mi_edit
-  - google_drive_downloader
 ---
 features:
   bootstrap theme: docassemble.mlhframework:custom_bootstrap.css
