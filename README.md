@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 11/28/23   0.4.2 minor language edits; separated code blocks (EKM merged).
 * 11/8/23    Changes to signature page and minor wording changes. EKM
 * 10/25/23   Add index page -EmilyKM
 * 10/25/233  CSS improvements and tweaks after using it work a few weeks
