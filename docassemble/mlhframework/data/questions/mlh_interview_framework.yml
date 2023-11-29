@@ -488,3 +488,23 @@ fields:
         defined("users[0].address.address")
   - code: |
       users[i].address.address_fields(country_code=AL_DEFAULT_COUNTRY, default_state=AL_DEFAULT_STATE, show_country=True)
+---
+generic object: ALAddress
+template: x.address_label
+content: |
+  Street Address or PO Box
+---
+generic object: ALAddress
+template: x.unit_label
+content: |
+  Apartment, suite, etc
+---
+generic object: ALAddress
+template: x.state_or_province_label
+content: |
+  State or Province
+---
+generic object: ALAddress
+template: x.postal_code_label
+content: |
+  Zip or Postal Code
