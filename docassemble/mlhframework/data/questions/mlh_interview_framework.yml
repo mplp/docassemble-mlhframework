@@ -556,6 +556,10 @@ code: |
   if x.no_phone_number:
     x.phone_number = "Does not have phone"
 ---
+code: |
+  if users[0].no_phone_number:
+    users[0].phone_number = "Does not have phone"
+---
 id: docket number
 question: |
   What is your case number?
