@@ -14,6 +14,10 @@ features:
 objects:
   - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="Michigan Legal Help Logo")
   - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
+  - image_case_number: |
+      DAStaticFile.using(
+        filename="case_number.jpg",
+        alt=word("A court form. The case number, 01-234 DM, is circled in the top right"))
 ---
 code: |
   al_logo.alt_text = "Michigan Legal Help Logo"
@@ -507,3 +511,66 @@ generic object: ALAddress
 template: x.postal_code_label
 content: |
   Zip or Postal Code
+---
+id: persons contact information
+generic object: ALIndividual
+question: |
+  What is ${x}'s phone number?
+fields:
+  - Phone: x.phone_number
+    show if:
+      variable: x.no_phone_number
+      is: False
+  - ${ x } does not have a phone number: x.no_phone_number
+    required: False
+    datatype: yesno
+---
+id: your contact information
+question: |
+  What is your phone number?
+subquestion: |
+  The court must be able to call you. So you have to give them a way to do this.
+
+  ${ collapse_template(what_if_no_number_template) }
+fields:
+  - Phone number: users[0].phone_number
+    show if:
+      variable: users[0].no_phone_number
+      is: False
+  - I do not have a contact number: users[0].no_phone_number
+    required: False
+    datatype: yesno
+  - note: |
+      ${ what_if_no_number_template.content }
+    show if: users[0].no_phone_number
+---
+template: what_if_no_number_template
+subject: What if I don't have a phone_number?
+content: |
+  If you do not have a phone number, you can give someone else's number
+  as long as they can pass on messages to you. You should tell this person
+  that you are using their number on your court forms.
+---
+generic object: ALIndividual
+code: |
+  if x.no_phone_number:
+    x.phone_number = "Does not have phone"
+---
+id: docket number
+question: |
+  What is your case number?
+subquestion: |
+  Enter the case number from your existing case.
+
+  ${ collapse_template(where_case_number) }
+fields:
+  - Case number: docket_number
+    maxlength: 25
+---
+template: where_case_number
+subject: |
+  Where can I find the case number?
+content: |
+  The case number is usually on the top right of your court forms. Below is an image where you can find this info.
+
+  ${ image_case_number.show(width="100%") }
