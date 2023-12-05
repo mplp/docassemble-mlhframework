@@ -91,7 +91,7 @@ body {
 }
 
 /* Manually override hardcoded styles from Assembly Line. */
-[data-bs-theme=light] footer a {
+footer a {
   color: #005A7c;
 }
 
