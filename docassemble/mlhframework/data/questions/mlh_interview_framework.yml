@@ -176,18 +176,24 @@ terms:
 continue button field: MLH_intro_navigation
 
 ---
-id: MLH intro saving answers
-question: "Saving Your Answers"
+if: user_logged_in()
+id: MLH intro saving answers logged in
+question: |
+  Your answers are saved as you go
+subquestion: |
+  You are already signed in; just click the **${MLH_continue_button_label}** button to save your progress. You can return later and finish or go back and change any of your answers.
+  
+  To go back to a tool you started before, go to the menu at the top of the screen and select “My Interviews.”
+continue button field: MLH_intro_saving_answers
+---
+if: not user_logged_in()
+id: MLH intro saving answers logged out
+question: |
+  Saving your answers
 subquestion: |
   If you can't finish now or need to get more information, you can save your work at any time. This lets you return later and finish, or go back and change any of your answers.
 
-  If you **are signed in** to your account:
-  
-    * Just click the **${MLH_continue_button_label}** button to save your progress.
-
-  If you are **not signed in** or have **not created** an account yet:
-
-    * Go to the menu at the top of the screen and click "Sign in or sign up to save answers". 
+  Go to the **menu at the top of the screen** and click "Sign in or sign up to save answers".
   
   To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -320,23 +326,24 @@ content: |
   
   ${ MLH_case_type_language }
 ---
-id: MLH outro saving answers
+if: user_logged_in()
+id: MLH outro saving answers logged in
 question: |
-  Saving Answers
+  Your answers have been saved
+subquestion: |
+  You can come back to this tool later and can make changes to your ${ MLH_form_type } without starting over.
+---
+if: not user_logged_in()
+id: MLH outro saving answers logged out
+question: |
+  Saving Your Answers
 subquestion: |
   You can save your answers so that you can come back to this tool later. This will allow you to make changes to your ${ MLH_form_type } without starting over.
-  
-  If you **are signed in** to your account:
-  
-    * Your answers have been automatically saved.
 
-  If you are **not signed in** or have **not created** an account yet:
+  Go to the menu at the top of the screen and click "Sign up or sign in to save answers".
 
-    * Go to the menu at the top of the screen and click "Sign up or sign in to save answers". 
-    
-    To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
+  To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
-
 ---
 id: MLH outro download forms
 question: |
