@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 12/5/23    0.4.3 language edits to PII screen EKM
 * 11/28/23   0.4.2 minor language edits; separated code blocks (EKM merged).
 * 11/8/23    Changes to signature page and minor wording changes. EKM
 * 10/25/23   Add index page -EmilyKM
