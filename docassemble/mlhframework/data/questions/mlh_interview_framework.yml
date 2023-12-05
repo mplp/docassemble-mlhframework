@@ -344,7 +344,7 @@ subquestion: |
 if: not user_logged_in()
 id: MLH outro saving answers logged out
 question: |
-  Saving Your Answers
+  Saving your answers
 subquestion: |
   You can save your answers so that you can come back to this tool later. This will allow you to make changes to your ${ MLH_form_type } without starting over.
 
