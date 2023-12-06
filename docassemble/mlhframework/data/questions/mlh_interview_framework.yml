@@ -183,7 +183,7 @@ question: |
 subquestion: |
   You are already signed in; just click the **${MLH_continue_button_label}** button to save your progress. You can return later and finish or go back and change any of your answers.
   
-  To go back to a tool you started before, go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
 ---
 if: not user_logged_in()
@@ -195,7 +195,7 @@ subquestion: |
 
   Go to the **menu at the top of the screen** and click "Sign in or sign up to save answers".
   
-  To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
 ---
 id: MLH intro PII
@@ -342,7 +342,7 @@ subquestion: |
 
   Go to the menu at the top of the screen and click "Sign up or sign in to save answers".
 
-  To go back to a tool you started before, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
 ---
 id: MLH outro download forms
