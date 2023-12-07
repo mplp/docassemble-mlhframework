@@ -170,11 +170,19 @@ subquestion: |
   If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit some of your earlier answers by clicking on the "Review your answers" button.
 
   Tap the {green words} in any screen for a definition or more information.
+
+  You can also click an underlined link with a blue triangle next to it to see more information.
+
+  ${ collapse_template(collapsible_info_template) }
 terms:
   green words: |
     Green words are legal terms or a short way of referring to something that needs more explanation. The definition or explanation pops up when you tap the green words.
 continue button field: MLH_intro_navigation
-
+---
+template: collapsible_info_template
+subject: Click here to see more information
+content: |
+  You can find more information or definitions by clicking on these links.
 ---
 id: MLH intro saving answers
 question: "Saving Your Answers"
