@@ -3,7 +3,8 @@
 A docassemble extension.
 
 ## Author
-* 12/5/23    0.4.3 language edits to PII screen EKM
+* 12/8/23    0.4.4 added: dark mode defaults added, collapsible template explainer; changed: instructions for saving, feedback form for prod server
+* 12/5/23    0.4.3 language edits to PII screen; address field and phone improvements; adds common questions; more minor changes
 * 11/28/23   0.4.2 minor language edits; separated code blocks (EKM merged).
 * 11/8/23    Changes to signature page and minor wording changes. EKM
 * 10/25/23   Add index page -EmilyKM
