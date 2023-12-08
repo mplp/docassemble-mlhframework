@@ -6,11 +6,12 @@ include:
 ---
 metadata:
   title: User Feedback
-  exit url: https://da-dev.mplp.org/list
+  exit url: https://da-prod.mplp.org/
 ---
 code: |
   al_feedback_form_title = "Michigan Legal Help DIY Tool Feedback"
   # Will be the name of the Github label added to new issues
+  al_how_to_get_legal_help = mlh_how_to_get_legal_help
   al_github_label = 'MLH user feedback'
 
 ---
@@ -95,6 +96,27 @@ code: |
   feedback_resume_label = 'Resume where you left off'
 
 ---
+id: exit
+event: gentle_exit
+question: |
+  How to get more help
+decoration: lifebuoy
+subquestion: |
+  ${ mlh_how_to_get_legal_help }
+
+buttons:
+  - Exit: exit
+---
+template: mlh_how_to_get_legal_help
+subject: |
+  Do you need more help?
+content: |
+  - [Use the Guide to Legal Help](https://michiganlegalhelp.org/guide-to-legal-help) to get information about free legal help or hiring a lawyer.
+  
+  - [Go to Michigan Legal Help](https://michiganlegalhelp.org/explore-legal-resources) for Michigan legal information.
+
+  - [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue
+---
 id: end_results
 event: end_results
 question: |
@@ -109,6 +131,7 @@ subquestion: |
   You can also use the **${ feedback_resume_label }** button at the bottom of the page.
   % endif
   
+  % if get_config('debug'):
   % if issue_url:
   If you would like to track this issue, make updates, or add more information, you can 
   [see it here](${issue_url}) on GitHub. 
@@ -122,7 +145,9 @@ subquestion: |
        ${ image_github_image_paste.show(width="100%") }
   * You can also drag and drop to attach other file types, such as sample form output.
   * Click the green **Comment** button - your image or attached file and any other comments will be included!
-  
+  % endif
+  % else:
+  ${ collapse_template(mlh_how_to_get_legal_help) }
   % endif
 action buttons:
   - label: ${ feedback_start_over_label }
