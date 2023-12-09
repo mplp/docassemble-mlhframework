@@ -460,6 +460,85 @@ continue button field: court_info_display
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 ---
+comment: |
+  Overridden from `al_visual.yml` to turn off sms
+code: |
+  if al_how_share_link == 'email':
+    if al_sharing_type == "tell_friend":
+      success = send_email(to=share_interview_contact_method, template=al_tell_a_friend_message_template)
+    else:
+      success = send_email(to=share_interview_contact_method, template=al_share_answers_message_template)
+  al_did_share_form = True
+---
+continue button field: al_share_form_screen
+id: al share form screen
+question: |
+  Share this website
+fields:
+  - What do you want to do?: al_sharing_type
+    datatype: radio
+    choices:
+      - Tell a friend about this website: tell_friend
+      - Share my answers and progress with someone: share_answers
+  -  How do you want to share the link?: al_how_share_link
+     datatype: radio
+     choices:
+       - Email: email
+       - Just show me the link. I will share it myself.: link_only
+       - Export my answers to a file: download_json
+     js show if: |
+       val("al_sharing_type") === "tell_friend" || val("al_sharing_type") === "share_answers" 
+  - note: |
+      **Note**: the person you share this link with will be able to see and
+      edit your answers on this form.
+    js show if: |
+      val("al_sharing_type") === "share_answers" &&  ( val("al_how_share_link") === "email" || val("al_how_share_link") === "link_only" )
+  - note: |
+      You can copy and share this link
+      
+      ${ copy_button_html(  interview_url(i=user_info().filename, style="short", new_session=1), label=al_copy_button_label.show(), tooltip_inert_text=al_copy_button_tooltip_inert_text.show(), tooltip_copied_text = al_copy_button_tooltip_copied_text.show() ) }
+    js show if: |
+      val("al_sharing_type") === "tell_friend" && val("al_how_share_link") === "link_only"      
+  - note: |
+      You can copy and share this link (expires in 48 hours)
+      ${ copy_button_html( interview_url(temporary=48), label=al_copy_button_label.show(), tooltip_inert_text=al_copy_button_tooltip_inert_text.show(), tooltip_copied_text = al_copy_button_tooltip_copied_text.show()) }
+    js show if: |
+      val("al_sharing_type") === "share_answers" && val("al_how_share_link") === "link_only"
+  - Email or phone number you want to send this to: share_interview_contact_method
+    validate: |
+        lambda text: re.match("\S+@\S+", text)
+    show if:
+      variable: al_how_share_link
+      is: email
+  - Message: tell_a_friend_message
+    datatype: area
+    default: |
+      Hi, I wanted to let you know about a free website that I learned about:
+      "${single_paragraph(all_variables(special='metadata').get('title', AL_ORGANIZATION_TITLE))}". I think this might
+      help you, too. Check it out at the link in this message:       
+    js show if: |
+      val("al_how_share_link") === "email" && val("al_sharing_type") === "tell_friend"
+  - Message: share_interview_answers_message
+    datatype: area
+    default: |
+      Hi, I wanted to share my progress on a form on "${ AL_ORGANIZATION_TITLE }".
+      If you click this link, you can follow along or finish the form for me.
+    js show if: |
+      val("al_how_share_link") === "email" && val("al_sharing_type") === "share_answers"      
+  - Your name: al_share_form_from_name
+    default: ${ str(users[0]) if defined('users[0].name.first') else '' } 
+    show if:
+      variable: al_how_share_link
+      is: email
+  - note: |
+      <a class="btn btn-primary btn-sm btn-secondary" href="${ export_interview_variables().url_for(attachment=True) }" role="button"><i class="far fa-file-code"></i> Export in JSON format</a>  
+    show if:
+      variable: al_how_share_link
+      is: download_json
+back button label: |
+  Back to your form
+---
+#######################
 sets:
   - x.address.address
   - x.address.city
