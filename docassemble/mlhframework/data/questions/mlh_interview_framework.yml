@@ -538,6 +538,24 @@ fields:
 back button label: |
   Back to your form
 ---
+#### Overrides templates so they maintain newlines
+template: al_share_answers_message_template
+subject: |
+  ${ AL_ORGANIZATION_TITLE } form from ${ al_share_form_from_name }
+content: |
+  ${ share_interview_answers_message.replace("\n", "<br>") }
+  Click the link below to view and edit ${ al_share_form_from_name }'s
+  progress so far:
+  
+  ${ interview_url(temporary=48) }
+---
+template: al_tell_a_friend_message_template
+subject: |
+  ${ al_share_form_from_name } wants to tell you about ${ AL_ORGANIZATION_TITLE }
+content: |
+  ${ tell_a_friend_message.replace("\n", "<br>") }
+  ${ interview_url(i=user_info().filename, style="short", new_session=1) }
+---
 #######################
 sets:
   - x.address.address
