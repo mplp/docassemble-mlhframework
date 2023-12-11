@@ -557,7 +557,7 @@ content: |
   ${ interview_url(i=user_info().filename, style="short", new_session=1) }
 ---
 comment: |
-  Overridden from `al_visual.yml` to turn off sms
+  Overrides About page from `al_visual.yml`
 template: about_this_interview_version_info
 content: |
   % if all_variables(special='metadata').get('help_page_title','').rstrip() and all_variables(special='metadata').get('help_page_url','').rstrip():
