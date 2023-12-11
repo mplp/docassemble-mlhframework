@@ -589,13 +589,13 @@ content: |
   % endif
   
   % if all_variables(special='metadata').get('authors'):
-  Michigan Legal Help made this tool. It includes code from the Document Assembly Line Project. The main authors are ${ comma_and_list(all_variables(special='metadata').get('authors')) }.
+  Michigan Legal Help made this free tool. Main author(s): ${ comma_and_list(all_variables(special='metadata').get('authors')) }. This tool uses code from the Document Assembly Line Project. 
   % endif
   
   % if package_updated_on:
-    "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`. Last updated on ${ package_updated_on }. [:fab-fa-github: View code on GitHub](${ github_url }).  
+    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`. Last updated on ${ package_updated_on }. [:fab-fa-github: View code on GitHub](${ github_url }).  
   % else:
-    "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`.
+    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`.
   % endif
 ---
 #######################
