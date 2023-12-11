@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 12/11/23   0.4.5 Updated About page; Updated Share page; Fixed missing Continue button bug
 * 12/8/23    0.4.4 added: dark mode defaults added, collapsible template explainer; changed: instructions for saving, feedback form for prod server
 * 12/5/23    0.4.3 language edits to PII screen; address field and phone improvements; adds common questions; more minor changes
 * 11/28/23   0.4.2 minor language edits; separated code blocks (EKM merged).
