@@ -556,6 +556,48 @@ content: |
   ${ tell_a_friend_message.replace("\n", "<br>") }
   ${ interview_url(i=user_info().filename, style="short", new_session=1) }
 ---
+comment: |
+  Overrides About page from `al_visual.yml`
+template: about_this_interview_version_info
+content: |
+  % if all_variables(special='metadata').get('help_page_title','').rstrip() and all_variables(special='metadata').get('help_page_url','').rstrip():
+  To learn more about this legal topic, go to: [${ all_variables(special='metadata').get('help_page_title','').rstrip() }](${ all_variables(special='metadata').get('help_page_url','').rstrip() }).
+  % endif
+
+  % if interview_metadata.get("main_interview_key"):
+    <%
+      MAIN_METADATA = interview_metadata[interview_metadata["main_interview_key"]]
+    %>
+  % elif len(interview_metadata) > 1:    
+    <% 
+      del(interview_metadata["main_interview_key"]) # DADict creates the key on lookup above
+      MAIN_METADATA = next(iter(interview_metadata.values())) 
+    %>
+  % else:
+    <% MAIN_METADATA = all_variables(special='metadata') %>
+  % endif
+  <% ORIGINAL_FORMS = MAIN_METADATA.get("original_form", []) if isinstance(MAIN_METADATA.get("original_form"), list) else ([MAIN_METADATA.get("original_form", "")] if MAIN_METADATA.get("original_form") else []) %>
+
+  % if len(ORIGINAL_FORMS) > 1:
+  View the original version of this form at the links below:
+
+  % for url in [url for url in ORIGINAL_FORMS if url.strip() != "None" and url.startswith("http")]:
+  * [${ url }](${ url })
+  % endfor
+  % elif len(ORIGINAL_FORMS) == 1:
+  [View the original version of this form](${ ORIGINAL_FORMS[0] }).
+  % endif
+  
+  % if all_variables(special='metadata').get('authors'):
+  Michigan Legal Help made this free tool. Main author(s): ${ comma_and_list(all_variables(special='metadata').get('authors')) }. This tool uses code from the Document Assembly Line Project. 
+  % endif
+  
+  % if package_updated_on:
+    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`. Last updated on ${ package_updated_on }. [:fab-fa-github: View code on GitHub](${ github_url }).  
+  % else:
+    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`.
+  % endif
+---
 #######################
 sets:
   - x.address.address
