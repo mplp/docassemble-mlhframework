@@ -504,7 +504,7 @@ fields:
       ${ copy_button_html( interview_url(temporary=48), label=al_copy_button_label.show(), tooltip_inert_text=al_copy_button_tooltip_inert_text.show(), tooltip_copied_text = al_copy_button_tooltip_copied_text.show()) }
     js show if: |
       val("al_sharing_type") === "share_answers" && val("al_how_share_link") === "link_only"
-  - Email or phone number you want to send this to: share_interview_contact_method
+  - Email you want to send this to: share_interview_contact_method
     validate: |
         lambda text: re.match("\S+@\S+", text)
     show if:
