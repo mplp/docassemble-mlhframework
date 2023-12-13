@@ -85,7 +85,7 @@ default screen parts:
   # based on desired label, (i.e. "Back" or "Undo")
   #corner back button label: Back  
 
-  exit link: https://michiganlegalhelp.org/guide-to-legal-help
+  exit link: exit
   exit url: https://michiganlegalhelp.org
   # The below option customizes what's to the left of the menu / user's info 
   #navigation bar html: <li class="nav-item"><a class="nav-link" href="/some_link">Labell</a></li>
