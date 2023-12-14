@@ -184,7 +184,7 @@ subquestion: |
 
   Tap the {green words} in any screen for a definition or more information.
 
-  You can also click an underlined link with a blue triangle next to it to see more information.
+  You can also click an underlined link with a green triangle next to it to see more information.
 
   ${ collapse_template(collapsible_info_template) }
 terms:
