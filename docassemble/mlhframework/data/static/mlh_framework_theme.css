@@ -110,12 +110,17 @@ body {
   outline: solid 1px;
 }
 
+.daundertext {
+  padding: 1rem 0.75rem;
+}
+
+
 /* Manually override hardcoded styles from Assembly Line. */
 footer a {
   color: #005A7c;
 }
 
-footer {
+footer, .daundertext {
   font-size: 1rem;
 }
 
