@@ -13,6 +13,28 @@
   padding: 3px;
 }
 
+@media (min-width: 1200px) {
+  .da-subquestion h2 {
+    font-size: 1.62rem;
+  }
+
+  .da-subquestion h3 {
+    font-size: 1.41rem;
+  }
+
+  .da-subquestion h4 {
+    font-size: 1.3rem;
+  }
+
+  .da-subquestion h5 {
+    font-size: 1.15rem;
+  }
+
+  .da-subquestion h6 {
+    font-size: 1.07rem;
+  }
+}
+
 /* Make the nav bar contents (title and logo) smaller on narrow screens, and
    clip contents instead of letting them push menu button to the next line */
 @media only screen and (max-width: 800px) {
