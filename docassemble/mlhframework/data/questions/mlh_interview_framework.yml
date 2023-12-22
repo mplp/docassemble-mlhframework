@@ -91,7 +91,7 @@ default screen parts:
 
   #pre: This is the pre screen part.
   #submit: This is the submit screen part.
-  post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
+  # post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
   #under: This is the under screen part.
   #right: This is the right screen part.
   global footer: This is the footer part.
