@@ -115,6 +115,14 @@ footer a {
   color: #005A7c;
 }
 
+footer {
+  font-size: 1rem;
+}
+
+footer a {
+  padding-left: 1.6rem;
+}
+
 [data-bs-theme=dark] footer a {
   color: #5badcb
 }
