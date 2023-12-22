@@ -167,7 +167,7 @@ subquestion: |
   
   Your personalized ${ MLH_form_type } will be ready to print after you have answered all the questions. 
   % if MLH_instructions_included:
-    You will also get a set of step-by-step instructions on what to do next with your ${ MLH_form_type }.
+    You will also get step-by-step instructions on what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
 
@@ -371,7 +371,7 @@ question: |
 subquestion: |
   On the next page, there will be a list of files. The top file is a cover sheet. 
   % if MLH_instructions_included:
-    There will also be a set of step-by-step instructions to tell you what to do next. 
+    There will also be step-by-step instructions to tell you what to do next.
   % endif
   % if MLH_court_forms:
   Do not file the cover sheet 
