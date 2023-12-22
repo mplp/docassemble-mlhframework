@@ -9,15 +9,28 @@
 /* Makes the logo have a white background with rounded corners. */
 .al-logo {
   background-color: #fff;
-  padding: 5px;
   border-radius: 10px;
   padding: 3px;
 }
 
-/* This overrides AL styles that set font-size to 60% on small screens. Big titles look fine. */
+/* Make the nav bar contents (title and logo) smaller on narrow screens, and
+   clip contents instead of letting them push menu button to the next line */
 @media only screen and (max-width: 800px) {
   .al-title, .al-logo {
-    font-size: 100%;
+    font-size: 60%;
+  }
+
+  .al-logo img {
+    max-height: 25px;
+  }
+
+  .al-logo {
+    border-radius: 8px;
+    padding: 2px;
+  }
+
+  #dapagetitle {
+    max-width: calc(100vw - 90px);
   }
 }
 
