@@ -92,7 +92,6 @@ default screen parts:
   #pre: This is the pre screen part.
   #submit: This is the submit screen part.
   # post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
-  #under: This is the under screen part.
   #right: This is the right screen part.
   global footer: This is the footer part.
   main page footer: This is the main footer.
@@ -105,6 +104,10 @@ default screen parts:
         <span class="title-row-1">${ all_variables(special='metadata').get('short title','').rstrip() }</span>
       </span>
     </span>
+  under: |
+    % if not user_logged_in():
+    [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to return later
+    % endif
   footer: |
     [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
     [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
@@ -209,7 +212,11 @@ question: |
 subquestion: |
   If you can't finish now or need to get more information, you can save your work at any time. This lets you return later and finish, or go back and change any of your answers.
 
-  Go to the **menu at the top of the screen** and click "Sign in or sign up to save answers".
+  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  **menu at the top of the screen** and tap "Sign up or sign in to save answers".
   
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -357,7 +364,11 @@ question: |
 subquestion: |
   You can save your answers so that you can come back to this tool later. This will allow you to make changes to your ${ MLH_form_type } without starting over.
 
-  Go to the menu at the top of the screen and click "Sign up or sign in to save answers".
+  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  menu at the top of the screen and tap "Sign up or sign in to save answers".
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
