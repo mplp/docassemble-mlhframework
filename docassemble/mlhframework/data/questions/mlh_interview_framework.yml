@@ -350,12 +350,8 @@ content: |
   ${ MLH_case_type_language }
 ---
 if: user_logged_in()
-id: MLH outro saving answers logged in
-question: |
-  Your answers have been saved
-subquestion: |
-  You can come back to this tool later and can make changes to your ${ MLH_form_type } without starting over.
-continue button field: MLH_outro_saving_answers
+code: |
+  MLH_outro_saving_answers = True
 ---
 if: not user_logged_in()
 id: MLH outro saving answers logged out
