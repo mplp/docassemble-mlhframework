@@ -17,4 +17,8 @@ $navbar-dark-hover-color: rgba($white, 1.0);
 
 $body-secondary-color: rgba($gray-900, 0.85);
 
+/* Makes the menu toggle button slightly smaller on small screens. */
+$navbar-toggler-padding-x: 0.5rem;
+$navbar-toggler-padding-y: 0.167rem;
+
 @import "bootstrap";
