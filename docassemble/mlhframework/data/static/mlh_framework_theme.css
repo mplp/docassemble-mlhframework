@@ -13,6 +13,22 @@
   padding: 3px;
 }
 
+.da-subquestion h2 {
+  font-size: calc(1.28rem + 0.5vw);
+}
+
+.da-subquestion h3 {
+  font-size: calc(1.27rem + 0.3vw);
+}
+
+.da-subquestion h4 {
+  font-size: calc(1.26rem + 0.2vw);
+}
+
+.da-subquestion h4 {
+  font-size: 1.25rem;
+}
+
 @media (min-width: 1200px) {
   .da-subquestion h2 {
     font-size: 1.62rem;
@@ -23,17 +39,27 @@
   }
 
   .da-subquestion h4 {
-    font-size: 1.3rem;
+    font-size: 1.31rem;
   }
 
   .da-subquestion h5 {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 
   .da-subquestion h6 {
-    font-size: 1.07rem;
+    font-size: 1.20rem;
   }
 }
+
+/*
+@media (min-width: 1200px) {
+  h1.h3#daMainQuestion {
+    /* I don't care what default docassemble says, h1 should be h1.
+    font-size: 2rem;
+  }
+}
+*/
+
 
 /* Make the nav bar contents (title and logo) smaller on narrow screens, and
    clip contents instead of letting them push menu button to the next line */
