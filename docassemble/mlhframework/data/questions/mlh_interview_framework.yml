@@ -216,7 +216,7 @@ subquestion: |
   % if device().is_mobile:
   :bars:
   % endif
-  **menu at the top of the screen** and tap "Sign up or sign in to save answers".
+  **menu at the top of the screen** and tap "Sign in or sign up to save answers".
   
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -364,7 +364,7 @@ subquestion: |
   % if device().is_mobile:
   :bars:
   % endif
-  menu at the top of the screen and tap "Sign up or sign in to save answers".
+  menu at the top of the screen and tap "Sign in or sign up to save answers".
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
