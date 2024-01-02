@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 1/2/24     0.4.8 change "register" to "sign up" in another spot.
 * 1/2/24     0.4.7 Remove unused exit link, redudant logo alt text;Change language from register to sign up.
 * 12/11/23   0.4.6 Remove reference to "phone number" from Share page
 * 12/11/23   0.4.5 Updated About page; Updated Share page; Fixed missing Continue button bug
