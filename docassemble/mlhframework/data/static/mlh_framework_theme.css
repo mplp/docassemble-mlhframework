@@ -16,8 +16,13 @@
 /* Make the nav bar contents (title and logo) smaller on narrow screens, and
    clip contents instead of letting them push menu button to the next line */
 @media only screen and (max-width: 800px) {
-  .al-title, .al-logo {
+  .al-logo {
     font-size: 60%;
+  }
+
+  .al-title-short {
+    font-size: 100%;
+    font-weight: normal;
   }
 
   .al-logo img {
@@ -35,8 +40,10 @@
 }
 
 /* Fonts and font sizes taken from https://michiganlegalhelp.org/guide-to-legal-help. */
-.al-title {
+.al-title-short {
+  display: inline;
   font-family: "Poppins",times,"Times New Roman",serif;
+  line-height: 1em;
 }
 
 /* Styles for the entire page. */

@@ -96,6 +96,15 @@ default screen parts:
   #right: This is the right screen part.
   global footer: This is the footer part.
   main page footer: This is the main footer.
+  short logo: |
+    <span class="title-container">
+      <span class="al-logo">
+        <img src="${ al_logo.url_for() }" alt="${ al_logo.alt_text }"/>
+      </span>
+      <span class="al-title-short">
+        <span class="title-row-1">${ all_variables(special='metadata').get('short title','').rstrip() }</span>
+      </span>
+    </span>
   footer: |
     [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
     [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
