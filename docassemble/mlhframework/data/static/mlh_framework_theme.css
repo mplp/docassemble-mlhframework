@@ -51,16 +51,6 @@
   }
 }
 
-/*
-@media (min-width: 1200px) {
-  h1.h3#daMainQuestion {
-    /* I don't care what default docassemble says, h1 should be h1.
-    font-size: 2rem;
-  }
-}
-*/
-
-
 /* Make the nav bar contents (title and logo) smaller on narrow screens, and
    clip contents instead of letting them push menu button to the next line */
 @media only screen and (max-width: 800px) {
