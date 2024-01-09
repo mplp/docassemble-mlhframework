@@ -12,7 +12,7 @@ features:
     - https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap
 ---
 objects:
-  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="Michigan Legal Help Logo")
+  - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="")
   - court_list: ALCourtLoader.using(file_name='michigan_court_info.xlsx')
   - image_case_number: |
       DAStaticFile.using(
@@ -20,7 +20,7 @@ objects:
         alt=word("A court form. The case number, 01-234 DM, is circled in the top right"))
 ---
 code: |
-  al_logo.alt_text = "Michigan Legal Help Logo"
+  al_logo.alt_text = ""
 ---
 code: |
   # These block defines Assembly Line-level variables and MLH Organization-level variables
@@ -84,19 +84,32 @@ default screen parts:
   # BH: it appears that this cannot be set by set_parts(). Will need to default a value here
   # based on desired label, (i.e. "Back" or "Undo")
   #corner back button label: Back  
-
-  exit link: exit
+  
+  exit link: exit                    # sets behavior of Exit buttons
   exit url: https://michiganlegalhelp.org
   # The below option customizes what's to the left of the menu / user's info 
   #navigation bar html: <li class="nav-item"><a class="nav-link" href="/some_link">Labell</a></li>
 
   #pre: This is the pre screen part.
   #submit: This is the submit screen part.
-  post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
-  #under: This is the under screen part.
+  # post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
   #right: This is the right screen part.
   global footer: This is the footer part.
   main page footer: This is the main footer.
+  short logo: |
+    <span class="title-container">
+      <span class="al-logo">
+        <img src="${ al_logo.url_for() }" alt="${ al_logo.alt_text }"/>
+      </span>
+      <span class="al-title-short">
+        <span class="title-row-1">${ all_variables(special='metadata').get('short title','').rstrip() }</span>
+      </span>
+    </span>
+  under: |
+    % if not user_logged_in():
+    [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
+    % endif
+  back button color: secondary
   footer: |
     [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
     [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
@@ -159,7 +172,7 @@ subquestion: |
   
   Your personalized ${ MLH_form_type } will be ready to print after you have answered all the questions. 
   % if MLH_instructions_included:
-    You will also get a set of step-by-step instructions on what to do next with your ${ MLH_form_type }.
+    You will also get step-by-step instructions on what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
 
@@ -201,7 +214,11 @@ question: |
 subquestion: |
   If you can't finish now or need to get more information, you can save your work at any time. This lets you return later and finish, or go back and change any of your answers.
 
-  Go to the **menu at the top of the screen** and click "Sign in or sign up to save answers".
+  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  **menu at the top of the screen** and tap "Sign in or sign up to save answers".
   
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -333,12 +350,8 @@ content: |
   ${ MLH_case_type_language }
 ---
 if: user_logged_in()
-id: MLH outro saving answers logged in
-question: |
-  Your answers have been saved
-subquestion: |
-  You can come back to this tool later and can make changes to your ${ MLH_form_type } without starting over.
-continue button field: MLH_outro_saving_answers
+code: |
+  MLH_outro_saving_answers = True
 ---
 if: not user_logged_in()
 id: MLH outro saving answers logged out
@@ -347,7 +360,11 @@ question: |
 subquestion: |
   You can save your answers so that you can come back to this tool later. This will allow you to make changes to your ${ MLH_form_type } without starting over.
 
-  Go to the menu at the top of the screen and click "Sign up or sign in to save answers".
+  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  menu at the top of the screen and tap "Sign in or sign up to save answers".
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
@@ -361,7 +378,7 @@ question: |
 subquestion: |
   On the next page, there will be a list of files. The top file is a cover sheet. 
   % if MLH_instructions_included:
-    There will also be a set of step-by-step instructions to tell you what to do next. 
+    There will also be step-by-step instructions to tell you what to do next.
   % endif
   % if MLH_court_forms:
   Do not file the cover sheet 

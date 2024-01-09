@@ -9,21 +9,79 @@
 /* Makes the logo have a white background with rounded corners. */
 .al-logo {
   background-color: #fff;
-  padding: 5px;
   border-radius: 10px;
   padding: 3px;
 }
 
-/* This overrides AL styles that set font-size to 60% on small screens. Big titles look fine. */
+.da-subquestion h2 {
+  font-size: calc(1.28rem + 0.5vw);
+}
+
+.da-subquestion h3 {
+  font-size: calc(1.27rem + 0.3vw);
+}
+
+.da-subquestion h4 {
+  font-size: calc(1.26rem + 0.2vw);
+}
+
+.da-subquestion h4 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 1200px) {
+  .da-subquestion h2 {
+    font-size: 1.62rem;
+  }
+
+  .da-subquestion h3 {
+    font-size: 1.41rem;
+  }
+
+  .da-subquestion h4 {
+    font-size: 1.31rem;
+  }
+
+  .da-subquestion h5 {
+    font-size: 1.25rem;
+  }
+
+  .da-subquestion h6 {
+    font-size: 1.20rem;
+  }
+}
+
+/* Make the nav bar contents (title and logo) smaller on narrow screens, and
+   clip contents instead of letting them push menu button to the next line */
 @media only screen and (max-width: 800px) {
-  .al-title, .al-logo {
+  .al-logo {
+    font-size: 60%;
+  }
+
+  .al-title-short {
     font-size: 100%;
+    font-weight: normal;
+  }
+
+  .al-logo img {
+    max-height: 25px;
+  }
+
+  .al-logo {
+    border-radius: 8px;
+    padding: 2px;
+  }
+
+  #dapagetitle {
+    max-width: calc(100vw - 90px);
   }
 }
 
 /* Fonts and font sizes taken from https://michiganlegalhelp.org/guide-to-legal-help. */
-.al-title {
+.al-title-short {
+  display: inline;
   font-family: "Poppins",times,"Times New Roman",serif;
+  line-height: 1em;
 }
 
 /* Styles for the entire page. */
@@ -90,9 +148,22 @@ body {
   outline: solid 1px;
 }
 
+.daundertext {
+  padding: 1rem 0.75rem;
+}
+
+
 /* Manually override hardcoded styles from Assembly Line. */
 footer a {
   color: #005A7c;
+}
+
+footer, .daundertext {
+  font-size: 1rem;
+}
+
+footer a {
+  padding-left: 1.6rem;
 }
 
 [data-bs-theme=dark] footer a {

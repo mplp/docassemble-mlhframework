@@ -3876,8 +3876,8 @@ textarea.form-control-lg {
   --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-nav-link-padding-x: 0.5rem;
-  --bs-navbar-toggler-padding-y: 0.25rem;
-  --bs-navbar-toggler-padding-x: 0.75rem;
+  --bs-navbar-toggler-padding-y: 0.167rem;
+  --bs-navbar-toggler-padding-x: 0.5rem;
   --bs-navbar-toggler-font-size: 1.25rem;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
@@ -11859,4 +11859,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=2b40eb1d-7193-4c0c-89eb-fc0f16d82aec.css.map */
+/*# sourceMappingURL=41d56531-0115-4586-bf4d-44249a345a9c.css.map */
