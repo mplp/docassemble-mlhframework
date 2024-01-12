@@ -17,7 +17,7 @@ objects:
   - image_case_number: |
       DAStaticFile.using(
         filename="case_number.jpg",
-        alt=word("A court form. The case number, 01-234 DM, is circled in the top right"))
+        alt_text=word("A court form. The case number, 01-234 DM, is circled in the top right"))
 ---
 code: |
   al_logo.alt_text = ""
