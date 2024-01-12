@@ -19,7 +19,7 @@ objects:
   - image_github_image_paste: |
       DAStaticFile.using(
         filename="github_image_paste.png",
-        alt=word("Copy and paste an image or screenshot right into a GitHub Comment"))
+        alt_text=word("Copy and paste an image or screenshot right into a GitHub Comment"))
 
 ---
 if: |
