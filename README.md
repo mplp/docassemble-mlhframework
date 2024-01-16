@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 1/16/24   0.4.10 change collapsible templates from blue to green; correct alt_text typo
 * 1/9/24    0.4.9 style/design improvements; skip outro "saving answers" if logged in; fix headers; change exit button to link.
 * 1/2/24    0.4.8 change "register" to "sign up" in another spot.
 * 1/2/24    0.4.7 Remove unused exit link, redudant logo alt text;Change language from register to sign up.
