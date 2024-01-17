@@ -6,6 +6,15 @@
   background-color: #ccc
 }
 
+/* Makes the collapsible info headers and defined terms more readable on Chrome. */
+.al_collapse_template a.al_toggle, .al_display_template a.al_toggle {
+  text-underline-offset: 3px;
+}
+
+.daterm {
+  text-underline-offset: 3px;
+}
+
 /* Makes the logo have a white background with rounded corners. */
 .al-logo {
   background-color: #fff;
