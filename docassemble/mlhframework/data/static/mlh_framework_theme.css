@@ -9,10 +9,12 @@
 /* Makes the collapsible info headers and defined terms more readable on Chrome. */
 .al_collapse_template a.al_toggle, .al_display_template a.al_toggle {
   text-decoration: dashed 1px;
+  text-decoration-line: underline;
 }
 
 .daterm {
   text-decoration: dashed 1px;
+  text-decoration-line: underline;
 }
 
 /* Makes the logo have a white background with rounded corners. */
