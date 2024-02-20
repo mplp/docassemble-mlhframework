@@ -198,3 +198,12 @@ footer a {
   --bs-btn-disabled-bg: #212529;
   --bs-btn-disabled-border-color: #212529;
 }
+
+@media (min-width: 768px) {
+  #daright {
+    display: none !important;
+  }
+  #darightbottom {
+    display: none !important;
+  }
+}
