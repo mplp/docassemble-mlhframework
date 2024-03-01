@@ -1,0 +1,50 @@
+# Used to set up and populate a dynamic ALDocument cover page, which can then be
+# included in a tool's ALDocumentBundle.
+
+---
+code: |
+  cover_sheet_top_message = "Congratulations! Your court forms are ready."
+---
+code: |
+  cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps. The instructions explain what to do with your { MLH_form_type }, step by step."
+  cover_sheet_complete_1 += "\n\n"
+  if MLH_instructions_included == True:
+	  cover_sheet_complete_1 += f"Read the instructions that printed with your { MLH_form_type }. Or, to find "
+  else:
+	  cover_sheet_complete_1 += "To find "
+
+  cover_sheet_complete_1 += f"the instructions for you { MLH_form_type }, visit MichiganLegalHelp.org. Find the specific Resource page that matches your legal problem and select your county. Instructions are just below the articles on each Resource page. If the page has more than one set of instructions, be sure to read the description for each one and pick the one that applies to you."
+---
+code: |
+  cover_sheet_share = "Share Your Experience with Us"
+---
+code: |
+  cover_sheet_complete_2 = "We hope that dealing with your legal issue goes well. We’d like to know more about how things went after you used the MichiganLegalHelp website. To share your experience with us, please complete our survey. Using your smartphone or mobile device, scan the QR Code below to visit our survey."
+---
+code: |
+  cover_sheet_survey_link = "Or, you can visit the survey using this link: www.michiganlegalhelp.org/survey."
+---
+code: |
+  cover_sheet_thanks = "Thank you so much! Your feedback will help us improve Michigan Legal Help and access to justice in Michigan."
+
+---
+attachment:
+  name: cover sheet
+  variable name: cover_sheet_template[i]
+  skip undefined: False
+  pdf template file: cover_sheet.pdf
+  editable: False
+  fields:
+      - "cover_sheet_top_message": ${ cover_sheet_top_message }
+      - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
+      - "cover_sheet_share": ${ cover_sheet_share }
+      - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
+      - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
+      - "cover_sheet_thanks": ${ cover_sheet_thanks }
+
+---
+# Can be included in a form packet's ALDocumentBundle
+objects:
+  - cover_sheet_template: >-
+      ALDocument.using(title="Cover Sheet", 
+      filename="cover_sheet", enabled=True, has_addendum=False)
