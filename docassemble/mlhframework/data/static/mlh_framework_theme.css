@@ -198,7 +198,7 @@ footer a {
   --bs-btn-disabled-border-color: #212529;
 }
 
-/* Hide the "right" screen part when screen is larger enough to display nav panel on left */
+/* Hide the "right" screen part when screen is large enough to display nav panel on left */
 @media (min-width: 768px) {
   #daright {
     display: none !important;
@@ -208,7 +208,7 @@ footer a {
   }
 }
 
-/* turn all of the navigation links that aren't clickable default black */
+/* make all non-clickable nav panel section names default black */
 .danavdiv a:not(.daclickable) {
   color: var(--bs-body-color);
 }
