@@ -182,7 +182,7 @@ continue button field: MLH_intro_time
 id: MLH intro navigation
 question: "Navigation"
 subquestion: |
-  If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by clicking the "✎ Review / Edit" or "✎ Review other answers" link.
+  If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by clicking the "✎ Review / Edit" or "✎ Review your answers" link.
 
   Tap the {green words} in any screen for a definition or more information.
 
