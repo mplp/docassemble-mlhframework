@@ -159,17 +159,16 @@ body {
   outline: solid 1px;
 }
 
-.daundertext {
-  padding: 1rem 0.75rem;
+.daundertext, .daright {
+  padding: 1rem 0.75rem 0rem;
 }
-
 
 /* Manually override hardcoded styles from Assembly Line. */
 footer a {
   color: #005A7c;
 }
 
-footer, .daundertext {
+footer, .daundertext, .daright {
   font-size: 1rem;
 }
 
@@ -197,4 +196,19 @@ footer a {
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #212529;
   --bs-btn-disabled-border-color: #212529;
+}
+
+/* Hide the "right" screen part when screen is large enough to display nav panel on left */
+@media (min-width: 768px) {
+  #daright {
+    display: none !important;
+  }
+  #darightbottom {
+    display: none !important;
+  }
+}
+
+/* make all non-clickable nav panel section names default black */
+.danavdiv a:not(.daclickable) {
+  color: var(--bs-body-color);
 }

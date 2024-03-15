@@ -10,6 +10,8 @@ features:
   css:
     - mlh_framework_theme.css
     - https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap
+  small screen navigation: False  # turn off nav panel on small screens
+  progress bar: True
 ---
 objects:
   - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="")
@@ -93,9 +95,18 @@ default screen parts:
   #pre: This is the pre screen part.
   #submit: This is the submit screen part.
   # post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
-  #right: This is the right screen part.
-  global footer: This is the footer part.
-  main page footer: This is the main footer.
+  right: |
+    ✎ [Review your answers](${ url_action('review_full') })
+  under: |
+    % if not user_logged_in():
+    [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
+    % endif
+  footer: |
+    [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
+    [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
+    [:comment-dots: Feedback](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_feedback.yml", github_repo=github_repo_name) } ){:target="_blank"}
+  #global footer: This is the footer part.
+  #main page footer: This is the main footer.
   short logo: |
     <span class="title-container">
       <span class="al-logo">
@@ -105,16 +116,7 @@ default screen parts:
         <span class="title-row-1">${ all_variables(special='metadata').get('short title','').rstrip() }</span>
       </span>
     </span>
-  under: |
-    % if not user_logged_in():
-    [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
-    % endif
   back button color: secondary
-  footer: |
-    [:share-alt-square: Share](${ url_ask([{'undefine': ['al_sharing_type','al_how_share_link']}, 'al_share_form_screen', {'recompute': ['al_did_share_form']}, 'al_share_results']) }){:target="_blank"}
-    [:info-circle: About](${ url_action('about_this_interview') }){:target="_blank"}
-    [:comment-dots: Feedback](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_feedback.yml", github_repo=github_repo_name) } ){:target="_blank"}
-
 ---
 # To create consistent language on generic continue buttons. If it is ever decided to change
 # that language, it only need to be done here.
@@ -180,7 +182,7 @@ continue button field: MLH_intro_time
 id: MLH intro navigation
 question: "Navigation"
 subquestion: |
-  If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit some of your earlier answers by clicking on the "Review your answers" button.
+  If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by clicking the "✎ Review / Edit" or "✎ Review your answers" link.
 
   Tap the {green words} in any screen for a definition or more information.
 
