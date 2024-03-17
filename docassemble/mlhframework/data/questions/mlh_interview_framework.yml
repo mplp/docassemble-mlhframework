@@ -42,7 +42,7 @@ code: |
   MLH_interview_short_title = all_variables(special='metadata').get('short title')
   MLH_interview_title = all_variables(special='metadata').get('title')
 
-  MLH_pursuant_to = "(e-signed pursuant to MCR 1.109)"
+  MLH_esign_tag = "(e-signed as allowed by MCR 1.109)"
 ---
 #######
 # These blocks contains MLH Organization-level variables that will vary from tool to tool.
@@ -306,10 +306,6 @@ question: |
   Form Generation
 subquestion: |
   This tool will create separate forms so you can more easily e-file using ${ MLH_MiFILE }, if you plan to e-file. This means that **you may need to download multiple files to get all of the forms you will need.**
-
-  **TODO - modify to match docassemble instead of LHI**
-  You will be able to get all forms you need by clicking the **Download Your Form(s)** button on the page at the end of this tool. You will then see a list of documents to download. Make sure you download each of them.
-  
   ${ collapse_template(efiling_info_template) }
 continue button field: MLH_outro_form_generation
 
@@ -478,17 +474,13 @@ continue button field: court_info_display
 id: court type choice
 mandatory: False
 question: |
-  % if al_form_type == 'starts_case':
-  What court is this case in?
-  % elif al_form_type == 'appeal':
+  % if al_form_type == 'appeal':
   What court your case was originally filed in?
   % else:
-  Please choose type of court where your case is.
+  What court is this case in?
   % endif
 subquestion: |
-  % if al_form_type != 'starts_case':
   ${ collapse_template(court_type_selection_template) }
-  % endif
 fields:
   - Court: court_type
     choices:
