@@ -1,0 +1,32 @@
+# MLH-specific overrides for AssemblyLine/data/questions/al_saved_sessions.yml
+# As of March 2024, this exists in order to override AL use of "Next" with
+# MLH_continue_button_label and "Back" with MLH_back_button_label.
+
+---
+id: al sessions save status
+continue button field: al_sessions_save_status
+question: |
+  % if showifdef('new_session_id'):
+  Your answer set was successfully saved
+  % else:
+  Something went wrong when we tried to save your answer set.
+  You can try again.
+  % endif
+subquestion: |
+  Tap **${ MLH_continue_button_label }** to keep answering any unanswered questions and finish the interview.
+back button: False
+
+---
+id: al sessions load status
+continue button field: al_sessions_load_status
+comment: |
+  #TODO There's no error handling yet so this might be a lie
+question: |
+  % if al_sessions_snapshot_results:
+  Your answer set was loaded
+  % else:
+  Your answer set was not loaded. You can try again.
+  % endif
+subquestion: |
+  Tap **${ MLH_continue_button_label }** to keep answering any unanswered questions and finish the interview.
+back button: False
