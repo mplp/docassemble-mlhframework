@@ -212,3 +212,8 @@ footer a {
 .danavdiv a:not(.daclickable) {
   color: var(--bs-body-color);
 }
+
+/* Make "Sign in" button on desktop bigger: https://github.com/mplp/docassemble-mlhframework/issues/87 */
+#danavbar-collapse a.btn-primary[href="/user/sign-in"] {
+  --bs-btn-font-size: 1.125rem;
+}
