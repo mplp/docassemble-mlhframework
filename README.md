@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 4/1/24    0.4.13 Update Sign Up Sign In styling
 * 3/12/24   0.4.12 Nav panel updates; turn progress bar on by default
 * 1/18/24   0.4.11 Help text readability improvements.
 * 1/16/24   0.4.10 change collapsible templates from blue to green; correct alt_text typo
