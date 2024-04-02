@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 4/2/24    0.4.14 Court loader additions; portfolio-wide cover sheet; "Back" and "Next" language. bharrison
 * 4/1/24    0.4.13 Update Sign Up Sign In styling
 * 3/12/24   0.4.12 Nav panel updates; turn progress bar on by default
 * 1/18/24   0.4.11 Help text readability improvements.
