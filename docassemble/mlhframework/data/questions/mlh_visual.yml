@@ -1,0 +1,61 @@
+# MLH-specific overrides from AssemblyLine/data/questions/al_visual.yml
+# As of March 2024, this exists in order to override AL use of "Next" with
+# MLH_continue_button_label and "Back" with MLH_back_button_label.
+
+---
+id: Results of sharing
+continue button field: al_share_results
+question: |
+  % if al_sharing_type == 'tell_friend':
+  Thanks for sharing!
+  % elif al_how_share_link == 'link_only':
+  Do not forget to send the link!
+  % else:
+  Your message is on its way
+  % endif
+subquestion: |
+  % if al_sharing_type == 'share_answers':
+  **Keep in mind**: when you make a change to your form, the
+  person you shared it with will see the change you made. You will
+  also see any changes that person makes.
+  % endif
+  
+  Tap **${ MLH_continue_button_label }** to go back to your form in progress.
+
+---
+id: start a new session
+question: |
+  Do you want to start over?
+subquestion: |
+  % if not user_logged_in():
+  You may lose access to your current answers. Make sure you have downloaded
+  any forms that you need.
+  % else:
+  You can still access your current answers by visiting the "My interviews"
+  page.
+  % endif
+  
+  Click **Start over** to start a new copy of the form you are working on,
+  or **${ MLH_back_button_label }** if you want to keep working.
+back button label: |
+  ${ MLH_back_button_label }
+continue button label: |
+  Start over
+continue button field: al_start_over_confirmation
+
+---
+id: exit and erase answers
+question: |
+  Do you want to delete your answers?
+subquestion: |
+  Your progress on this document will be completely erased. Any
+  actions that were scheduled, such as reminders from this website,
+  will also be removed.
+  
+  Click **Exit and delete my answers** to delete your progress,
+  or **${ MLH_back_button_label }** if you want to keep working.
+back button label: |
+  ${ MLH_back_button_label }
+continue button label: |
+  Exit and delete my answers
+continue button field: al_exit_logout_confirmation

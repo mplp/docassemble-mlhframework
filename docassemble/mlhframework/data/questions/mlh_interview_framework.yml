@@ -1,6 +1,7 @@
 ---
 include:
   - docassemble.AssemblyLine:assembly_line.yml
+  - mlh_cover_sheet.yml
 ---
 modules:
   - .al_courts_mi_edit
@@ -43,6 +44,7 @@ code: |
   MLH_interview_short_title = all_variables(special='metadata').get('short title')
   MLH_interview_title = all_variables(special='metadata').get('title')
 
+  MLH_esign_tag = "(e-signed as allowed by MCR 1.109)"
 ---
 #######
 # These blocks contains MLH Organization-level variables that will vary from tool to tool.
@@ -62,6 +64,7 @@ code: |
   MLH_esign = False                  # Add electronic signature?
 ---
 code: |
+  # See https://docs.google.com/spreadsheets/d/1dqrg1ojBMYWWZ_s2TTpc7mG0Gfo-leMQEo-1lDouxE4
   MLH_case_type_language = ""        # for e-filing help
 ---
 code: |
@@ -305,10 +308,6 @@ question: |
   Form Generation
 subquestion: |
   This tool will create separate forms so you can more easily e-file using ${ MLH_MiFILE }, if you plan to e-file. This means that **you may need to download multiple files to get all of the forms you will need.**
-
-  **TODO - modify to match docassemble instead of LHI**
-  You will be able to get all forms you need by clicking the **Download Your Form(s)** button on the page at the end of this tool. You will then see a list of documents to download. Make sure you download each of them.
-  
   ${ collapse_template(efiling_info_template) }
 continue button field: MLH_outro_form_generation
 
@@ -472,6 +471,52 @@ subquestion: |
 # ${ map_of(the_court) }
 # getting errors when latitude and longitude are empty, so commenting this out for now
 continue button field: court_info_display
+
+---
+id: court type choice
+mandatory: False
+question: |
+  % if al_form_type == 'appeal':
+  What court your case was originally filed in?
+  % else:
+  What court is this case in?
+  % endif
+subquestion: |
+  ${ collapse_template(court_type_selection_template) }
+fields:
+  - Court: court_type
+    choices:
+      - Circuit: circuit
+      - District: district
+      - Probate: probate
+continue button field: court_type_selection
+---
+template: court_type_selection_template
+subject: |
+  What is this?
+content: |
+  A civil case is filed because of a disagreement between two people, businesses, or organizations. The disagreement usually involves one person believing that he or she has been hurt, had rights violated, or had property damaged by another person. A civil case is not a criminal case.
+
+  **District Court** is where general civil cases are heard if the amount of money in dispute is less than or equal to $25,000.
+
+  **Circuit Court** is where general civil cases are heard if the amount in dispute is more than $25,000.
+
+  **Probate Court** handles things like wills and estate administration, guardianships and conservatorships, adoptions, and registering foreign birth certificates.
+
+  The title of a probate case is often "In the matter of…"
+
+---
+id: county court choice
+question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
+fields:
+  - Select a Court: court_index_for_specific_court_type
+    code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
+
+---
+# Gets the count of the specified [court_type] courts for [county_choice] County
+# For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
+code: |
+  court_count = len(list(court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')))
 
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
@@ -759,3 +804,59 @@ content: |
   The case number is usually on the top right of your court forms. Below is an image where you can find this info.
 
   ${ image_case_number.show(width="100%") }
+  
+---
+sets:
+  - users[i].has_attorney
+id: user has attorney
+question: |
+  Do you have a lawyer?
+subquestion: |
+fields:
+  - no label: users[i].has_attorney
+    input type: radio
+    choices:
+      - Yes: True
+      - No: False
+---
+sets:
+  - x.has_attorney
+id: person has attorney
+generic object: ALIndividual
+question: |
+  Does ${ x } have a lawyer?
+subquestion: |
+fields:
+  - no label: x.has_attorney
+    input type: radio
+    choices:
+      - Yes: True
+      - No: False
+---
+sets:
+  - x[i].name.first
+  - x[i].name.last
+  - x[i].name.middle
+  - x[i].name.suffix
+  - x[i].bar_number
+id: lawyer name and bar
+generic object: ALPeopleList
+question: |
+  What is the lawyer's name and bar number?
+subquestion:
+  ${ collapse_template(help_user_find_bar_number_template) }
+fields:
+  - code: |
+      x[i].name_fields()
+  - label: |
+      Bar number
+      (include the 'P')
+    field: x[i].bar_number
+    required: False
+---
+template: help_user_find_bar_number_template
+subject: |
+  How can I find a lawyer's bar number?
+content: |
+  The lawyer's bar number is a five digit number after the letter P, usually listed 
+  after the lawyer's name. For example: P12345.  
