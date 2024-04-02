@@ -846,7 +846,10 @@ subquestion:
 fields:
   - code: |
       x[i].name_fields()
-  - Bar number: x[i].bar_number
+  - label: |
+      Bar number
+      (include the 'P')
+    field: x[i].bar_number
     required: False
 ---
 template: help_user_find_bar_number_template
