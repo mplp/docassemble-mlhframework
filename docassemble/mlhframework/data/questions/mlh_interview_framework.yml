@@ -280,7 +280,6 @@ code: |
     if MLH_esign:
       signature_date
   MLH_outro_saving_answers
-  MLH_outro_download_forms
   MLH_standard_outro_pages = True
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -369,34 +368,6 @@ subquestion: |
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
----
-id: MLH outro download forms
-question: |
-  Download Your ${ MLH_form_type.capitalize() }
-  % if MLH_instructions_included:
-   and Instructions 
-  % endif
-subquestion: |
-  On the next page, there will be a list of files. The top file is a cover sheet. 
-  % if MLH_instructions_included:
-    There will also be step-by-step instructions to tell you what to do next.
-  % endif
-  % if MLH_court_forms:
-  Do not file the cover sheet 
-  % if MLH_instructions_included:
-    or instructions 
-  % endif
-  with the court. The other files are the forms you will need to file with the court. 
-  % endif
-  In some situations, there will be more than one file. You will need to download each one separately. 
-
-  % if MLH_court_forms:
-  Be sure to review all of your forms before filing them to make sure all of the information is correct.
-  % else:
-  Be sure to review your ${ MLH_form_type } to make sure all of the information is correct.
-  % endif
-continue button field: MLH_outro_download_forms
-
 
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
