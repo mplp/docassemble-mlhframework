@@ -207,7 +207,7 @@ id: MLH intro saving answers logged in
 question: |
   Your answers are saved as you go
 subquestion: |
-  You are already signed in; just tap the **${MLH_continue_button_label}** button to save your progress. You can return later and finish or go back and change any of your answers.
+  You are already signed in; just tap the **${MLH_continue_button_label}** button to save your progress. You can come back later to finish or change your answers.
   
   To go back to saved answers, go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
