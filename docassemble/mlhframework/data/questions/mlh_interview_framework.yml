@@ -217,7 +217,7 @@ id: MLH intro saving answers logged out
 question: |
   Saving your answers
 subquestion: |
-  You can save your work at any time by signing in or signing up for an account. That way, you can come back later to finish, or change your answers.
+  You can save your work at any time by signing in or signing up for an account. That way, you can come back later to finish or change your answers.
 
   Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
   % if device().is_mobile:
