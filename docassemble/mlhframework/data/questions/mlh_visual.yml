@@ -35,7 +35,7 @@ subquestion: |
   page.
   % endif
   
-  Click **Start over** to start a new copy of the form you are working on,
+  Tap **Start over** to start a new copy of the form you are working on,
   or **${ MLH_back_button_label }** if you want to keep working.
 back button label: |
   ${ MLH_back_button_label }
@@ -52,7 +52,7 @@ subquestion: |
   actions that were scheduled, such as reminders from this website,
   will also be removed.
   
-  Click **Exit and delete my answers** to delete your progress,
+  Tap **Exit and delete my answers** to delete your progress,
   or **${ MLH_back_button_label }** if you want to keep working.
 back button label: |
   ${ MLH_back_button_label }
