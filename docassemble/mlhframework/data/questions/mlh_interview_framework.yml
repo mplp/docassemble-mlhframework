@@ -158,7 +158,7 @@ code: |
 ---
 # This is the very first screen for every single interview.
 # The question text is very generic and should be overridden by each tool.
-id: MLH intro landing
+id: MLH intro landing FirstScreen
 question: |
   ${ MLH_interview_short_title }
 subquestion: |
@@ -185,11 +185,11 @@ continue button field: MLH_intro_time
 id: MLH intro navigation
 question: "Navigation"
 subquestion: |
-  If you make a mistake at any time, you can use the **< ${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by clicking the "✎ Review / Edit" or "✎ Review your answers" link.
+  If you make a mistake at any time, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" or "✎ Review your answers" link.
 
   Tap the {green words} in any screen for a definition or more information.
 
-  You can also click an underlined link with a green triangle next to it to see more information.
+  You can also tap an underlined link with a green triangle next to it to see more information.
 
   ${ collapse_template(collapsible_info_template) }
 terms:
@@ -198,16 +198,16 @@ terms:
 continue button field: MLH_intro_navigation
 ---
 template: collapsible_info_template
-subject: Click here to see more information
+subject: Tap here to see more information
 content: |
-  You can find more information or definitions by clicking on these links.
+  You can find more information or definitions by tapping on these links.
 ---
 if: user_logged_in()
 id: MLH intro saving answers logged in
 question: |
   Your answers are saved as you go
 subquestion: |
-  You are already signed in; just click the **${MLH_continue_button_label}** button to save your progress. You can return later and finish or go back and change any of your answers.
+  You are already signed in; just tap the **${MLH_continue_button_label}** button to save your progress. You can come back later to finish or change your answers.
   
   To go back to saved answers, go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_intro_saving_answers
@@ -217,7 +217,7 @@ id: MLH intro saving answers logged out
 question: |
   Saving your answers
 subquestion: |
-  If you can't finish now or need to get more information, you can save your work at any time. This lets you return later and finish, or go back and change any of your answers.
+  You can save your work at any time by signing in or signing up for an account. That way, you can come back later to finish or change your answers.
 
   Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
   % if device().is_mobile:
@@ -261,7 +261,7 @@ question: You cannot use this tool.
 subquestion: |
   You cannot continue with this tool unless you understand that you should not enter any personal identifying information that the tool does not specifically ask for.
   
-  If you made a mistake, click the **< ${ MLH_back_button_label }** button to change your answer. Otherwise, you can return to [Michigan Legal Help](https://michiganlegalhelp.org) for other legal information or resources.
+  If you made a mistake, tap the **${ MLH_back_button_label }** button to change your answer. Otherwise, you can return to [Michigan Legal Help](https://michiganlegalhelp.org) for other legal information or resources.
 event: MLH_intro_agree_no_pii_exit
 # # # # # # # # # # # # # # # # Standard Outro Pages # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # Standard Outro Pages # # # # # # # # # # # # # # # #
@@ -555,7 +555,7 @@ fields:
     datatype: area
     default: |
       Hi, I wanted to share my progress on a form on Michigan Legal Help.
-      If you click this link, you can follow along or finish the form for me.
+      If you tap this link, you can follow along or finish the form for me.
     js show if: |
       val("al_how_share_link") === "email" && val("al_sharing_type") === "share_answers"      
   - Your name: al_share_form_from_name
@@ -577,7 +577,7 @@ subject: |
   ${ AL_ORGANIZATION_TITLE } from ${ al_share_form_from_name }
 content: |
   ${ share_interview_answers_message.replace("\n", "<br>") }
-  Click the link below to view and edit ${ al_share_form_from_name }'s
+  Tap the link below to view and edit ${ al_share_form_from_name }'s
   progress so far:
   
   ${ interview_url(temporary=48) }
