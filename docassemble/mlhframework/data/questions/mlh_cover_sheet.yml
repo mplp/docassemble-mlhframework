@@ -18,18 +18,24 @@
 # Note that any of the cover_sheet_X strings can be overridden in a program's local yml.
 ---
 code: |
-  accessible_instructions_link = "[https://michiganlegalhelp.org/](https://michiganlegalhelp.org/)"
-# This default should be overwritten in each interview.
+  accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
+---
+code: |
+  resource_page_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_resource_page_link](https://michiganlegalhelp.org/)"
+# These defaults must be overwritten in each interview.
+# Should display the link itself so that it works both to click and to read on paper.
 # Example:
 # ---
 # code: |
 #   accessible_instructions_link = "[https://michiganlegalhelp.org/step/565](https://michiganlegalhelp.org/step/565)"
 # ---
-# Should display the link itself so that it works both to click and to read on paper.
+# code: |
+#   resource_page_link = "[https://michiganlegalhelp.org/node/528](https://michiganlegalhelp.org/node/528)"
+# ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
 code: |
-  cover_sheet_top_message = "Congratulations! Your court forms are ready."
+  cover_sheet_top_message = "Congratulations! Your forms are ready."
 ---
 code: |
   cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
@@ -39,11 +45,11 @@ code: |
   else:
 	  cover_sheet_complete_1 += "To find "
 
-  cover_sheet_complete_1 += f"the instructions for you { MLH_form_type }, visit MichiganLegalHelp.org. Find the specific Resource page that matches your legal problem and select your county. Instructions are just below the articles on each Resource page. If the page has more than one set of instructions, be sure to pick the one that applies to you."
-  # TODO in future: Some tools will only generate partial instructions, so a link to the full 
-  # instructions or Resouce page can be included here on the cover sheet.
-  # TODO in future: Also, may want to create variables here to easily link directly to the appropriate 
-  # resource page or instructions.
+  cover_sheet_complete_1 += f"instructions online, visit:"
+  # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
+---
+code: |
+  cover_sheet_complete_1a = f"For more information, you can also visit the resource page for this topic:"
 ---
 code: |
   cover_sheet_share = "Share Your Experience with Us"
@@ -68,6 +74,7 @@ attachment:
       - "accessible_instructions_link": ${ accessible_instructions_link }
       - "cover_sheet_top_message": ${ cover_sheet_top_message }
       - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
+      - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
       - "cover_sheet_share": ${ cover_sheet_share }
       - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
       - "cover_sheet_survey_link": ${ cover_sheet_survey_link }

@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 4/9/24    0.4.16 Tweaks to cover sheet
 * 4/8/24    0.4.15 Minor wording changes; added tag for GA4 data.
 * 4/2/24    0.4.14 Court loader additions; portfolio-wide cover sheet; "Back" and "Next" language. bharrison
 * 4/1/24    0.4.13 Update Sign Up Sign In styling
