@@ -214,6 +214,6 @@ footer a {
 }
 
 /* Make "Sign in" button on desktop bigger: https://github.com/mplp/docassemble-mlhframework/issues/87 */
-#danavbar-collapse a.btn-primary[href="/user/sign-in"] {
+#danavbar-collapse a.btn-primary[href*="/user/sign-in"] {
   --bs-btn-font-size: 1.125rem;
 }
