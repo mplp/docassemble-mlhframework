@@ -217,3 +217,9 @@ footer a {
 #danavbar-collapse a.btn-primary[href*="/user/sign-in"] {
   --bs-btn-font-size: 1.125rem;
 }
+
+/* Make "Sign in" button on desktop white when hovering, slight change when hovering */
+.navbar-nav {
+  --bs-nav-link-color: var(--bs-navbar-hover-color);
+  --bs-nav-link-hover-color: var(--bs-navbar-color);
+}
