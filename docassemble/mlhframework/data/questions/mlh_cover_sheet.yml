@@ -35,21 +35,19 @@ code: |
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
 code: |
+  cover_sheet_select_county = " and select a county."
+---
+code: |
   cover_sheet_top_message = "Congratulations! Your forms are ready."
 ---
 code: |
   cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
-  cover_sheet_complete_1 += "\n\n"
   if MLH_instructions_included == True:
-	  cover_sheet_complete_1 += f"Read the instructions in this document. Or, to find "
-  else:
-	  cover_sheet_complete_1 += "To find "
-
-  cover_sheet_complete_1 += f"instructions online, visit:"
+	  cover_sheet_complete_1 += f" Read the instructions in this document."
   # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
 ---
 code: |
-  cover_sheet_complete_1a = f"For more information, you can also visit the resource page for this topic:"
+  cover_sheet_complete_1a = f"For more information or online instructions, visit:"
 ---
 code: |
   cover_sheet_share = "Share Your Experience with Us"
@@ -72,6 +70,7 @@ attachment:
   tagged pdf: True
   fields:
       - "accessible_instructions_link": ${ accessible_instructions_link }
+      - "cover_sheet_select_county": ${ cover_sheet_select_county }
       - "cover_sheet_top_message": ${ cover_sheet_top_message }
       - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
       - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }

@@ -3,6 +3,8 @@
 A docassemble extension.
 
 ## Author
+* 4/26/24   0.4.19 Tweaks to cover sheet
+* 4/26/24   0.4.18 sign in sign up color update
 * 4/22/24   0.4.17 Fix Sign up Sign in styling (2nd attempt)
 * 4/9/24    0.4.16 Tweaks to cover sheet
 * 4/8/24    0.4.15 Minor wording changes; added tag for GA4 data.
