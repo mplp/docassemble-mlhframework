@@ -5,8 +5,8 @@
 # 1. As Individual file, include this code in local yml file:
 #    ---
 #    objects:
-#      - al_cover: ALDocumentBundle.using(elements=[cover_sheet_template], filename="Instructions - Do 
-#        not file this", title="Instructions", enabled=True)
+#      - al_cover: ALDocumentBundle.using(elements=[cover_sheet_template], filename="Cover Sheet - Do 
+#        not file this", title="Cover Sheet", enabled=True)
 # 2. As part of a combined file ('instructions' is an ALDocument defined locally):
 #    ---
 #    objects:
@@ -83,5 +83,5 @@ attachment:
 # To be used in a program's local ALDocumentBundle
 objects:
   - cover_sheet_template: >-
-      ALDocument.using(title="Instructions", 
-      filename="Instructions - Do not file this", enabled=True, has_addendum=False)
+      ALDocument.using(title="Cover Sheet", 
+      filename="Cover Sheet", enabled=True, has_addendum=False)
