@@ -54,7 +54,10 @@ code: |
   github_repo_name = "docassemble-General"  # default github repo
 ---
 code: |
-  MLH_instructions_included = False  # are instructions generated with the form(s)/letter(s)?
+  MLH_instructions_included = True  # are instructions generated with the form(s)/letter(s)?
+---
+code: |
+  MLH_multiple_forms = True         # does the tool produce multiple forms?
 ---
 code: |
   MLH_court_forms = True             # Does this create forms to be filed with the court?
@@ -73,6 +76,14 @@ code: |
 code: |
   MLH_time_min = 10
   MLH_time_max = 45
+---
+code: |
+  include_MLH_materials = False      # include a list of needed info to complete the tool?
+---
+template: MLH_materials              # default list of needed info for tools
+content: |
+  * Information about your legal issue
+  * Information about the people involved
 ######
 ---
 # docassemble-level metadata. To be overridden by individual tools.
@@ -168,16 +179,21 @@ subquestion: |
   
   If you have any questions or you aren't sure what to do, you may want to talk to a lawyer. ${ MLH_GUIDE_FULL }
 continue button field: MLH_intro_landing
-
 ---
 id: MLH intro time
 question: "Using this Tool"
 subquestion: |
-  It should take you between ${ MLH_time_min } and ${ MLH_time_max } minutes to answer all the questions.
+  It should take you between **${ MLH_time_min } and ${ MLH_time_max } minutes** to answer all the questions.
+  % if include_MLH_materials:
   
-  Your personalized ${ MLH_form_type } will be ready to print after you have answered all the questions. 
+    To fill out your forms **you will need:**
+    
+    ${ MLH_materials }
+  % endif
+  
+  Your personalized ${ MLH_form_type } will be ready after you answer all the questions. 
   % if MLH_instructions_included:
-    You will also get step-by-step instructions on what to do next with your ${ MLH_form_type }.
+    You will also get instructions for what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
 
@@ -274,7 +290,6 @@ event: MLH_intro_agree_no_pii_exit
 code: |
   if MLH_court_forms:
     MLH_outro_filing_information
-    MLH_outro_form_generation
   if MLH_esign_supported:
     MLH_esign
     if MLH_esign:
@@ -290,33 +305,35 @@ code: |
 ---
 id: MLH outro filing information
 question: |
-  Filing Information
+  Filing your ${ MLH_form_type } 
 subquestion: |
-  **Completing this process does not file your forms with the court.**
+  **Completing this process does not file your ${ MLH_form_type } with the court.**
 
-  You need to file them at court in person, by mail, e-mail, or by e-filing. If you are e-filing, you must use ${ MLH_MiFILE }. 
+  You need to file your ${ MLH_form_type } at court in person, by mail, e-mail, or by e-filing. Contact your court to find out how you can file. 
   
+  ${ collapse_template(efiling_info_template) }
+  % if MLH_multiple_forms:
+  
+    This tool produces multiple forms for your case. **Download and save all the forms**.
+  % endif
   % if MLH_instructions_included: 
-    Read the instructions that you will get with your forms for more information. 
+  
+    Read the instructions that come with your forms for more information 
+  % if MLH_multiple_forms:
+    , including when to file each form.
+  % endif
+  % else:
+    .
   % endif
 continue button field: MLH_outro_filing_information
-
----
-id: MLH outro form generation
-question: |
-  Form Generation
-subquestion: |
-  This tool will create separate forms so you can more easily e-file using ${ MLH_MiFILE }, if you plan to e-file. This means that **you may need to download multiple files to get all of the forms you will need.**
-  ${ collapse_template(efiling_info_template) }
-continue button field: MLH_outro_form_generation
-
 ---
 template: efiling_info_template
-subject: How do I know if I am going to e-file?
+subject: Can I e-file?
 content: |
-  Only some courts and case types allow e-filing. 
+  Only some courts and case types allow e-filing using ${ MLH_MiFILE } or another e-filing system. 
+  
   To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
-  The article tells you how to find out which courts have e-filing and what kinds of cases those courts are accepting by e-filing.
+  The article tells you how to find out which courts have e-filing and what kinds of cases those courts accept by e-filing.
   
   ${ MLH_case_type_language }
 
