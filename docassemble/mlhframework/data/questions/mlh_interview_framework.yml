@@ -84,7 +84,7 @@ code: |
 code: |
   include_MLH_materials = False      # include a list of needed info to complete the tool?
 ---
-template: MLH_materials              # default list of needed info for tools
+template: MLH_materials              # default list of needed info. Keep as bulleted list if replacing
 content: |
   * Information about your legal issue
   * Information about the people involved
@@ -187,7 +187,7 @@ continue button field: MLH_intro_landing
 id: MLH intro time
 question: "Using this Tool"
 subquestion: |
-  It should take you between **${ MLH_time_min } and ${ MLH_time_max } minutes** to answer all the questions.
+  It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
   % if include_MLH_materials:
   
     To fill out your forms **you will need:**
@@ -322,12 +322,12 @@ subquestion: |
   % endif
   % if MLH_instructions_included: 
   
-    Read the instructions that come with your forms for more information 
+    Read the instructions that come with your forms for more information
   % if MLH_multiple_forms:
     , including when to file each form.
-  % endif
   % else:
     .
+  % endif
   % endif
 continue button field: MLH_outro_filing_information
 ---
