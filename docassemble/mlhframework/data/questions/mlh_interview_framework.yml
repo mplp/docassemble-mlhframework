@@ -321,12 +321,10 @@ subquestion: |
     This tool produces multiple forms for your case. **Download and save all the forms**.
   % endif
   % if MLH_instructions_included:
-  
-    Read the instructions that come with your forms for more information
   % if MLH_multiple_forms:
-    , including when to file each form.
+    Read the instructions that come with your forms for more information, including when to file each form.
   % else:
-    .
+    Read the instructions that come with your forms for more information.
   % endif
   % endif
 continue button field: MLH_outro_filing_information
