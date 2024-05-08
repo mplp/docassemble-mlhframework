@@ -320,7 +320,7 @@ subquestion: |
   
     This tool produces multiple forms for your case. **Download and save all the forms**.
   % endif
-  % if MLH_instructions_included: 
+  % if MLH_instructions_included:
   
     Read the instructions that come with your forms for more information
   % if MLH_multiple_forms:
@@ -853,7 +853,7 @@ content: |
   The lawyer's bar number is a five digit number after the letter P, usually listed 
   after the lawyer's name. For example: P12345.  
 ---
-template: help_user_ask_role_template
+template: help_user_ask_role_template    # must edit/replace this if other roles apply
 subject: |
   How do I know?
 content: |
