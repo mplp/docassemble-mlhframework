@@ -21,6 +21,10 @@ objects:
       DAStaticFile.using(
         filename="case_number.jpg",
         alt_text=word("A court form. The case number, 01-234 DM, is circled in the top right"))
+  - image_plaintiff_or_defendant: |
+      DAStaticFile.using(
+        filename="plaintiff_or_defendant.jpg",
+        alt_text=word("The plaintiff and defendant's names are circled, partially down the first page. The plaintiff is on the left, and the defendant is on the right."))
 ---
 code: |
   al_logo.alt_text = ""
@@ -307,9 +311,9 @@ id: MLH outro filing information
 question: |
   Filing your ${ MLH_form_type } 
 subquestion: |
-  **Completing this process does not file your ${ MLH_form_type } with the court.**
+  This website **does not file** your ${ MLH_form_type } with the court.
 
-  You need to file your ${ MLH_form_type } at court in person, by mail, e-mail, or by e-filing. Contact your court to find out how you can file. 
+  **You need to file** your ${ MLH_form_type } at court in person, by mail, e-mail, or by e-filing. Contact your court to find out how you can file. 
   
   ${ collapse_template(efiling_info_template) }
   % if MLH_multiple_forms:
@@ -848,3 +852,15 @@ subject: |
 content: |
   The lawyer's bar number is a five digit number after the letter P, usually listed 
   after the lawyer's name. For example: P12345.  
+---
+template: help_user_ask_role_template
+subject: |
+  How do I know?
+content: |
+  You can find the parties by looking at the first page of an existing court document, like a complaint, petition, or answer. The top of the first page is the “caption” which has the basic case information. This area will list all of the parties in the case with their titles.
+
+  ${ image_plaintiff_or_defendant.show(width="100%") }
+
+  If you were the first person to file a form to start this case, you are the Plaintiff. If someone else started this case by filing in court, you
+  are the Defendant.
+---
