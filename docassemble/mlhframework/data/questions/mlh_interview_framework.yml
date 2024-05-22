@@ -300,6 +300,7 @@ subquestion: |
     Read the instructions that you will get with your forms for more information. 
   % endif
 continue button field: MLH_outro_filing_information
+progress: 97
 
 ---
 id: MLH outro form generation
@@ -334,6 +335,7 @@ fields:
       If you choose **Yes**, the forms will be signed "*/s/ ${users[0].name.full()}*" when you download them. 
 under: |
   ${ collapse_template(signature_info_template) }
+progress: 98
 ---
 template: signature_info_template
 subject: |
@@ -368,6 +370,7 @@ subquestion: |
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
+progress: 99
 
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
