@@ -31,7 +31,7 @@ code: |
   AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
   AL_DEFAULT_STATE = "MI"     # default state in address fields
   AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/')
-  AL_ORGANIZATION_TITLE = "Michigan Legal Help Forms"
+  AL_ORGANIZATION_TITLE = "MLH-Forms"
   AL_DEFAULT_OVERFLOW_MESSAGE = " [PLEASE SEE ATTACHMENT.]"
 
   # The below variables can be used to quickly and consistently include common links and language.
