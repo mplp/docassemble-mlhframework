@@ -31,7 +31,7 @@ code: |
   AL_DEFAULT_COUNTRY = "US"   # default country and list of states in address fields
   AL_DEFAULT_STATE = "MI"     # default state in address fields
   AL_ORGANIZATION_HOMEPAGE = get_config('app homepage', 'https://michiganlegalhelp.org/')
-  AL_ORGANIZATION_TITLE = "Michigan Legal Help Forms"
+  AL_ORGANIZATION_TITLE = "MLH-Forms"
   AL_DEFAULT_OVERFLOW_MESSAGE = " [PLEASE SEE ATTACHMENT.]"
 
   # The below variables can be used to quickly and consistently include common links and language.
@@ -99,7 +99,7 @@ default screen parts:
   #submit: This is the submit screen part.
   # post: Provided by [Michigan Legal Help](https://michiganlegalhelp.org).
   right: |
-    ✎ [Review your answers](${ url_action('review_full') })
+    ✎ [Review / Edit Past Answers](${ url_action('review_full') })
   under: |
     % if not user_logged_in():
     [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
@@ -185,7 +185,7 @@ continue button field: MLH_intro_time
 id: MLH intro navigation
 question: "Navigation"
 subquestion: |
-  If you make a mistake at any time, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" or "✎ Review your answers" link.
+  If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
   Tap the {green words} in any screen for a definition or more information.
 
@@ -300,6 +300,7 @@ subquestion: |
     Read the instructions that you will get with your forms for more information. 
   % endif
 continue button field: MLH_outro_filing_information
+progress: 97
 
 ---
 id: MLH outro form generation
@@ -334,6 +335,7 @@ fields:
       If you choose **Yes**, the forms will be signed "*/s/ ${users[0].name.full()}*" when you download them. 
 under: |
   ${ collapse_template(signature_info_template) }
+progress: 98
 ---
 template: signature_info_template
 subject: |
@@ -368,6 +370,7 @@ subquestion: |
 
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
 continue button field: MLH_outro_saving_answers
+progress: 99
 
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
