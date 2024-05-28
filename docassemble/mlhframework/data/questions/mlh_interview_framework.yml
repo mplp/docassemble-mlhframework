@@ -759,7 +759,7 @@ fields:
     required: False
     datatype: yesno
   - note: |
-      ${ what_if_no_number_template.content }
+      ${ if_check_no_phone_template.content }
     show if: users[0].no_phone_number
 ---
 template: what_if_no_number_template
@@ -767,7 +767,12 @@ subject: What if I don't have a phone?
 content: |
   You can enter someone else's number as long as they can safely pass on messages to you. You should tell this person that you are using their number on your court forms. 
 
-  If you don't have a phone, **and** nobody can safely pass messages to you, select the "Yes" checkbox above.
+  If you don't have a phone, **and** nobody can safely pass messages to you, check the checkbox below.
+---
+template: if_check_no_phone_template
+subject: What if I don't have a phone?
+content: |
+  If there's someone who can safely pass on phone messages to you, **uncheck** the checkbox above and enter their number. Tell this person that you are using their number on your court forms. 
 ---
 generic object: ALIndividual
 code: |
