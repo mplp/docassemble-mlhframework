@@ -82,7 +82,7 @@ code: |
   MLH_time_max = 45
 ---
 code: |
-  include_MLH_materials = False      # include a list of needed info to complete the tool?
+  MLH_materials_included = False      # include a list of needed info to complete the tool?
 ---
 template: MLH_materials              # default list of needed info. Keep as bulleted list if replacing
 content: |
@@ -188,7 +188,7 @@ id: MLH intro time
 question: "Using this Tool"
 subquestion: |
   It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
-  % if include_MLH_materials:
+  % if MLH_materials_included:
   
     To fill out your forms **you will need:**
     
@@ -857,6 +857,5 @@ content: |
 
   ${ image_plaintiff_or_defendant.show(width="100%") }
 
-  If you were the first person to file a form to start this case, you are the Plaintiff. If someone else started this case by filing in court, you
-  are the Defendant.
+  If you were the first person to file a form to start this case, you are the Plaintiff. If someone else started this case by filing in court, you are the Defendant.
 ---
