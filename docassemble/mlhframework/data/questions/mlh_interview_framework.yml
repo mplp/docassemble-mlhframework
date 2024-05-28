@@ -739,7 +739,7 @@ fields:
     show if:
       variable: x.no_phone_number
       is: False
-  - ${ x } does not have a phone or I don't know what their number is.: x.no_phone_number
+  - ${ x } does not have a phone or I don't know their number.: x.no_phone_number
     required: False
     datatype: yesno
 ---
