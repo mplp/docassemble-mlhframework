@@ -1,12 +1,12 @@
 metadata:
-  title: Michigan Legal Help Do-It-Yourself Forms
-  short title: MLH Forms
+  title: MLH-Forms
+  short title: MLH-Forms
   temporary session: True 
 ---
 mandatory: True
 event: index
 question: |
-  Michigan Legal Help Do-It-Yourself Forms
+  MLH-Forms
 subquestion: |
   [Michigan Legal Help](https://michiganlegalhelp.org/) provides Do-It-Yourself forms for people facing legal issues without a lawyer.
   
