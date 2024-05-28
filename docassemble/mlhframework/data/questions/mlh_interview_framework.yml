@@ -21,6 +21,10 @@ objects:
       DAStaticFile.using(
         filename="case_number.jpg",
         alt_text=word("A court form. The case number, 01-234 DM, is circled in the top right"))
+  - image_plaintiff_or_defendant: |
+      DAStaticFile.using(
+        filename="plaintiff_or_defendant.jpg",
+        alt_text=word("The plaintiff and defendant's names are circled, partially down the first page. The plaintiff is on the left, and the defendant is on the right."))
 ---
 code: |
   al_logo.alt_text = ""
@@ -54,7 +58,10 @@ code: |
   github_repo_name = "docassemble-General"  # default github repo
 ---
 code: |
-  MLH_instructions_included = False  # are instructions generated with the form(s)/letter(s)?
+  MLH_instructions_included = True  # are instructions generated with the form(s)/letter(s)?
+---
+code: |
+  MLH_multiple_forms = True         # does the tool produce multiple forms?
 ---
 code: |
   MLH_court_forms = True             # Does this create forms to be filed with the court?
@@ -73,6 +80,14 @@ code: |
 code: |
   MLH_time_min = 10
   MLH_time_max = 45
+---
+code: |
+  MLH_materials_included = False      # include a list of needed info to complete the tool?
+---
+template: MLH_materials              # default list of needed info. Keep as bulleted list if replacing
+content: |
+  * Information about your legal issue
+  * Information about the people involved
 ######
 ---
 # docassemble-level metadata. To be overridden by individual tools.
@@ -168,16 +183,21 @@ subquestion: |
   
   If you have any questions or you aren't sure what to do, you may want to talk to a lawyer. ${ MLH_GUIDE_FULL }
 continue button field: MLH_intro_landing
-
 ---
 id: MLH intro time
 question: "Using this Tool"
 subquestion: |
-  It should take you between ${ MLH_time_min } and ${ MLH_time_max } minutes to answer all the questions.
+  It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
+  % if MLH_materials_included:
   
-  Your personalized ${ MLH_form_type } will be ready to print after you have answered all the questions. 
+    To fill out your forms **you will need:**
+    
+    ${ MLH_materials }
+  % endif
+  
+  Your personalized ${ MLH_form_type } will be ready after you answer all the questions. 
   % if MLH_instructions_included:
-    You will also get step-by-step instructions on what to do next with your ${ MLH_form_type }.
+    You will also get instructions for what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
 
@@ -274,7 +294,6 @@ event: MLH_intro_agree_no_pii_exit
 code: |
   if MLH_court_forms:
     MLH_outro_filing_information
-    MLH_outro_form_generation
   if MLH_esign_supported:
     MLH_esign
     if MLH_esign:
@@ -290,34 +309,33 @@ code: |
 ---
 id: MLH outro filing information
 question: |
-  Filing Information
+  This website **does not file** your ${ MLH_form_type }.
 subquestion: |
-  **Completing this process does not file your forms with the court.**
-
-  You need to file them at court in person, by mail, e-mail, or by e-filing. If you are e-filing, you must use ${ MLH_MiFILE }. 
+  **You need to file** your ${ MLH_form_type } at court in person, by mail, e-mail, or by e-filing. Contact your court to find out how you can file. 
   
-  % if MLH_instructions_included: 
-    Read the instructions that you will get with your forms for more information. 
+  ${ collapse_template(efiling_info_template) }
+  % if MLH_multiple_forms:
+  
+    This tool produces multiple forms for your case. On the download page at the end of this tool, **download and save all the forms**.
+  % endif
+  % if MLH_instructions_included:
+  % if MLH_multiple_forms:
+    Read the instructions that come with your forms for more information, including when to file each form.
+  % else:
+    Read the instructions that come with your forms for more information.
+  % endif
   % endif
 continue button field: MLH_outro_filing_information
 progress: 97
 
 ---
-id: MLH outro form generation
-question: |
-  Form Generation
-subquestion: |
-  This tool will create separate forms so you can more easily e-file using ${ MLH_MiFILE }, if you plan to e-file. This means that **you may need to download multiple files to get all of the forms you will need.**
-  ${ collapse_template(efiling_info_template) }
-continue button field: MLH_outro_form_generation
-
----
 template: efiling_info_template
-subject: How do I know if I am going to e-file?
+subject: Can I e-file?
 content: |
-  Only some courts and case types allow e-filing. 
+  Only some courts and case types allow e-filing using ${ MLH_MiFILE } or another e-filing system. 
+  
   To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
-  The article tells you how to find out which courts have e-filing and what kinds of cases those courts are accepting by e-filing.
+  The article tells you how to find out which courts have e-filing and what kinds of cases those courts accept by e-filing.
   
   ${ MLH_case_type_language }
 
@@ -834,3 +852,14 @@ subject: |
 content: |
   The lawyer's bar number is a five digit number after the letter P, usually listed 
   after the lawyer's name. For example: P12345.  
+---
+template: help_user_ask_role_template    # must edit/replace this if other roles apply
+subject: |
+  How do I know?
+content: |
+  You can find the parties by looking at the first page of an existing court document, like a complaint, petition, or answer. The top of the first page is the “caption” which has the basic case information. This area will list all of the parties in the case with their titles.
+
+  ${ image_plaintiff_or_defendant.show(width="100%") }
+
+  If you were the first person to file a form to start this case, you are the Plaintiff. If someone else started this case by filing in court, you are the Defendant.
+---
