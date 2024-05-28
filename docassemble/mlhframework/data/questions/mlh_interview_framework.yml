@@ -739,7 +739,7 @@ fields:
     show if:
       variable: x.no_phone_number
       is: False
-  - ${ x } does not have a phone number or I don't know what their number is: x.no_phone_number
+  - ${ x } does not have a phone or I don't know what their number is.: x.no_phone_number
     required: False
     datatype: yesno
 ---
@@ -755,7 +755,7 @@ fields:
     show if:
       variable: users[0].no_phone_number
       is: False
-  - There is NO reliable way to contact me by phone: users[0].no_phone_number
+  - There's NO reliable way to contact me by phone.: users[0].no_phone_number
     required: False
     datatype: yesno
   - note: |
