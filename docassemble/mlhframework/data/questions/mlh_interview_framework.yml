@@ -739,7 +739,7 @@ fields:
     show if:
       variable: x.no_phone_number
       is: False
-  - ${ x } does not have a phone number: x.no_phone_number
+  - ${ x } does not have a phone number or I don't know what their number is: x.no_phone_number
     required: False
     datatype: yesno
 ---
@@ -755,7 +755,7 @@ fields:
     show if:
       variable: users[0].no_phone_number
       is: False
-  - I do not have a contact number: users[0].no_phone_number
+  - There is NO reliable way to contact me by phone: users[0].no_phone_number
     required: False
     datatype: yesno
   - note: |
@@ -763,16 +763,16 @@ fields:
     show if: users[0].no_phone_number
 ---
 template: what_if_no_number_template
-subject: What if I don't have a phone_number?
+subject: What if I don't have a phone?
 content: |
-  If you do not have a phone number, you can give someone else's number
-  as long as they can pass on messages to you. You should tell this person
-  that you are using their number on your court forms.
+  You can enter someone else's number as long as they can safely pass on messages to you. You should tell this person that you are using their number on your court forms. 
+
+  If you don't have a phone, **and** nobody can safely pass messages to you, select the "Yes" checkbox above.
 ---
 generic object: ALIndividual
 code: |
   if x.no_phone_number:
-    x.phone_number = "Does not have phone"
+    x.phone_number = "Unknown phone"
 ---
 code: |
   if users[0].no_phone_number:
