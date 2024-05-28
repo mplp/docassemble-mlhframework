@@ -747,7 +747,7 @@ id: your contact information
 question: |
   What is your phone number?
 subquestion: |
-  The court must be able to call you. So you have to give them a way to do this.
+  Court staff may need to call you about your case. It's important to give a phone number if possible.
 
   ${ collapse_template(what_if_no_number_template) }
 fields:
@@ -765,14 +765,14 @@ fields:
 template: what_if_no_number_template
 subject: What if I don't have a phone?
 content: |
-  You can enter someone else's number as long as they can safely pass on messages to you. You should tell this person that you are using their number on your court forms. 
+  You can enter someone else's number as long as they can safely pass on messages to you. Tell this person that you are using their number on your court forms. 
 
   If you don't have a phone, **and** nobody can safely pass messages to you, check the checkbox below.
 ---
 template: if_check_no_phone_template
 subject: What if I don't have a phone?
 content: |
-  If there's someone who can safely pass on phone messages to you, **uncheck** the checkbox above and enter their number. Tell this person that you are using their number on your court forms. 
+  If someone can safely pass messages on to you, **uncheck** the statement above and enter their phone number. Tell this person that you are using their number on your court forms. 
 ---
 generic object: ALIndividual
 code: |
