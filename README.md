@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 5/29/24   0.4.21 increase Sign Up button size; retitle "My Forms" page; add terms and conditions screen
 * 5/28/24   0.4.20 changes to intro and outro questions; add help_user_ask_role_template; change name to MLH-Forms; added progress settings to outro questions; changed review link language
 * 4/26/24   0.4.19 Tweaks to cover sheet
 * 4/26/24   0.4.18 sign in sign up color update
