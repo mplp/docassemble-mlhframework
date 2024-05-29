@@ -1,70 +1,83 @@
 ---
-template: MLH_terms_of_use  # this is example from AL, need to insert our own text
+template: MLH_terms_of_use  
 subject: ""
 content: |
-  <h2 class="h5">Terms of Use and Privacy Policy</h2>
-  This website is free to use. 
-  % if get_config("default title") and get_config("default title") != "docassemble":
-  ${ get_config("default title") }
-  % else:
-  ${ AL_ORGANIZATION_TITLE }
-  % endif
-  hosts the site.
-  % if (not get_config("default title") == AL_ORGANIZATION_TITLE) and get_config("default title") != "docassemble":
-  And it includes content from ${ AL_ORGANIZATION_TITLE }.
-  % endif
-  <h3 class="h5">You need to know</h3>
-  * **This website does not provide legal advice**. 
-  % if AL_DEFAULT_COUNTRY == "US":
-  If you need legal advice, you can use [LSC.gov](https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help) to find a lawyer.
-  % else:
-  If you need legal adice, call your local legal aid organization or lawyer referral service.
-  % endif
-  * The information and documents on this website have no warranty. We provide the information “as-is.” By using the site, you agree not to hold 
-  % if get_config("default title") and get_config("default title") != "docassemble":
-  ${ get_config("default title") }
-  % else:
-  ${ AL_ORGANIZATION_TITLE }
-  % endif
-  or the information providers on this site liable.
-  * We work hard to keep the information on the site up to date. Lawyers drafted and reviewed the documents this site uses. But laws and local rules change over time. These changes can make a document unenforceable when you use it.
-  * We do our best to keep the site working! To do that, we allow you to submit feedback so we can track problems on the site. But we cannot provide individual technical support.
-  <h3 class="h5">To use this site</h3>
-  * You need to be at least 13.
-  * This site is for **anyone** 13 and over. For example: you can be the person who needs the help, a lawyer, or a social worker.
-  * You may not sell the information or the contents of this site. But you can charge for your own time.
-  * Please keep your use fair. Do not use this site in a way that is illegal or that makes it harder for other people to use.
-  <h3 class="h5">Information we and others collect</h3>
-  * We collect the information that you type to help you complete your forms. We delete all information ${ get_config("interview delete days", 90)} days after you last update it. You can also delete information immediately.
-  * We log information including IP addresses and web browsers from all visitors. We use this information to keep our site secure. We keep logs for up to 180 days.
-  * We use Google Maps to help fill in addresses automatically. This feature sends your IP address to Google Maps to get your approximate location.
-  * We use Google Analytics to learn how people use our website. This helps us understand which pages are hardest to use. Google may use this information to show you better advertisements.
-  * We use email and text message delivery services that may keep their own records of any messages you send. If you choose to log in with your phone number, this may include a record of the times you log in to the site.
-  <h3 class="h5">We keep your information safe</h3>
-  * We use the same technology that banks and online stores use to keep your information safe. We use:
-  * 256 bit encryption
-  * Software firewalls
-  * Limited access controls
-  * Continual monitoring
-  * Regular security updates
-  <h3 class="h5">Sharing your information</h3>
-  * We never sell your information.
-  * We share anonymous information with a small number of nonprofits and researchers. We use the information to improve our site and to improve the delivery of free legal help.
-  * When you visit some pages of the site, the site may ask if you want to apply to get a free lawyer from legal aid. You get to decide if you want to share your personal information.
-  * You may choose to email completed forms or share a link to your in-progress work at any time to any person.
-  <h3 class="h5">These Terms of Use can change</h3>
-  We may change these Terms of Use at any time with no notice. Please review the terms on a regular basis to see any changes.
-  If you use the site after we make changes, you accept our changed Terms of Use.
-  <h3 class="h5">The laws of 
-  % if state_name(AL_DEFAULT_STATE, country_code=AL_DEFAULT_COUNTRY):
-  ${ state_name(AL_DEFAULT_STATE, country_code=AL_DEFAULT_COUNTRY) } 
-  % elif AL_DEFAULT_COUNTRY == "US":
-  the United States
-  % else:
-  ${ country_name(AL_DEFAULT_COUNTRY) }
-  % endif
-  apply to these Terms of Use</h3>
-  If a judge decides that one of the terms in this Terms of Use is unenforceable, it will not change the terms that remain.
+  <h2 class="h5">Terms of Use</h2>
+  Last updated: May 29, 2024
+  By using this website, michiganlegalhelp.org, (the “Site”) or the features and services made available through the Site, you accept and agree to these Terms of Use.  By accessing this Site in any way, you agree to and are bound by the policies contained on this page (the “Terms”). **Please read these Terms carefully** before using this Site. The Site is owned by Michigan Legal Help. 
+  We may change these terms. If we make changes, we will notify you by changing the date at the top of the Terms. If you use this Site after we change these Terms, you agree to those changes going forward. You agree to review these Terms periodically. 
+  You may not use the Site for any purpose that is illegal or not allowed by these Terms.
+
+  <h3 class="h6">Trademark, Copyright, and Intellectual Property Laws</h3>
+ “Michigan Legal Help Content” includes content that is provided by Michigan Legal Help:
+  * On this Site;
+  * In social media posts or messages;
+  *	By e-mail;
+  *	By online chat message; or
+  *	By text message.
+  Michigan Legal Help Content is the property of Michigan Legal Help and the Michigan Advocacy Program, and is protected in the U.S. and internationally under trademark, copyright, and other intellectual property laws.
+  You agree not to download, display or use any Michigan Legal Help Content in any publications, in public performances, on websites other than this Site for any other commercial purpose, in connection with products or services that are not those of Michigan Legal Help, or in any manner that is likely to cause confusion among consumers, that disparages or discredits Michigan Legal Help, that dilutes the strength of  Michigan Legal Help’s property, or that otherwise infringes Michigan Legal Help’s or its licensors’ intellectual property rights. You further agree not to misuse in any other way any Michigan Legal Help Content or third-party content that appears on this Site.
+
+   <h3 class="h6">Information, Not Legal Advice</h3>
+  Michigan Legal Help provides **information** to help people solve Michigan legal problems. 
+  Michigan Legal Help Content is **not legal advice**. Legal information is not the same as legal advice. Legal advice is the application of law to a person’s specific circumstances. Michigan Legal Help Content is not a substitute for the advice or representation of a lawyer. 
+  Although Michigan Legal Help tries to make sure the information provided is accurate and up to date, we **cannot guarantee** completeness or accuracy. We cannot guarantee any specific outcome for your legal problem.  We recommend that you consult with a lawyer if you want to be sure that Michigan Legal Help Content and your interpretation of it are appropriate for your legal matter. You should not and are not authorized to rely on Michigan Legal Help Content as a source of legal advice. 
+  The use of this Site or other Michigan Legal Help Content **does not** create an attorney-client relationship between Michigan Legal Help and any user.
+
+  <h3 class="h6">Use of the Site</h3>
+  When you use the Site, you must **NOT**:
+  *	Use any electronic communication feature of the Site for any purpose that is unlawful, tortious, abusive, intrusive on another’s privacy, harassing, libelous, defamatory, embarrassing, obscene, threatening, or hateful.
+  *	Collect or store personal data about other users.
+  *	Use the Site for any commercial purpose unless expressly approved by Michigan Legal Help in writing.
+  *	Upload, e-mail, or otherwise transmit any material or information that contains viruses or any other computer code, files, or programs which might interrupt, limit, or interfere with the functionality of any computer software or hardware or telecommunications equipment or network, or that may otherwise adversely affect the operation of the Site, or any feature on the Site.
+
+  <h3 class="h6">Accounts, Security, Passwords</h3>
+  To fill out court forms with a Do-It-Yourself tool hosted on our Site, you can choose to:
+  *	sign up for an account, or 
+  *	create forms without an account. 
+  To sign up for an account, you must provide an email address and password. It is entirely your responsibility to:
+  *	keep your password and account information private, and
+  *	make sure the email address used for your account is accurate and up to date.
+  You are entirely responsible for all activities that occur under your account. You agree to notify Michigan Legal Help immediately of any unauthorized use of your account. You agree not to e-mail, post, or otherwise share any user ID, password, or other information which provides you access to the Site. Michigan Legal Help is not liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge.
+  Your account may be deleted or suspended if you violate these Terms.
+  If you choose not to make an account, you may not be able to access certain content or features of the Do-It-Yourself tool.
+
+  <h3 class="h6">Legal Claims Against Michigan Legal Help</h3>
+  By using this Site in any way, you agree to indemnify, defend and hold harmless Michigan Legal Help, its parents, subsidiaries, officers, employees, agents, and contractors, partners and each of their officers, employees, agents and volunteers from and against any actual or alleged claims, demands, causes of action, judgments, damages, losses, liabilities, and all costs and expenses of defense (including reasonable attorneys’ fees and court costs) arising out of or relating to: (a) your breach of these terms; (b) your violation of any local, state, federal or international law, rule or regulation; (c) a claim by a third party that is based on your use of the Site or the Michigan Legal Help Content; (d) information or material posted or transmitted through your computer or account, even if not submitted by you; (e) any misrepresentation made by you; (f) any dispute between you and another user of the Site; (g) the theft, misappropriation or disclosure of your password; or (h) your authorization of anyone else to use your password. 
+  You will cooperate as fully and as reasonably required in Michigan Legal Help’s defense of any claim. Michigan Legal Help reserves the right, at their own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and you shall not, in any event, settle any matter without the written consent of Michigan Legal Help.
+
+  <h3 class="h6">Representations, and Limitations of Liability</h3>
+  Michigan Legal Help offers the information and content on this Site for informational purposes only and makes no guarantees about its completeness, accuracy, timeliness, or safety. References to any third-party products, services, or opinions do not constitute endorsement. You acknowledge that any reliance on user-posted content is at your own risk. The Site may contain errors, security vulnerabilities, or technical malfunctions, and we are not responsible for any resulting damages. We recommend exercising caution when using email or submitting information online to the Site. This Site may be temporarily unavailable due to maintenance or malfunction of computer equipment.
+  **The Site and Michigan Legal Help Content are made available on an “as is,” “as available,” and “with all faults” basis. Michigan Legal Help disclaims all warranties, express or implied, including, without limitation, the warranties of merchantability, quality, fitness for a particular purpose and non-infringement, with respect to the Site and Michigan Legal Help Content.**
+  **You agree that Michigan Legal Help is not liable to you for damages of any kind, whether based in tort, contract, strict liability or otherwise, including, without limitation, any direct, special, indirect, incidental, consequential or punitive damages resulting in any way from or in connection with:**
+  1. **the Site or Michigan Legal Help Content;**
+  2. **any errors, omissions, mistakes, interruptions, deletion of files, or defects in the technical operation or content of the Site;**
+  3. **any action taken in connection with an investigation by Michigan Legal Help, law enforcement, or other authorities regarding your use of the Site or Michigan Legal Help Content;** 
+  4. **any action taken in connection with copyright owners; or** 
+  5. **the conduct, actions or inactions of Site users or your interactions or relationships with Site users, even if Michigan Legal Help has been advised of the possibility of such damages, whether caused in whole or in part by negligence, acts of god, telecommunications failure, or theft or destruction of, or unauthorized access to, the Site or its related information or programs.**
+  **In no event will Michigan Legal Help be liable to you or anyone else for loss or injury, including, without limitation, death or personal injury. If your jurisdiction doesn’t allow the limitation or exclusion of warranties, those sections of the above may not apply to you.**
+  
+  <h3 class="h6">Text Messaging</h3>
+  If you sign up to get text messages on or through the Site, you expressly consent to receive recurring automated text messages from Michigan Legal Help. These texts may include questions, instructions, feedback surveys, or other helpful information.
+  Signing up for text messages from Michigan Legal Help is completely optional. Message and data rates may apply. To stop these text messages, reply STOP to the phone number from which you received the text message (a confirmation message will be sent), or send an email requesting opt-out to MichiganLegalHelp@mplp.org. For our privacy policy, please see below.
+  Michigan Legal Help does not guarantee the availability or performance of the text message service and cannot control any transmission delays and message failures that may occur. Not all carriers are covered and supported carriers may change. Message frequency varies. Michigan Legal Help may modify or stop text message services, with or without notice.  
+
+  <h3 class="h6">Location Based Services</h3>
+  This Site may use location-based services to locate you. If you choose to use our Site,    you consent to Michigan Legal Help and/or its third-party provider accessing your location. You also grant Michigan Legal Help permission to use this information to improve its products or to provide services or technologies to you. For more information, please see our Privacy Policy.
+  
+  <h3 class="h6">Linking to Other Websites</h3>
+  When using the Site, you may be directed to content on other websites. Michigan Legal Help **cannot** guarantee that the external sites we link to are completely accurate or that they apply to every situation.
+  External websites are governed by their own terms of use, and Michigan Legal Help is not responsible for the contents of linked websites, including government websites. MLH does not control external websites and is not responsible for any link contained in a linked site. 
+  One of the websites that may be linked to by the Site is Law Help Interactive (LHI). When you use LHI, you are no longer on our Site and are subject to different terms of use. Please note the difference and take the time to read and understand LHI’s terms of use.
+
+  <h3 class="h6">Miscellaneous</h3>
+  Both you and Michigan Legal Help agree that no partnership is formed between you and Michigan Legal Help. Neither you, nor Michigan Legal Help has the power or the authority to obligate or bind the other.
+  These Terms will be governed by and construed in accordance with the internal laws of Michigan without regard to conflicts of laws principles. By using this Site, you hereby agree that any and all disputes regarding these Terms will be subject to the courts located in Lansing, Michigan. You agree that, to the extent permitted by applicable law, any and all disputes, claims, and causes of action arising out of or connected with this platform and/or these terms, will be resolved individually, without resort to any form of class action. These Terms operate to the fullest extent allowed by law.
+  On certain areas of our Site, you may be given the ability to provide us with personally identifiable information. Please read our Privacy Policy for more information about our information collection and use practices.
+  The failure of Michigan Legal Help to comply with these Terms because of an act of God, war, fire, riot, terrorism, earthquake, actions of federal, state or local governmental authorities or for any other reason beyond the reasonable control of Michigan Legal Help, shall not be deemed a breach of these Terms.
+  If Michigan Legal Help fails to act with respect to your breach or anyone else’s breach on any occasion, Michigan Legal Help is not waiving its right to act with respect to future or similar breaches.
+  If any provision of these Terms is unlawful, void or for any reason unenforceable, then that provision shall be deemed severable from these terms of use and shall not affect the validity and enforceability of any remaining provisions. These Terms constitute the entire agreement between you and Michigan Legal Help regarding the use of the Site. By using the Site, you represent that you are capable of entering into a binding agreement, and that you agree to be bound by these Terms.
+
 ---
 template: MLH_privacy_policy  # this is example from AL, need to insert our own text
 subject: ""
