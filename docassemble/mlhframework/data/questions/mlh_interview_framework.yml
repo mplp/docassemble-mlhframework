@@ -176,18 +176,18 @@ question: |
   Terms of Use and Privacy Policy
 fields:
   - note: |          
+      To continue, you must accept our Terms of Use:
       ${ display_template(MLH_terms_of_use, scrollable=True) } 
-      To continue, you must accept our terms of use.
   - note: |         
+      To continue, you must accept our Privacy Policy:
       ${ display_template(MLH_privacy_policy, scrollable=True) } 
-      To continue, you must accept our privacy policy.
-  - I accept the terms of use: acknowledged_information_use
+  - I accept the Terms of Use and Privacy Policy: acknowledged_information_use
     datatype: yesnowide
     grid: 8
 continue button field: MLH_agree_terms
 validation code: |
   if not acknowledged_information_use:
-    validation_error("You must accept the terms of use to continue.", field="acknowledged_information_use")
+    validation_error("You must accept the Terms of Use and Privacy Policy to continue.", field="acknowledged_information_use")
 ---
 id: MLH intro time
 question: "Using this Tool"
