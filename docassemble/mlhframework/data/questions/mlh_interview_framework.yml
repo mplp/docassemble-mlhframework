@@ -142,7 +142,7 @@ code: |
 # main Interview Order block in order to bring in these standard intro pages. 
 code: |
   MLH_intro_landing
-  MLH_agree_terms_of_use
+  MLH_agree_terms
   MLH_intro_navigation
   MLH_intro_saving_answers
   MLH_intro_time
@@ -184,7 +184,7 @@ fields:
   - I accept the terms of use: acknowledged_information_use
     datatype: yesnowide
     grid: 8
-continue button field: MLH_agree_terms_of_use
+continue button field: MLH_agree_terms
 validation code: |
   if not acknowledged_information_use:
     validation_error("You must accept the terms of use to continue.", field="acknowledged_information_use")
