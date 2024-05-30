@@ -739,7 +739,7 @@ fields:
     show if:
       variable: x.no_phone_number
       is: False
-  - ${ x } does not have a phone number: x.no_phone_number
+  - ${ x } does not have a phone or I don't know their number.: x.no_phone_number
     required: False
     datatype: yesno
 ---
@@ -747,7 +747,7 @@ id: your contact information
 question: |
   What is your phone number?
 subquestion: |
-  The court must be able to call you. So you have to give them a way to do this.
+  Court staff may need to call you about your case. It's important to give a phone number if possible.
 
   ${ collapse_template(what_if_no_number_template) }
 fields:
@@ -755,24 +755,29 @@ fields:
     show if:
       variable: users[0].no_phone_number
       is: False
-  - I do not have a contact number: users[0].no_phone_number
+  - There's NO reliable way to contact me by phone.: users[0].no_phone_number
     required: False
     datatype: yesno
   - note: |
-      ${ what_if_no_number_template.content }
+      ${ if_check_no_phone_template.content }
     show if: users[0].no_phone_number
 ---
 template: what_if_no_number_template
-subject: What if I don't have a phone_number?
+subject: What if I don't have a phone?
 content: |
-  If you do not have a phone number, you can give someone else's number
-  as long as they can pass on messages to you. You should tell this person
-  that you are using their number on your court forms.
+  You can enter someone else's number as long as they can safely pass on messages to you. Tell this person that you are using their number on your court forms. 
+
+  If you don't have a phone **and** nobody can safely pass messages to you, check the checkbox below.
+---
+template: if_check_no_phone_template
+subject: What if I don't have a phone?
+content: |
+  If someone can safely pass messages on to you, **uncheck** the statement above and enter their phone number. Tell this person that you are using their number on your court forms. 
 ---
 generic object: ALIndividual
 code: |
   if x.no_phone_number:
-    x.phone_number = "Does not have phone"
+    x.phone_number = "Unknown phone"
 ---
 code: |
   if users[0].no_phone_number:
