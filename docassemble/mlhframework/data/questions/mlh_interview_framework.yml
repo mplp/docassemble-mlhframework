@@ -767,7 +767,7 @@ subject: What if I don't have a phone?
 content: |
   You can enter someone else's number as long as they can safely pass on messages to you. Tell this person that you are using their number on your court forms. 
 
-  If you don't have a phone, **and** nobody can safely pass messages to you, check the checkbox below.
+  If you don't have a phone **and** nobody can safely pass messages to you, check the checkbox below.
 ---
 template: if_check_no_phone_template
 subject: What if I don't have a phone?
