@@ -229,7 +229,7 @@ question: |
 subquestion: |
   You are already signed in; just tap the **${MLH_continue_button_label}** button to save your progress. You can come back later to finish or change your answers.
   
-  To go back to saved answers, go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_intro_saving_answers
 ---
 if: not user_logged_in()
@@ -245,7 +245,7 @@ subquestion: |
   % endif
   **menu at the top of the screen** and tap "Sign in or sign up to save answers".
   
-  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_intro_saving_answers
 ---
 id: MLH intro PII
@@ -386,7 +386,7 @@ subquestion: |
   % endif
   menu at the top of the screen and tap "Sign in or sign up to save answers".
 
-  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Interviews.”
+  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_outro_saving_answers
 progress: 99
 
