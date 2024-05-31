@@ -2,6 +2,7 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
   - mlh_cover_sheet.yml
+  - mlh_terms.yml
 ---
 modules:
   - .al_courts_mi_edit
@@ -156,6 +157,7 @@ code: |
 # main Interview Order block in order to bring in these standard intro pages. 
 code: |
   MLH_intro_landing
+  MLH_agree_terms
   MLH_intro_navigation
   MLH_intro_saving_answers
   MLH_intro_time
@@ -183,6 +185,24 @@ subquestion: |
   
   If you have any questions or you aren't sure what to do, you may want to talk to a lawyer. ${ MLH_GUIDE_FULL }
 continue button field: MLH_intro_landing
+---
+id: terms of use       # for now this is separate, but could incorporate in another intro page
+question: |
+  Terms of Use and Privacy Policy
+fields:
+  - note: |          
+      Please review the Terms of Use:
+      ${ display_template(MLH_terms_of_use, scrollable=True) } 
+  - note: |         
+      Please review the Privacy Policy:
+      ${ display_template(MLH_privacy_policy, scrollable=True) } 
+  - I accept the Terms of Use and Privacy Policy: acknowledged_information_use
+    datatype: yesnowide
+    grid: 8
+continue button field: MLH_agree_terms
+validation code: |
+  if not acknowledged_information_use:
+    validation_error("You must accept the Terms of Use and Privacy Policy to continue.", field="acknowledged_information_use")
 ---
 id: MLH intro time
 question: "Using this Tool"
