@@ -213,12 +213,16 @@ footer a {
   color: var(--bs-body-color);
 }
 
-/* Make "Sign in" button on desktop bigger: https://github.com/mplp/docassemble-mlhframework/issues/87 */
+/* Make "Sign in" & "Sign up" buttons on desktop bigger: https://github.com/mplp/docassemble-mlhframework/issues/87 */
 #danavbar-collapse a.btn-primary[href*="/user/sign-in"] {
   --bs-btn-font-size: 1.125rem;
+  
 }
+#danavbar-collapse a.btn-primary[href*="/user/register"] {
+  --bs-btn-font-size: 1.125rem;
 
 /* Make "Sign in" button on desktop white when hovering, slight change when hovering */
+/* Note as of 5/29/24 this may now be unnecessary because both sign and sign up are buttonsnow. */
 .navbar-nav {
   --bs-nav-link-color: var(--bs-navbar-hover-color);
   --bs-nav-link-hover-color: var(--bs-navbar-color);
