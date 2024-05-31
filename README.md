@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 5/31/24   0.4.23 Remove share json file option from sharing page
 * 5/30/24   0.4.22 Update phone collection screens; add terms and conditions screen
 * 5/29/24   0.4.21 increase Sign Up button size; retitle "My Forms" page
 * 5/28/24   0.4.20 changes to intro and outro questions; add help_user_ask_role_template; change name to MLH-Forms; added progress settings to outro questions; changed review link language
