@@ -21,7 +21,7 @@ subquestion: |
   % endif
   
   Tap **${ MLH_continue_button_label }** to go back to your form in progress.
-
+back button: False
 ---
 id: start a new session
 question: |
