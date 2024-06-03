@@ -554,14 +554,15 @@ fields:
     datatype: radio
     choices:
       - Tell a friend about this website: tell_friend
+        default: True
 #       - Share my answers and progress with someone: share_answers
-  -  How do you want to share the link?: al_how_share_link
-     datatype: radio
-     choices:
-       - Email: email
-       - Just show me the link. I will share it myself.: link_only
-     js show if: |
-       val("al_sharing_type") === "tell_friend" || val("al_sharing_type") === "share_answers" 
+  - How do you want to share the link?: al_how_share_link
+    datatype: radio
+    choices:
+      - Email: email
+      - Just show me the link. I will share it myself.: link_only
+    js show if: |
+      val("al_sharing_type") === "tell_friend" || val("al_sharing_type") === "share_answers" 
   - note: |
       **Note**: the person you share this link with will be able to **see and
       edit** your answers on this form.
