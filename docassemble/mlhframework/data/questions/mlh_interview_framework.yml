@@ -3,6 +3,7 @@ include:
   - docassemble.AssemblyLine:assembly_line.yml
   - mlh_cover_sheet.yml
   - mlh_terms.yml
+  - mlh_visual.yml
 ---
 modules:
   - .al_courts_mi_edit
