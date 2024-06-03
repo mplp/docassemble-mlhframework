@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 6/3/24    0.4.24 Fix button refs on share screen; remove share in-progress option
 * 5/31/24   0.4.23 Remove share json file option from sharing page
 * 5/30/24   0.4.22 Update phone collection screens; add terms and conditions screen
 * 5/29/24   0.4.21 increase Sign Up button size; retitle "My Forms" page
