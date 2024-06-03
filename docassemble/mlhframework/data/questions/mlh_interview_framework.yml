@@ -554,7 +554,7 @@ fields:
     datatype: radio
     choices:
       - Tell a friend about this website: tell_friend
-      - Share my answers and progress with someone: share_answers
+#       - Share my answers and progress with someone: share_answers
   -  How do you want to share the link?: al_how_share_link
      datatype: radio
      choices:
