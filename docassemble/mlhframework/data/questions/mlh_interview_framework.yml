@@ -231,7 +231,7 @@ subquestion: |
   Tap the {green underlined words} on any screen for a definition or more information.   
 terms:
   green underlined words: |
-    The definition or explanation pops up when you tap the green underlined words.
+    The definition or information appears when you tap the green underlined words.
 continue button field: MLH_intro_navigation
 ---
 if: user_logged_in()
