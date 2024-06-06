@@ -228,18 +228,14 @@ question: "Navigation"
 subquestion: |
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  Tap the {green words} in any screen for a definition or more information.
-
-  You can also tap an underlined link with a green triangle next to it to see more information.
-
-  ${ collapse_template(collapsible_info_template) }
+  Tap the {green underlined words} in any screen for a definition or more information. You can also tap an ${ collapse_template(collapsible_info_template) } to see more information.
 terms:
-  green words: |
-    Green words are legal terms or a short way of referring to something that needs more explanation. The definition or explanation pops up when you tap the green words.
+  green underlined words: |
+    The definition or explanation pops up when you tap the green underlined words.
 continue button field: MLH_intro_navigation
 ---
 template: collapsible_info_template
-subject: Tap here to see more information
+subject: underlined link with a green triangle next to it
 content: |
   You can find more information or definitions by tapping on these links.
 ---
