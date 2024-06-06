@@ -228,7 +228,7 @@ question: "Navigation"
 subquestion: |
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  Tap the {green underlined words} in any screen for a definition or more information.   
+  Tap the {green underlined words} on any screen for a definition or more information.   
 terms:
   green underlined words: |
     The definition or explanation pops up when you tap the green underlined words.
