@@ -228,16 +228,11 @@ question: "Navigation"
 subquestion: |
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  Tap the {green underlined words} in any screen for a definition or more information. You can also tap an ${ collapse_template(collapsible_info_template) } to see more information.
+  Tap the {green underlined words} in any screen for a definition or more information.   
 terms:
   green underlined words: |
     The definition or explanation pops up when you tap the green underlined words.
 continue button field: MLH_intro_navigation
----
-template: collapsible_info_template
-subject: underlined link with a green triangle next to it
-content: |
-  You can find more information or definitions by tapping on these links.
 ---
 if: user_logged_in()
 id: MLH intro saving answers logged in
