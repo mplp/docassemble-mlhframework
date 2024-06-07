@@ -230,13 +230,13 @@ id: MLH intro saving answers logged in
 question: |
   Using this tool
 subquestion: |
-  <h2 class="h6">Changing an Answer</h2>
+  <h2 class="h5">Changing an Answer</h2>
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  <h2 class="h6">Help Text</h2>
+  <h2 class="h5">Help Text</h2>
   Tap {green underlined words} for a definition or more information.   
   
-  <h2 class="h6">Saving Your Work</h2>
+  <h2 class="h5">Saving Your Work</h2>
   You are already signed in. Just tap the **${MLH_continue_button_label}** button to save your progress. 
   
   Go to the menu at the top of the screen and select “My Forms” to go back to a saved form.
@@ -251,13 +251,13 @@ id: MLH intro saving answers logged out
 question: |
   Using this tool
 subquestion: |
-  <h2 class="h6">Changing an Answer</h2>
+  <h2 class="h5">Changing an Answer</h2>
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  <h2 class="h6">Help Text</h2>
+  <h2 class="h5">Help Text</h2>
   Tap {green underlined words} for a definition or more information.   
   
-  <h2 class="h6">Saving Your Work</h2>
+  <h2 class="h5">Saving Your Work</h2>
   Save your work by signing in or signing up for an account.
 
   Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
