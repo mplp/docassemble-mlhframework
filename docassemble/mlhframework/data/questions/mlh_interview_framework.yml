@@ -839,12 +839,23 @@ generic object: ALIndividual
 question: |
   Does ${ x } have a lawyer?
 subquestion: |
+  ${ collapse_template(person_lawyer_template) }
 fields:
   - no label: x.has_attorney
     input type: radio
     choices:
       - Yes: True
       - No: False
+---
+template: person_lawyer_template
+subject: |
+  What if I don't know?
+content: |
+  Look at the first page of an existing court document, like a complaint, petition, or answer. The top of the first page is the “caption” which has the basic case information. If ${ x } has a lawyer, that information might be found here.
+  
+  You can also check the signature area of any court documents that you received.
+  
+  Answer “No” if there's no lawyer mentioned on any documents and you haven't seen or heard about a lawyer.
 ---
 sets:
   - x[i].name.first
