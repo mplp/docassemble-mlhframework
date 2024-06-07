@@ -159,8 +159,11 @@ code: |
 code: |
   MLH_intro_landing
   MLH_agree_terms
+  ##### delete below after live interviews updated ######
   MLH_intro_navigation
   MLH_intro_saving_answers
+  #### delete above after live interviews updated ######
+  MLH_intro_navigate_save
   MLH_intro_time
   if MLH_intro_agree_no_pii == False:
     MLH_intro_agree_no_pii_exit
@@ -206,7 +209,7 @@ validation code: |
     validation_error("You must accept the Terms of Use and Privacy Policy to continue.", field="acknowledged_information_use")
 ---
 id: MLH intro time
-question: "Using this Tool"
+question: "Answer the questions to get your ${ MLH_form_type }"
 subquestion: |
   It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
   % if MLH_materials_included:
@@ -221,7 +224,46 @@ subquestion: |
     You will also get instructions for what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
+---
+if: user_logged_in()
+id: MLH intro saving answers logged in
+question: |
+  Using this tool
+subquestion: |
+  <h2 class="h4">Navigation</h2>
+  If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
+  Tap the {green underlined words} on any screen for a definition or more information.   
+terms:
+  green underlined words: |
+    The definition or information appears when you tap the green underlined words.
+  
+  <h2 class="h4">Saving Your Work</h2>
+  You are already signed in; just tap the **${MLH_continue_button_label}** button to save your progress. 
+  
+  To go back to saved answers, go to the menu at the top of the screen and select “My Forms.”
+continue button field: MLH_intro_navigate_save
+---
+if: not user_logged_in()
+id: MLH intro saving answers logged out
+question: |
+  Using this tool
+subquestion: |
+  <h2 class="h4">Navigation</h2>
+  
+  <h2 class="h4">Saving Your Work</h2>
+  You can save your work at any time by signing in or signing up for an account.
+
+  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  **menu at the top of the screen** and tap "Sign in or sign up to save answers".
+  
+  To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
+continue button field: MLH_intro_navigate_save
+
+  ############## delete below after live interviews updated ############
 ---
 id: MLH intro navigation
 question: "Navigation"
@@ -259,6 +301,8 @@ subquestion: |
   
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_intro_saving_answers
+  ############## delete above after live interviews updated ###########
+
 ---
 id: MLH intro PII
 question: Private Information
