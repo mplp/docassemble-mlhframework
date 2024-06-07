@@ -260,11 +260,11 @@ subquestion: |
   <h2 class="h5">Saving Your Work</h2>
   Save your work by signing in or signing up for an account.
 
-  Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
+  Tap the "Sign in" or "Sign up" link below the **Continue** button. Or go to the
   % if device().is_mobile:
   :bars:
   % endif
-  **menu at the top of the screen** and tap "Sign in or sign up to save answers".
+  **menu** at the top of the screen and tap "Sign in or sign up to save answers".
   
   To go back to a saved form, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 terms:
