@@ -159,8 +159,11 @@ code: |
 code: |
   MLH_intro_landing
   MLH_agree_terms
+  ##### delete below after live interviews updated ######
   MLH_intro_navigation
   MLH_intro_saving_answers
+  #### delete above after live interviews updated ######
+  MLH_intro_navigate_save
   MLH_intro_time
   if MLH_intro_agree_no_pii == False:
     MLH_intro_agree_no_pii_exit
@@ -206,7 +209,7 @@ validation code: |
     validation_error("You must accept the Terms of Use and Privacy Policy to continue.", field="acknowledged_information_use")
 ---
 id: MLH intro time
-question: "Using this Tool"
+question: "Answer the questions to get your ${ MLH_form_type }"
 subquestion: |
   It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
   % if MLH_materials_included:
@@ -221,27 +224,62 @@ subquestion: |
     You will also get instructions for what to do next with your ${ MLH_form_type }.
   % endif
 continue button field: MLH_intro_time
-
 ---
+if: user_logged_in()
+id: MLH intro saving answers logged in
+question: |
+  Using this tool
+subquestion: |
+  <h2 class="h5">Changing an Answer</h2>
+  If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
+  
+  <h2 class="h5">Saving Your Work</h2>
+  You are already signed in. Just tap the **${MLH_continue_button_label}** button to save your progress. 
+  
+  Go to the menu at the top of the screen and select “My Forms” to go back to a saved form.
+  
+  <h2 class="h5">Help Text</h2>
+  Tap {green underlined words} for a definition or more information.   
+terms:
+  green underlined words: |
+    More information appears when you tap the green underlined words.
+continue button field: MLH_intro_navigate_save
+---
+if: not user_logged_in()
+id: MLH intro saving answers logged out
+question: |
+  Using this tool
+subquestion: |
+  <h2 class="h5">Changing an Answer</h2>
+  If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
+  
+  <h2 class="h5">Saving Your Work</h2>
+  To save your work, sign in or sign up for an account. Tap the "Sign in" or "Sign up" link below the **Continue** button. Or go to the
+  % if device().is_mobile:
+  :bars:
+  % endif
+  **menu** at the top of the screen and tap "Sign in or sign up to save answers".
+  
+  To go back to a saved form, log in. Then go to the menu at the top of the screen and select “My Forms.”
+  
+  <h2 class="h5">Help Text</h2>
+  Tap {green underlined words} for a definition or more information. 
+terms:
+  green underlined words: |
+    More information appears when you tap the green underlined words.
+continue button field: MLH_intro_navigate_save
+---
+  ############## delete below after live interviews updated ############
 id: MLH intro navigation
 question: "Navigation"
 subquestion: |
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
 
-  Tap the {green words} in any screen for a definition or more information.
-
-  You can also tap an underlined link with a green triangle next to it to see more information.
-
-  ${ collapse_template(collapsible_info_template) }
+  Tap the {green underlined words} on any screen for a definition or more information.   
 terms:
-  green words: |
-    Green words are legal terms or a short way of referring to something that needs more explanation. The definition or explanation pops up when you tap the green words.
+  green underlined words: |
+    The definition or information appears when you tap the green underlined words.
 continue button field: MLH_intro_navigation
----
-template: collapsible_info_template
-subject: Tap here to see more information
-content: |
-  You can find more information or definitions by tapping on these links.
 ---
 if: user_logged_in()
 id: MLH intro saving answers logged in
@@ -268,6 +306,8 @@ subquestion: |
   
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_intro_saving_answers
+  ############## delete above after live interviews updated ###########
+
 ---
 id: MLH intro PII
 question: Private Information
