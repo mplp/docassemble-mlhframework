@@ -92,6 +92,13 @@ content: |
   * Information about the people involved
 ######
 ---
+# default welcome info; keep relatively short. If lots of preconditions/warnings, make separate screen
+template: MLH_welcome_message     
+content: |
+  Welcome to the ${ MLH_interview_short_title } tool.
+
+  This tool will help you prepare your ${ MLH_form_type }.
+---
 # docassemble-level metadata. To be overridden by individual tools.
 # See https://docassemble.org/docs/initial.html
 metadata:
@@ -164,6 +171,7 @@ code: |
   MLH_intro_saving_answers
   #### delete above after live interviews updated ######
   MLH_intro_navigate_save
+  # below screen should only be used if you DON'T use MLH_intro_landing, which includes same contents
   MLH_intro_time
   if MLH_intro_agree_no_pii == False:
     MLH_intro_agree_no_pii_exit
@@ -177,17 +185,25 @@ code: |
 # block that uses the respective continue button field for its own continue button field.
 
 ---
-# This is the very first screen for every single interview.
-# The question text is very generic and should be overridden by each tool.
+# This can be used as the very first screen for an interview.
 id: MLH intro landing FirstScreen
 question: |
   ${ MLH_interview_short_title }
 subquestion: |
-  Welcome to the ${ MLH_interview_short_title } tool.
-
-  This tool will help you prepare forms for your legal issue without a lawyer.
+  ${ MLH_welcome_message }
   
-  If you have any questions or you aren't sure what to do, you may want to talk to a lawyer. ${ MLH_GUIDE_FULL }
+  It will probably take about **${ MLH_time_min } to ${ MLH_time_max } minutes** to answer all the questions.
+  % if MLH_materials_included:
+  
+    To fill out your forms **you will need:**
+    
+    ${ MLH_materials }
+  % endif
+  
+  Your personalized ${ MLH_form_type } will be ready after you answer all the questions. 
+  % if MLH_instructions_included:
+    You will also get instructions for what to do next with your ${ MLH_form_type }.
+  % endif
 continue button field: MLH_intro_landing
 ---
 id: terms of use       # for now this is separate, but could incorporate in another intro page

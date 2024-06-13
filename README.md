@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 6/13/24   0.4.25 Intro/outro changes; add help info on OP lawyer
 * 6/3/24    0.4.24 Fix button refs on share screen; remove share in-progress option
 * 5/31/24   0.4.23 Remove share json file option from sharing page
 * 5/30/24   0.4.22 Update phone collection screens; add terms and conditions screen
