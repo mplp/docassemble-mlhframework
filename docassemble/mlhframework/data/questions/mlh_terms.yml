@@ -3,7 +3,7 @@ template: MLH_terms_of_use
 subject: ""
 content: |
   <h2 class="h4">Terms of Use</h2>
-  Last updated: May 29, 2024
+  Last updated: June 20, 2024
 
   By using this website, michiganlegalhelp.org, (the “Site”) or the features and services made available through the Site, you accept and agree to these Terms of Use.  By accessing this Site in any way, you agree to and are bound by the policies contained on this page (the “Terms”). **Please read these Terms carefully** before using this Site. The Site is owned by Michigan Legal Help. 
   
@@ -44,13 +44,13 @@ content: |
   <h3 class="h5">Accounts, Security, Passwords</h3>
   To fill out forms with a Do-It-Yourself tool hosted on our Site, you can choose to:
   
-  *	sign up for an account, or 
-  *	create forms without an account. 
+  *	Sign up for an account, or 
+  *	Create forms without an account. 
   
   To sign up for an account, you must provide an email address and password. It is entirely your responsibility to:
   
-  *	keep your password and account information private, and
-  *	make sure the email address used for your account is accurate and up to date.
+  *	Keep your password and account information private, and
+  *	Make sure the email address used for your account is accurate and up to date.
   
   You are entirely responsible for all activities that occur under your account. You agree to notify Michigan Legal Help immediately of any unauthorized use of your account. You agree not to e-mail, post, or otherwise share any user ID, password, or other information which provides you access to the Site. Michigan Legal Help is not liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge.
   
@@ -70,11 +70,11 @@ content: |
   
   **You agree that Michigan Legal Help is not liable to you for damages of any kind, whether based in tort, contract, strict liability or otherwise, including, without limitation, any direct, special, indirect, incidental, consequential or punitive damages resulting in any way from or in connection with:**
   
-  1. **the Site or Michigan Legal Help Content;**
-  2. **any errors, omissions, mistakes, interruptions, deletion of files, or defects in the technical operation or content of the Site;**
-  3. **any action taken in connection with an investigation by Michigan Legal Help, law enforcement, or other authorities regarding your use of the Site or Michigan Legal Help Content;** 
-  4. **any action taken in connection with copyright owners; or** 
-  5. **the conduct, actions or inactions of Site users or your interactions or relationships with Site users, even if Michigan Legal Help has been advised of the possibility of such damages, whether caused in whole or in part by negligence, acts of god, telecommunications failure, or theft or destruction of, or unauthorized access to, the Site or its related information or programs.**
+  1. **The Site or Michigan Legal Help Content;**
+  2. **Any errors, omissions, mistakes, interruptions, deletion of files, or defects in the technical operation or content of the Site;**
+  3. **Any action taken in connection with an investigation by Michigan Legal Help, law enforcement, or other authorities regarding your use of the Site or Michigan Legal Help Content;** 
+  4. **Any action taken in connection with copyright owners; or** 
+  5. **The conduct, actions or inactions of Site users or your interactions or relationships with Site users, even if Michigan Legal Help has been advised of the possibility of such damages, whether caused in whole or in part by negligence, acts of god, telecommunications failure, or theft or destruction of, or unauthorized access to, the Site or its related information or programs.**
   
   **In no event will Michigan Legal Help be liable to you or anyone else for loss or injury, including, without limitation, death or personal injury. If your jurisdiction doesn’t allow the limitation or exclusion of warranties, those sections of the above may not apply to you.**
   
@@ -113,7 +113,7 @@ template: MLH_privacy_policy
 subject: ""
 content: |
   <h2 class="h4">Privacy Policy</h2>
-  Last updated: May 29, 2024
+  Last updated: June 20, 2024
 
   This Privacy Policy explains how Michigan Legal Help (“MLH”) collects your personal information when you use the michiganlegalhelp.org website and all tools or services that are part of MLH, (the “Site”) or when you otherwise interact with us. 
   
@@ -152,8 +152,8 @@ content: |
 
   **Cookies and Other Tracking Tools**: We use various tools to collect information. This may include placing cookies on your browser or mobile device. Cookies are small data files stored on your hard drive or in device memory that help us to:
 
-  * improve our Site and your experience, and
-  *	see which areas and features of our Site are popular and count visits. 
+  * Improve our Site and your experience, and
+  *	See which areas and features of our Site are popular and count visits. 
   
   We may also collect information using web beacons (also known as “tracking pixels” or “clear GIFs”). Web beacons are electronic images that may be used in our Site or emails. They help us deliver cookies, count visits, understand usage and determine whether an email has been opened and acted upon. 
 
@@ -174,7 +174,7 @@ content: |
   * Carry out any other purpose for which the information was collected.
   
   **<h4 class="h6">Specific Uses for Information Entered in a Do-It-Yourself Form Tool on our Site</h4>**
-  Information you enter in a Do-It-Yourself form tool on our Site will **only** be used to:
+  We will only use information you enter in a Do-It-Yourself form tool on our Site to:
   
   *	Create an account and allow you to access it;
   *	Automatically create your forms;
@@ -182,13 +182,13 @@ content: |
   *	Provide technical support to you if requested; and
   *	Provide anonymous data about trends and usage on Michigan Legal Help, including user ZIP codes.
   
-  We delete information entered in a Do-It-Yourself form tool on our site 180 days after you last update it. You can also delete information immediately. We may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
+  We delete information entered in a Do-It-Yourself form tool on our site 180 days after you last update it. You can also delete information immediately by clicking “Exit and delete my answers.” Even after your information is deleted, we may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
   
   <h3 class="h5">Sharing of Information</h3>
-  We may share information: 
+  We may share any information we collect, including information entered in a Do-It-Yourself form tool on our Site: 
   
   *	With vendors, consultants, and other service providers or volunteers who need access to such information to carry out work on our behalf;
-  *	If we think we have to in order to comply with the law, including responding to lawful subpoenas, warrants, or court orders;
+  *	If we think we have to in order to comply with the law, including responding to lawful court orders, subpoenas, or warrants;
   *	If we believe your actions violate the spirit or language of our user agreements or policies, or to protect the rights, property, and safety of Michigan Legal Help, its employees, volunteers, or others;
   *	In connection with, or during negotiations of, any reorganization, formation of a successor organization, asset sale or transfer, financing or lending transaction, or in any other situation where personal information may be disclosed or transferred as one of the assets of the Site; 
   *	With your consent or at your direction, including if we notify you that the information you provide will be shared in a particular manner and you provide such information; or
@@ -211,9 +211,6 @@ content: |
 
   <h3 class="h5">Security</h3> 
   Michigan Legal Help takes reasonable measures to help protect information about you from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. No system is completely safe. Because using the internet presents data security risks, we encourage you to use caution when sharing information online. Do not share your password with other people and select passwords that are secure. 
-  
-  <h3 class="h5">Minors</h3> 
-  The Site does not intentionally collect personal data of minors under the age of thirteen (13), except in connection with activities described in 16 CFR 312.5(c). Children under 13 should **not** use our Do-It-Yourself form tools.
   
   <h3 class="h5">Your Choices</h3>   
   **<h4 class="h6">Account Information</h4>**
