@@ -426,21 +426,6 @@ progress: 99
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 ---
-# Put this code at top of an interview if we need to take it down for a little while.
-# ---
-# id: interview under maintenance screen
-# mandatory: True
-# question: |
-# <i class="fa-solid fa-circle-exclamation fa-3x"></i>  Closed for Maintenance
-# subquestion: |  
-#   **This form is under maintenance.** Please check back soon.
-#  
-#   Do you need more help? You can:
-# 
-#   * [Use the Guide to Legal Help](https://michiganlegalhelp.org/guide-to-legal-help) to get information about free legal help or hiring a lawyer.
-#   * [Go to Michigan Legal Help](https://michiganlegalhelp.org/explore-legal-resources) for Michigan legal information.
-#   * [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue.
----
 code: |
   # al_form_type = "appeal" 
   # leave this in & choose type to test in this interview, comment out to pull into other interviews
@@ -560,6 +545,21 @@ code: |
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
+---
+# Put this code at top of an interview if we need to take it down for a little while.
+# ---
+# id: interview under maintenance screen
+# mandatory: True
+# question: |
+# <i class="fa-solid fa-circle-exclamation fa-3x"></i>  Closed for Maintenance
+# subquestion: |  
+#   **This form is under maintenance.** Please check back soon.
+#  
+#   Do you need more help? You can:
+# 
+#   * [Use the Guide to Legal Help](https://michiganlegalhelp.org/guide-to-legal-help) to get information about free legal help or hiring a lawyer.
+#   * [Go to Michigan Legal Help](https://michiganlegalhelp.org/explore-legal-resources) for Michigan legal information.
+#   * [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue.
 ---
 comment: |
   Overridden from `al_visual.yml` to turn off sms
