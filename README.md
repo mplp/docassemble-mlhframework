@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 7/11/24   0.4.29 Add review screen accordion code
 * 7/3/24    0.4.28 Add "down for maintenance" template to framework
 * 6/24/24   0.4.27 Remove old saving and navigation intro screens
 * 6/20/24   0.4.26 Update Terms of Use and Privacy Policy
