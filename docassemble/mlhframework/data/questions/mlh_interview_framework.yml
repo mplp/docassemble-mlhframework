@@ -7,6 +7,7 @@ include:
 ---
 modules:
   - .al_courts_mi_edit
+  - docassemble.demo.accordion # for review screen accordions
 ---
 features:
   bootstrap theme: docassemble.mlhframework:custom_bootstrap.css
@@ -90,6 +91,12 @@ template: MLH_materials              # default list of needed info. Keep as bull
 content: |
   * Information about your legal issue
   * Information about the people involved
+---
+code: |
+  review_empty_explainer = "This page starts out blank. As you answer more questions, they will show up here. Then you can edit your answers."
+  review_accordion_explainer = "Tap below to open different sections and edit answers."
+  review_screen_prep = True
+---
 ######
 ---
 # default welcome info; keep relatively short. If lots of preconditions/warnings, make separate screen
