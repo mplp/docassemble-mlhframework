@@ -524,17 +524,25 @@ continue button field: court_type_selection
 ---
 template: court_type_selection_template
 subject: |
-  What is this?
+  How do I know?
 content: |
-  A civil case is filed because of a disagreement between two people, businesses, or organizations. The disagreement usually involves one person believing that he or she has been hurt, had rights violated, or had property damaged by another person. A civil case is not a criminal case.
+  If you have any documents from your court case, look at the top of the first page. Most court documents will list the court information there. You can also visit the [Live Help](https://michiganlegalhelp.org/livehelp) page for more help.
 
-  **District Court** is where general civil cases are heard if the amount of money in dispute is less than or equal to $25,000.
+  **District Courts** handle cases involving $25,000 or less. This includes small claims cases and most eviction, land contract, and debt collection cases.
 
-  **Circuit Court** is where general civil cases are heard if the amount in dispute is more than $25,000.
+  **Circuit Courts** handle
+  
+  * domestic relations cases such as divorce, custody, and paternity
+  * personal protection orders
+  * some other cases that involve more than $25,000
 
-  **Probate Court** handles things like wills and estate administration, guardianships and conservatorships, adoptions, and registering foreign birth certificates.
+  **Probate Courts** handle
+  
+  * wills 
+  * estates (distributing property after someone dies)
+  * adoptions
+  * guardianships and conservatorships for both adults and children
 
-  The title of a probate case is often "In the matter of…"
 
 ---
 id: county court choice
