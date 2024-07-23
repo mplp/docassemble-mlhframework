@@ -92,10 +92,10 @@ content: |
   * Information about your legal issue
   * Information about the people involved
 ---
+mandatory: true
 code: |
   review_empty_explainer = "This page starts out blank. As you answer more questions, they will show up here. Then you can edit your answers."
   review_accordion_explainer = "Tap below to open different sections and edit answers."
-  review_screen_prep = True
 ---
 ######
 ---
