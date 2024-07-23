@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 7/23/24   0.4.30 Tweak review accordion code; remove default for MLH_esign; update courts source; help text edit
 * 7/11/24   0.4.29 Add review screen accordion code
 * 7/3/24    0.4.28 Add "down for maintenance" template to framework
 * 6/24/24   0.4.27 Remove old saving and navigation intro screens
