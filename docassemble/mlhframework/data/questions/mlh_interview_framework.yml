@@ -71,7 +71,6 @@ code: |
 ---
 code: |
   MLH_esign_supported = True         # Are electronic signatures supported?
-  MLH_esign = False                  # Add electronic signature?
 ---
 code: |
   # See https://docs.google.com/spreadsheets/d/1dqrg1ojBMYWWZ_s2TTpc7mG0Gfo-leMQEo-1lDouxE4
