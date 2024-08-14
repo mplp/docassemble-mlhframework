@@ -3,7 +3,7 @@
 A docassemble extension.
 
 ## Author
-* 8/13/24   0.4.32 Add smaller logo file
+* 8/13/24   0.4.32 display logo on administrative pages
 * 8/1/24    0.4.31 Override default validation messages
 * 7/23/24   0.4.30 Tweak review accordion code; remove default for MLH_esign; update courts source; help text edit
 * 7/11/24   0.4.29 Add review screen accordion code
