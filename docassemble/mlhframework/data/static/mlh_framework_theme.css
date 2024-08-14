@@ -51,22 +51,21 @@
 }
 
 /* Make the logo display properly on administrative pages (e.g. register page) */
-  #nav-title-container {
-    display: grid;
-    grid-template-columns: min-content min-content;
-    grid-template-rows: min-content;
-    gap: 0px 0.5em;
-    grid-template-areas: "logo title";
-    justify-items: start;
-    align-items: center;
-  }
-  .al-logo {
-      grid-area: logo;
-  }
-  .al-title {
-      grid-area: title;
-  }
-
+#nav-title-container {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-template-rows: min-content;
+  gap: 0px 0.5em;
+  grid-template-areas: "logo title";
+  justify-items: start;
+  align-items: center;
+}
+.al-logo {
+    grid-area: logo;
+}
+.al-title {
+    grid-area: title;
+}
 
 /* Fonts and font sizes taken from https://michiganlegalhelp.org/guide-to-legal-help. */
 .al-title-short {
