@@ -99,7 +99,7 @@ code: |
 ---
 code: |
   snapshot_dv_question = False       # override if interview asks whether there's domestic violence
-  # if interview asks whether there's DV, ALSO set snapshot_dv_present to True if DV present, False if not.
+  snapshot_dv_present = "unknown"    # if interview asks about DV, set True if DV present, False if not
 ---
 ######
 ---
