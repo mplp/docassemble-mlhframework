@@ -23,18 +23,15 @@ code: |
 ---
 code: |
   resource_page_url_only = "https://michiganlegalhelp.org"
-  resource_page_name = "YOU NEED TO SET resource_page_name, resource_page_link, and resource_page_url_only"
+  resource_page_link = "[YOU NEED TO SET resource_page_link and resource_page_url_only](resource_page_url_only)" 
 # These defaults must be overwritten in each interview.
 # Example:
 # ---
 # code: |
 #   resource_page_url_only = "https://michiganlegalhelp.org/node/242"
-#   resource_page_name = "Security Deposit Help for Tenants"
+#   resource_page_link = "[Security Deposit Help for Tenants](https://michiganlegalhelp.org/node/242)"
 # ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
----
-code: |
-  resource_page_link = "[ ${ resource_page_name } ]( ${ resource_page_url_only } )"
 ---
 code: |
   cover_sheet_select_county = " and select a county."
@@ -106,5 +103,8 @@ attachment:
 # To be used in a program's local ALDocumentBundle
 objects:
   - cover_sheet_template: >-
+      ALDocument.using(title="Instructions", 
+      filename="Instructions - Do not file this", enabled=True, has_addendum=False)
+  - cover_sheet_template_2: >-
       ALDocument.using(title="Instructions", 
       filename="Instructions - Do not file this", enabled=True, has_addendum=False)
