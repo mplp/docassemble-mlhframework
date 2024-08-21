@@ -66,6 +66,26 @@ code: |
 
 ---
 attachment:
+  name: cover sheet 2.0
+  variable name: cover_sheet_template_2[i]
+  skip undefined: False
+  docx template file: cover_sheet_2.0.docx
+  tagged pdf: True
+  fields:
+      - "cover_sheet_top_message": ${ cover_sheet_top_message }
+      - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
+      - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
+      - "resource_page_link": ${ resource_page_link }
+      - "resource_page_url_only": ${ resource_page_url_only }
+      - "cover_sheet_share": ${ cover_sheet_share }
+      - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
+      - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
+      - "survey_link_url_only": ${ survey_link_url_only }
+      - "cover_sheet_thanks": ${ cover_sheet_thanks }
+
+---
+# retain old version for back-compatibility
+attachment:
   name: cover sheet
   variable name: cover_sheet_template[i]
   skip undefined: False
