@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 8/19/24   0.4.34 update snapshot method
 * 8/16/24   0.4.33 set progress bar method: stepped
 * 8/13/24   0.4.32 display logo on administrative pages
 * 8/1/24    0.4.31 Override default validation messages
