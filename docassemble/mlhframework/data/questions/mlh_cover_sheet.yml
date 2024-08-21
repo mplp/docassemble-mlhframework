@@ -34,7 +34,7 @@ code: |
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
 code: |
-  resource_page_link = "[${ resource_page_name }](${ resource_page_url_only })"
+  resource_page_link = "[ ${ resource_page_name } ]( ${ resource_page_url_only } )"
 ---
 code: |
   cover_sheet_select_county = " and select a county."
