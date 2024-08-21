@@ -17,28 +17,30 @@
 # Include al_cover or al_cover_bundle (as appropriate) in al_user_bundle
 # Note that any of the cover_sheet_X strings can be overridden in a program's local yml.
 ---
+# no longer needed for cover sheet 2.0 method, leaving in for back-compatibility
 code: |
   accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
 ---
 code: |
-  resource_page_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_resource_page_link](https://michiganlegalhelp.org/)"
+  resource_page_url_only = "https://michiganlegalhelp.org"
+  resource_page_name = "YOU NEED TO SET resource_page_name, resource_page_link, and resource_page_url_only"
 # These defaults must be overwritten in each interview.
-# Should display the link itself so that it works both to click and to read on paper.
 # Example:
 # ---
 # code: |
-#   accessible_instructions_link = "[https://michiganlegalhelp.org/step/565](https://michiganlegalhelp.org/step/565)"
-# ---
-# code: |
-#   resource_page_link = "[https://michiganlegalhelp.org/node/528](https://michiganlegalhelp.org/node/528)"
+#   resource_page_url_only = "https://michiganlegalhelp.org/node/242"
+#   resource_page_name = "Security Deposit Help for Tenants"
 # ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
+---
+code: |
+  resource_page_link = "[${ resource_page_name }](${ resource_page_url_only })"
 ---
 code: |
   cover_sheet_select_county = " and select a county."
 ---
 code: |
-  cover_sheet_top_message = "Congratulations! Your forms are ready."
+  cover_sheet_top_message = "What to do with your forms."
 ---
 code: |
   cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
@@ -56,7 +58,8 @@ code: |
   cover_sheet_complete_2 = "We hope that dealing with your legal issue goes well. We’d like to know more about how things went after you used the MichiganLegalHelp website. To share your experience with us, please complete our survey. Using your smartphone or mobile device, scan the QR Code below to visit our survey."
 ---
 code: |
-  cover_sheet_survey_link = "[https://www.michiganlegalhelp.org/survey](https://www.michiganlegalhelp.org/survey)"
+  cover_sheet_survey_link = "[visit our survey using this link](https://michiganlegalhelp.org/survey)"
+  survey_link_url_only = "https://michiganlegalhelp.org/survey"
 ---
 code: |
   cover_sheet_thanks = "Thank you so much! Your feedback will help us improve Michigan Legal Help and access to justice in Michigan."
