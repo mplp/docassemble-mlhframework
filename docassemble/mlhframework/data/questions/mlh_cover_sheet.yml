@@ -21,6 +21,7 @@ code: |
 # ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
+# For back-compatibility only. Not needed for cover sheet 2.0
 code: |
   cover_sheet_select_county = " and select a county."
 ---
@@ -30,7 +31,7 @@ code: |
 code: |
   cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about next steps."
   if MLH_instructions_included == True:
-	  cover_sheet_complete_1 += f" Read the instructions in this document."
+	  cover_sheet_complete_1 += f" Go to the next page in this document to see the instructions."
   # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
 ---
 code: |
