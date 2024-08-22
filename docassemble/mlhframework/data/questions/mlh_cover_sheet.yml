@@ -85,6 +85,7 @@ attachment:
       - "cover_sheet_share": ${ cover_sheet_share }
       - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
       - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
+      - "survey_link_url_only": ${ survey_link_url_only }
       - "cover_sheet_thanks": ${ cover_sheet_thanks }
 
 ---
