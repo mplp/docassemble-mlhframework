@@ -88,7 +88,8 @@ attachment:
       - "cover_sheet_thanks": ${ cover_sheet_thanks }
 
 ---
-#  Creates object that can be referenced in a program's local ALDocumentBundle (see example 1 below) if #  including cover sheet as separate document, rather than as template within instructions document.
+#  Creates object that can be referenced in a program's local ALDocumentBundle (see example 1 below) if 
+#  including cover sheet as separate document, rather than as template within instructions document.
 objects:
 #  The first version is for back-compatibility only. Use cover_sheet_template_2 for new builds.
   - cover_sheet_template: >-
