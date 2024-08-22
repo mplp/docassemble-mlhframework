@@ -97,6 +97,10 @@ code: |
   review_empty_explainer = "This page starts out blank. As you answer more questions, they will show up here. Then you can edit your answers."
   review_accordion_explainer = "Tap below to open different sections and edit answers."
 ---
+code: |
+  snapshot_dv_question = False       # override if interview asks whether there's domestic violence
+  snapshot_dv_present = "unknown"    # if interview asks about DV, set True if DV present, False if not
+---
 ######
 ---
 # default welcome info; keep relatively short. If lots of preconditions/warnings, make separate screen
@@ -561,6 +565,31 @@ code: |
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # Court Loader - End # # # # # # # # # # # # # # #
 ---
+# # # # # # # # # # # Snapshot Code # # # # # # # # # # # #
+# see also snapshot_dv_question in default settings above
+code: |
+  store_variables_snapshot(
+  	data=stuff_to_snapshot, persistent=True
+  	)
+  snapshot_interview_state = True
+---
+code: |
+  stuff_to_snapshot = {
+  	'begin_time': str(current_datetime().format_datetime(format='yyyy-MM-dd h:mm a')),
+  	}
+  snapshot_interview_state
+  snapshot_start = True  
+---
+code: |
+  stuff_to_snapshot['zip'] = showifdef('users[0].address.zip')
+  stuff_to_snapshot['number_of_forms'] = len(al_court_bundle.enabled_documents())
+  stuff_to_snapshot['end_time'] = str(current_datetime().format_datetime(format='yyyy-MM-dd h:mm a'))
+  if snapshot_dv_question == True:
+    stuff_to_snapshot['dv_present'] = showifdef('snapshot_dv_present')
+  reconsider('snapshot_interview_state')
+  snapshot_download = True
+---
+# # # # Interview Down / Maintenance Message # # # #
 # Put this code at top of an interview if we need to take it down for a little while.
 # ---
 # id: interview under maintenance screen
