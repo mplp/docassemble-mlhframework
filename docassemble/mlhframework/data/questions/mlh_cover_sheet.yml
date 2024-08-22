@@ -1,20 +1,22 @@
 # Used to set up and populate a dynamic ALDocument cover page, which can then be
 # included in a tool's ALDocumentBundle.
 # Can be included in a form packet's ALDocumentBundle as either an individual file or along
-# with instructions or other reference material.
-# 1. As Individual file, include this code in local yml file:
+# with instructions or other reference material. The below examples are from the child support motion 
+# tool and therefore list other child support docs and a child support filename.
+# 1. As individual file, include the cover_sheet object in al_user_bundle in your interview. 
 #    ---
 #    objects:
-#      - al_cover: ALDocumentBundle.using(elements=[cover_sheet_template], filename="Instructions - Do 
-#        not file this", title="Instructions", enabled=True)
-# 2. As part of a combined file ('instructions' is an ALDocument defined locally):
+#      - al_user_bundle: ALDocumentBundle.using(elements=[cover_sheet_template_2, mrcs_attachment, 
+#        mrcs_foc10, mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All 
+#        Forms).pdf", title="All forms to download for your records", enabled=True)
+# 2. As part of a combined file ('instructions' is an ALDocument defined locally. The cover_sheet 
+#    template is inserted into the 'instructions' template. See coding doc for more info.):
 #    ---
 #    objects:
-#      - al_cover_bundle: >-
-#          ALDocumentBundle.using(elements=[cover_sheet_template, instructions],
-#          filename="Instructions - Do not file this", title="Instructions", 
-#          enabled=True)
-# Include al_cover or al_cover_bundle (as appropriate) in al_user_bundle
+#      - al_user_bundle: ALDocumentBundle.using(elements=[instructions, mrcs_attachment, mrcs_foc10, 
+#        mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All Forms).pdf", 
+#        title="All forms to download for your records", enabled=True)
+# Exclude the instructions or cover sheet from al_court_bundle
 # Note that any of the cover_sheet_X strings can be overridden in a program's local yml.
 ---
 # no longer needed for cover sheet 2.0 method, leaving in for back-compatibility
@@ -37,7 +39,7 @@ code: |
   cover_sheet_select_county = " and select a county."
 ---
 code: |
-  cover_sheet_top_message = "What to do with your forms."
+  cover_sheet_top_message = "What to do with your forms"
 ---
 code: |
   cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
