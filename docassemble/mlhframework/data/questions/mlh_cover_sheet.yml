@@ -24,14 +24,17 @@ code: |
   accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
 ---
 code: |
+  resource_page_link = f"[{ resource_page_name }]({ resource_page_url_only })" 
+---
+code: |
   resource_page_url_only = "https://michiganlegalhelp.org"
-  resource_page_link = "[YOU NEED TO SET resource_page_link and resource_page_url_only](resource_page_url_only)" 
+  resource_page_name = "YOU MUST SET resource_page_name & resource_page_url_only!"
 # These defaults must be overwritten in each interview.
 # Example:
 # ---
 # code: |
 #   resource_page_url_only = "https://michiganlegalhelp.org/node/242"
-#   resource_page_link = "[Security Deposit Help for Tenants](https://michiganlegalhelp.org/node/242)"
+#   resource_page_name = "Security Deposit Help for Tenants"
 # ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
@@ -39,10 +42,10 @@ code: |
   cover_sheet_select_county = " and select a county."
 ---
 code: |
-  cover_sheet_top_message = "What to do with your forms"
+  cover_sheet_top_message = f"What to Do With Your { capitalize(MLH_form_type) }"
 ---
 code: |
-  cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
+  cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about next steps."
   if MLH_instructions_included == True:
 	  cover_sheet_complete_1 += f" Read the instructions in this document."
   # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
