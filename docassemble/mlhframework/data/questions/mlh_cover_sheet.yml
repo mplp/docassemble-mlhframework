@@ -1,25 +1,8 @@
 # Used to set up and populate a dynamic ALDocument cover page, which can then be
 # included in a tool's ALDocumentBundle.
-# Can be included in a form packet's ALDocumentBundle as either an individual file or along
-# with instructions or other reference material. The below examples are from the child support motion 
-# tool and therefore list other child support docs and a child support filename.
-# 1. As individual file, include the cover_sheet object in al_user_bundle in your interview. 
-#    ---
-#    objects:
-#      - al_user_bundle: ALDocumentBundle.using(elements=[cover_sheet_template_2, mrcs_attachment, 
-#        mrcs_foc10, mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All 
-#        Forms).pdf", title="All forms to download for your records", enabled=True)
-# 2. As part of a combined file ('instructions' is an ALDocument defined locally. The cover_sheet 
-#    template is inserted into the 'instructions' template. See coding doc for more info.):
-#    ---
-#    objects:
-#      - al_user_bundle: ALDocumentBundle.using(elements=[instructions, mrcs_attachment, mrcs_foc10, 
-#        mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All Forms).pdf", 
-#        title="All forms to download for your records", enabled=True)
-# Exclude the instructions or cover sheet from al_court_bundle
-# Note that any of the cover_sheet_X strings can be overridden in a program's local yml.
+# Note that any of the cover_sheet_X or similar strings can be overridden in a program's local yml.
 ---
-# no longer needed for cover sheet 2.0 method, leaving in for back-compatibility
+# This is no longer needed for cover sheet 2.0, leaving in for back-compatibility
 code: |
   accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
 ---
@@ -96,7 +79,6 @@ attachment:
   fields:
       - "accessible_instructions_link": ${ accessible_instructions_link }
       - "cover_sheet_select_county": ${ cover_sheet_select_county }
-      - "cover_sheet_top_message": ${ cover_sheet_top_message }
       - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
       - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
       - "cover_sheet_share": ${ cover_sheet_share }
@@ -105,11 +87,29 @@ attachment:
       - "cover_sheet_thanks": ${ cover_sheet_thanks }
 
 ---
-# To be used in a program's local ALDocumentBundle
+#  Creates object that can be referenced in a program's local ALDocumentBundle (see example 1 below) if #  including cover sheet as separate document, rather than as template within instructions document.
 objects:
+#  The first version is for back-compatibility only. Use cover_sheet_template_2 for new builds.
   - cover_sheet_template: >-
       ALDocument.using(title="Instructions", 
       filename="Instructions - Do not file this", enabled=True, has_addendum=False)
   - cover_sheet_template_2: >-
       ALDocument.using(title="Instructions", 
       filename="Instructions - Do not file this", enabled=True, has_addendum=False)
+# The cover sheet can be included in a tool's ALDocumentBundle as either an individual file or along
+# with instructions or other reference material. The below examples are from the child support motion 
+# tool and therefore list other child support docs and a child support filename.
+# 1. As individual file, include cover_sheet_template_2 object in al_user_bundle in your interview. 
+#    ---
+#    objects:
+#      - al_user_bundle: ALDocumentBundle.using(elements=[cover_sheet_template_2, mrcs_attachment, 
+#        mrcs_foc10, mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All 
+#        Forms).pdf", title="All forms to download for your records", enabled=True)
+# 2. As part of a combined file ('instructions' is an ALDocument defined locally. The cover_sheet 
+#    template is inserted into the 'instructions' template. See coding doc for more info.):
+#    ---
+#    objects:
+#      - al_user_bundle: ALDocumentBundle.using(elements=[instructions, mrcs_attachment, mrcs_foc10, 
+#        mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All Forms).pdf", 
+#        title="All forms to download for your records", enabled=True)
+# Exclude the instructions or cover sheet from al_court_bundle
