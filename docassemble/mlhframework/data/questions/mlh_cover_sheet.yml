@@ -1,49 +1,37 @@
 # Used to set up and populate a dynamic ALDocument cover page, which can then be
 # included in a tool's ALDocumentBundle.
-# Can be included in a form packet's ALDocumentBundle as either an individual file or along
-# with instructions or other reference material.
-# 1. As Individual file, include this code in local yml file:
-#    ---
-#    objects:
-#      - al_cover: ALDocumentBundle.using(elements=[cover_sheet_template], filename="Instructions - Do 
-#        not file this", title="Instructions", enabled=True)
-# 2. As part of a combined file ('instructions' is an ALDocument defined locally):
-#    ---
-#    objects:
-#      - al_cover_bundle: >-
-#          ALDocumentBundle.using(elements=[cover_sheet_template, instructions],
-#          filename="Instructions - Do not file this", title="Instructions", 
-#          enabled=True)
-# Include al_cover or al_cover_bundle (as appropriate) in al_user_bundle
-# Note that any of the cover_sheet_X strings can be overridden in a program's local yml.
+# Note that any of the cover_sheet_X or similar strings can be overridden in a program's local yml.
 ---
+# This is no longer needed for cover sheet 2.0, leaving in for back-compatibility
 code: |
   accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
 ---
 code: |
-  resource_page_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_resource_page_link](https://michiganlegalhelp.org/)"
+  resource_page_link = f"[{ resource_page_name }]({ resource_page_url_only })" 
+---
+code: |
+  resource_page_url_only = "https://michiganlegalhelp.org"
+  resource_page_name = "YOU MUST SET resource_page_name & resource_page_url_only!"
 # These defaults must be overwritten in each interview.
-# Should display the link itself so that it works both to click and to read on paper.
 # Example:
 # ---
 # code: |
-#   accessible_instructions_link = "[https://michiganlegalhelp.org/step/565](https://michiganlegalhelp.org/step/565)"
-# ---
-# code: |
-#   resource_page_link = "[https://michiganlegalhelp.org/node/528](https://michiganlegalhelp.org/node/528)"
+#   resource_page_url_only = "https://michiganlegalhelp.org/node/242"
+#   resource_page_name = "Security Deposit Help for Tenants"
 # ---
 # TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
+# For back-compatibility only. Not needed for cover sheet 2.0
 code: |
   cover_sheet_select_county = " and select a county."
 ---
 code: |
-  cover_sheet_top_message = "Congratulations! Your forms are ready."
+  cover_sheet_top_message = f"What to Do With Your { capitalize(MLH_form_type) }"
 ---
 code: |
-  cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about your next steps."
+  cover_sheet_complete_1 = f"Now that you have your { MLH_form_type }, use our instructions to learn about next steps."
   if MLH_instructions_included == True:
-	  cover_sheet_complete_1 += f" Read the instructions in this document."
+	  cover_sheet_complete_1 += f" Go to the next page in this document to see the instructions."
   # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
 ---
 code: |
@@ -56,12 +44,33 @@ code: |
   cover_sheet_complete_2 = "We hope that dealing with your legal issue goes well. We’d like to know more about how things went after you used the MichiganLegalHelp website. To share your experience with us, please complete our survey. Using your smartphone or mobile device, scan the QR Code below to visit our survey."
 ---
 code: |
-  cover_sheet_survey_link = "[https://www.michiganlegalhelp.org/survey](https://www.michiganlegalhelp.org/survey)"
+  cover_sheet_survey_link = "[visit our survey using this link](https://michiganlegalhelp.org/survey)"
+  survey_link_url_only = "https://michiganlegalhelp.org/survey"
 ---
 code: |
   cover_sheet_thanks = "Thank you so much! Your feedback will help us improve Michigan Legal Help and access to justice in Michigan."
 
 ---
+attachment:
+  name: cover sheet 2.0
+  variable name: cover_sheet_template_2[i]
+  skip undefined: False
+  docx template file: cover_sheet_2.0.docx
+  tagged pdf: True
+  fields:
+      - "cover_sheet_top_message": ${ cover_sheet_top_message }
+      - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
+      - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
+      - "resource_page_link": ${ resource_page_link }
+      - "resource_page_url_only": ${ resource_page_url_only }
+      - "cover_sheet_share": ${ cover_sheet_share }
+      - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
+      - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
+      - "survey_link_url_only": ${ survey_link_url_only }
+      - "cover_sheet_thanks": ${ cover_sheet_thanks }
+
+---
+# retain old version for back-compatibility
 attachment:
   name: cover sheet
   variable name: cover_sheet_template[i]
@@ -71,17 +80,39 @@ attachment:
   fields:
       - "accessible_instructions_link": ${ accessible_instructions_link }
       - "cover_sheet_select_county": ${ cover_sheet_select_county }
-      - "cover_sheet_top_message": ${ cover_sheet_top_message }
       - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
       - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
       - "cover_sheet_share": ${ cover_sheet_share }
       - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
       - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
+      - "survey_link_url_only": ${ survey_link_url_only }
       - "cover_sheet_thanks": ${ cover_sheet_thanks }
 
 ---
-# To be used in a program's local ALDocumentBundle
+#  Creates object that can be referenced in a program's local ALDocumentBundle (see example 1 below) if 
+#  including cover sheet as separate document, rather than as template within instructions document.
 objects:
+#  The first version is for back-compatibility only. Use cover_sheet_template_2 for new builds.
   - cover_sheet_template: >-
       ALDocument.using(title="Instructions", 
       filename="Instructions - Do not file this", enabled=True, has_addendum=False)
+  - cover_sheet_template_2: >-
+      ALDocument.using(title="Instructions", 
+      filename="Instructions - Do not file this", enabled=True, has_addendum=False)
+# The cover sheet can be included in a tool's ALDocumentBundle as either an individual file or along
+# with instructions or other reference material. The below examples are from the child support motion 
+# tool and therefore list other child support docs and a child support filename.
+# 1. As individual file, include cover_sheet_template_2 object in al_user_bundle in your interview. 
+#    ---
+#    objects:
+#      - al_user_bundle: ALDocumentBundle.using(elements=[cover_sheet_template_2, mrcs_attachment, 
+#        mrcs_foc10, mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All 
+#        Forms).pdf", title="All forms to download for your records", enabled=True)
+# 2. As part of a combined file ('instructions' is an ALDocument defined locally. The cover_sheet 
+#    template is inserted into the 'instructions' template. See coding doc for more info.):
+#    ---
+#    objects:
+#      - al_user_bundle: ALDocumentBundle.using(elements=[instructions, mrcs_attachment, mrcs_foc10, 
+#        mrcs_foc10d, mrcs_foc12], filename="Motion Regarding Child Support (All Forms).pdf", 
+#        title="All forms to download for your records", enabled=True)
+# Exclude the instructions or cover sheet from al_court_bundle
