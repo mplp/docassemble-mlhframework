@@ -187,7 +187,8 @@ content: |
   % if filename:
   Filename | `${ filename }`
   % endif
-  Details | ${ details }
+  
+  Details: ${ details }
 ---
 # Un-comment this block in order to test the above code WITHOUT actually
 # creating a new GitHub issue each time the feedback form is used.
