@@ -10,8 +10,8 @@ metadata:
 ---
 code: |
   al_feedback_form_title = "Feedback"
-  # Will be the name of the Github label added to new issues
   al_how_to_get_legal_help = mlh_how_to_get_legal_help
+  # Will be the name of the Github label added to new issues:
   al_github_label = 'MLH user feedback'
 
 ---
@@ -111,7 +111,10 @@ continue button field: intro
 code: |
   feedback_start_over_label = 'Start over'
   feedback_resume_label = 'Resume where you left off'
-
+---
+code: |
+  if not get_config('debug'):
+    reason = "something"
 ---
 id: exit
 event: gentle_exit
