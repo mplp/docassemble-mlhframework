@@ -5,11 +5,11 @@ include:
   - docassemble.GithubFeedbackForm:feedback.yml
 ---
 metadata:
-  title: User Feedback
+  title: MLH-Forms
 #  exit url: https://da-prod.mplp.org/
 ---
 code: |
-  al_feedback_form_title = "MLH-Forms Feedback"
+  al_feedback_form_title = "Feedback"
   # Will be the name of the Github label added to new issues
   al_how_to_get_legal_help = mlh_how_to_get_legal_help
   al_github_label = 'MLH user feedback'
