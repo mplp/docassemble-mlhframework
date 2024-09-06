@@ -177,7 +177,14 @@ question: |
 decoration: lifebuoy
 subquestion: |
   ${ mlh_how_to_get_legal_help }
-
+  
+  To keep working on your form, you can close this tab and continue where you left off. You can also use the **${ feedback_resume_label }** button below.
+ 
+action buttons:
+  - label: ${ feedback_resume_label }
+    action: ${ interview_url(session=orig_session_id, i=filename) }
+    color: success
+    icon: backward
 ---
 template: mlh_how_to_get_legal_help
 subject: |
