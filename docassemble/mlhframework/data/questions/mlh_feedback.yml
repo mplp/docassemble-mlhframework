@@ -254,7 +254,7 @@ content: |
   Page title | ${ page_title }
   % endif
   % if variable:
-  Variable being sought | `${ variable }`
+  Variable sought | `${ variable }`
   % endif
   % if package_version:
   Package version | `${ package_version }`
@@ -263,7 +263,7 @@ content: |
   Maturity target | ${ maturity_level }
   % endif
   % if filename:
-  Filename | `${ filename }`
+  Form | `${ filename }`
   % endif
   
   **Details:** 
