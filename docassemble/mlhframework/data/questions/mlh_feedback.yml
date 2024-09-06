@@ -6,10 +6,10 @@ include:
 ---
 metadata:
   title: User Feedback
-  exit url: https://da-prod.mplp.org/
+#  exit url: https://da-prod.mplp.org/
 ---
 code: |
-  al_feedback_form_title = "Michigan Legal Help DIY Tool Feedback"
+  al_feedback_form_title = "MLH-Forms Feedback"
   # Will be the name of the Github label added to new issues
   al_how_to_get_legal_help = mlh_how_to_get_legal_help
   al_github_label = 'MLH user feedback'
@@ -163,7 +163,11 @@ action buttons:
 ---
 template: generic_report[i]
 subject: |
-  User feedback: ${i}
+  % if get_config('debug'):
+  Tester feedback: ${i}
+  % else:
+  User feedback
+  % endif
   % if variable:
   (`${ variable }`)
   % endif
@@ -188,7 +192,9 @@ content: |
   Filename | `${ filename }`
   % endif
   
-  Details: ${ details }
+  **Details:** 
+  
+  ${ details }
 ---
 # Un-comment this block in order to test the above code WITHOUT actually
 # creating a new GitHub issue each time the feedback form is used.
