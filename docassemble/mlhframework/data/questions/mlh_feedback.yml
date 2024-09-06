@@ -104,8 +104,6 @@ decoration: lifebuoy
 subquestion: |
   ${ mlh_how_to_get_legal_help }
 
-buttons:
-  - Exit: exit
 ---
 template: mlh_how_to_get_legal_help
 subject: |
@@ -115,7 +113,9 @@ content: |
   
   - [Go to Michigan Legal Help](https://michiganlegalhelp.org/explore-legal-resources) for Michigan legal information.
 
-  - [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue
+  - [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue.
+  
+  - [Find a Self-Help Center](https://michiganlegalhelp.org/organizations-and-courts/self-help-centers) to visit in person.
 ---
 id: end_results
 event: end_results
@@ -160,9 +160,35 @@ action buttons:
     color: success
     icon: backward
     show if: reason != "bug"
-
-
-
+---
+template: generic_report[i]
+subject: |
+  User feedback: ${i}
+  % if variable:
+  (`${ variable }`)
+  % endif
+content: |
+  &nbsp; | &nbsp;
+  -------|------------------------------------
+  % if question_id:
+  Question ID | `${ question_id }`
+  % elif defined('page_title'): 
+  Page title | ${ page_title }
+  % endif
+  % if variable:
+  Variable being sought | `${ variable }`
+  % endif
+  % if package_version:
+  Package version | `${ package_version }`
+  % endif
+  % if defined('maturity_level'):
+  Maturity target | ${ maturity_level }
+  % endif
+  % if filename:
+  Filename | `${ filename }`
+  % endif
+  Details | ${ details }
+---
 # Un-comment this block in order to test the above code WITHOUT actually
 # creating a new GitHub issue each time the feedback form is used.
 # BE SURE to re-comment this when you install it!
