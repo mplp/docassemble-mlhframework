@@ -5,11 +5,11 @@ include:
   - docassemble.GithubFeedbackForm:feedback.yml
 ---
 metadata:
-  title: User Feedback
-  exit url: https://da-prod.mplp.org/
+  title: MLH-Forms
+#  exit url: https://da-prod.mplp.org/
 ---
 code: |
-  al_feedback_form_title = "Michigan Legal Help DIY Tool Feedback"
+  al_feedback_form_title = "Feedback"
   # Will be the name of the Github label added to new issues
   al_how_to_get_legal_help = mlh_how_to_get_legal_help
   al_github_label = 'MLH user feedback'
@@ -21,6 +21,80 @@ objects:
         filename="github_image_paste.png",
         alt_text=word("Copy and paste an image or screenshot right into a GitHub Comment"))
 
+---
+id: intro
+decoration: opinion
+question: |
+  ${ al_feedback_form_title } - Tell us how we're doing
+subquestion: |
+  The information you type here will be publicly available. That means anyone will be able to see it. Please **do not** include any personal information.
+  
+  ${ collapse_template(al_how_to_get_legal_help) }
+
+  Thank you for telling us about your experience with this website.
+  
+fields:
+  - no label: reason
+    input type: radio
+    choices:
+      - I'd like to tell you something: something
+      - I'm looking for more help: help
+  - "**What would you like to tell us?**": details
+    rows: 4
+    input type: area
+    show if:
+      variable: reason
+      is: something
+  - note: |
+      If you ran into a bug, you can share your answers with
+      an administrator (they will not be made public) to help us
+      track down the problem.
+      [BR]
+      We will not contact you either way.
+    show if:
+      code: |
+        server_share_answers and not get_config('debug')
+      variable: reason
+      is: something
+  - label: |
+      Share my answers with an administrator
+    label above field: False
+    field: share_interview_answers
+    datatype: yesno
+    show if:
+      code: |
+        server_share_answers and not get_config('debug')
+      variable: reason
+      is: something
+  - label: |
+      I am interested in being a part of a user feedback panel
+    label above field: False
+    field: would_be_on_panel
+    datatype: yesno
+    default: False
+    show if:
+      code: |
+        server_ask_panel and not get_config('debug')
+      variable: reason
+      is: something
+  - note: |
+      We will contact you for the feedback panel by email.
+    show if:
+      code: |
+        server_ask_panel and not get_config('debug')
+      variable: would_be_on_panel
+      is: True
+  - label: |
+      **What is your email?**
+    field: panel_email
+    datatype: email
+    default: ${ user_info().email if hasattr(user_info(), 'email') else '' }
+    show if:
+      code: |
+        server_ask_panel and not get_config('debug')
+      variable: would_be_on_panel
+      is: True
+continue button field: intro
 ---
 if: |
   get_config('debug')
@@ -103,9 +177,14 @@ question: |
 decoration: lifebuoy
 subquestion: |
   ${ mlh_how_to_get_legal_help }
-
-buttons:
-  - Exit: exit
+  
+  To keep working on your form, you can close this tab and continue where you left off. You can also use the **${ feedback_resume_label }** button below.
+ 
+action buttons:
+  - label: ${ feedback_resume_label }
+    action: ${ interview_url(session=orig_session_id, i=filename) }
+    color: success
+    icon: backward
 ---
 template: mlh_how_to_get_legal_help
 subject: |
@@ -115,7 +194,9 @@ content: |
   
   - [Go to Michigan Legal Help](https://michiganlegalhelp.org/explore-legal-resources) for Michigan legal information.
 
-  - [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue
+  - [Go to LiveHelp](https://michiganlegalhelp.org/livehelp) to chat with someone or send an email about your issue.
+  
+  - [Find a Self-Help Center](https://michiganlegalhelp.org/organizations-and-courts/self-help-centers) to visit in person.
 ---
 id: end_results
 event: end_results
@@ -160,9 +241,42 @@ action buttons:
     color: success
     icon: backward
     show if: reason != "bug"
-
-
-
+---
+template: generic_report[i]
+subject: |
+  % if get_config('debug'):
+  Tester feedback: ${i}
+  % else:
+  User feedback
+  % endif
+  % if variable:
+  (`${ variable }`)
+  % endif
+content: |
+  &nbsp; | &nbsp;
+  -------|------------------------------------
+  % if question_id:
+  Question ID | `${ question_id }`
+  % elif defined('page_title'): 
+  Page title | ${ page_title }
+  % endif
+  % if variable:
+  Variable sought | `${ variable }`
+  % endif
+  % if package_version:
+  Package version | `${ package_version }`
+  % endif
+  % if defined('maturity_level'):
+  Maturity target | ${ maturity_level }
+  % endif
+  % if filename:
+  Form | `${ filename }`
+  % endif
+  
+  **Details:** 
+  
+  ${ details }
+---
 # Un-comment this block in order to test the above code WITHOUT actually
 # creating a new GitHub issue each time the feedback form is used.
 # BE SURE to re-comment this when you install it!
