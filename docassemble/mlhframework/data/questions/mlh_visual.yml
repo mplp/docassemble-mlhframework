@@ -106,7 +106,6 @@ subquestion: |
   % elif len(ORIGINAL_FORMS) == 1:
   * [Download a blank "${ all_variables(special='metadata').get("title", "").strip() }"]( ${ ORIGINAL_FORMS[0] })
   % endif
-#  * Visit the [${ AL_ORGANIZATION_TITLE } home page](${ AL_ORGANIZATION_HOMEPAGE }) and try another interview
   % if al_show_email_to_user_on_errors and get_config("error notification email"):
   * [Send us an email](mailto:${ get_config("error notification email") }?subject=User%20error%20report%3A%20${ all_variables(special='metadata').get("title") }%20${ user_info().filename }) (Note: you may not get a reply)
   % endif
