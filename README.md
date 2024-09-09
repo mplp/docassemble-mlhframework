@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 9/9/24    0.4.37 add download screen to framework
 * 9/6/24    0.4.36 remova comma ref from validation messages; update feedback form
 * 8/22/24   0.4.35 coversheet 2.0 method
 * 8/19/24   0.4.34 update snapshot method

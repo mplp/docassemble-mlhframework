@@ -432,6 +432,20 @@ subquestion: |
   To go back to saved answers, make sure you are logged in. Then go to the menu at the top of the screen and select “My Forms.”
 continue button field: MLH_outro_saving_answers
 progress: 99
+---
+id: DownloadScreen
+event: download_screen
+question: |
+  Get your ${ MLH_form_type }
+subquestion: |
+  Thank you ${users}. You can view, download, or e-mail your ${ MLH_form_type } to yourself below. Click the "Edit answers" button to fix any mistakes.
+
+  ${ action_button_html(url_action('review_full'), label='Edit answers', color='info') }
+  
+  ${ al_user_bundle.download_list_html() }
+
+  ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
+progress: 100
 
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
