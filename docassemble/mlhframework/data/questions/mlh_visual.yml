@@ -1,7 +1,6 @@
 # MLH-specific overrides from AssemblyLine/data/questions/al_visual.yml
-# As of March 2024, this exists in order to override AL use of "Next" with
-# MLH_continue_button_label and "Back" with MLH_back_button_label.
 
+# Overrides AL use of "Back" with MLH_back_button_label.
 ---
 id: Results of sharing
 continue button field: al_share_results
@@ -59,3 +58,126 @@ back button label: |
 continue button label: |
   Exit and delete my answers
 continue button field: al_exit_logout_confirmation
+
+# Overrides bug page settings
+################################### Custom error action ###############################
+---
+# Only necessary to ignore playground "undefined names" warning
+objects:
+  - MAIN_METADATA: DAEmpty()
+  - ORIGINAL_FORMS: DAEmpty()
+---
+id: custom error action
+event: al_custom_error_action
+decoration: bug
+question: |
+  Something went wrong
+subquestion: |
+  % if interview_metadata.get("main_interview_key"):
+    <%
+      MAIN_METADATA = interview_metadata[interview_metadata["main_interview_key"]]
+    %>
+  % elif len(interview_metadata) > 1:    
+    <% 
+      del(interview_metadata["main_interview_key"]) # DADict creates the key on lookup above
+      MAIN_METADATA = next(iter(interview_metadata.values())) 
+    %>
+  % else:
+    <% MAIN_METADATA = all_variables(special='metadata') %>
+  % endif
+  <% ORIGINAL_FORMS = MAIN_METADATA.get("original_form", []) if isinstance(MAIN_METADATA.get("original_form"), list) else ([MAIN_METADATA.get("original_form", "")] if MAIN_METADATA.get("original_form") else []) %>
+
+  We ran into an error when we tried to load this screen.
+
+  You can try one of these next steps:
+
+  * Tap the **${ MLH_back_button_label }** button and try again
+  % if al_enable_error_action_feedback_link:
+  * [:comment-dots: Tell us what happened](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_feedback.yml", github_repo=github_repo_name, github_user=github_user, package_version=package_version_number) } ){:target="_blank"}
+  % endif
+  % if al_enable_incomplete_downloads:
+  * Try to [download your work in progress](${ url_action("al_error_action_download_screen") })
+  % endif
+  % if len(ORIGINAL_FORMS) > 1:
+  * Download a blank "${ all_variables(special='metadata').get("title", "").strip() }":
+  % for url in ORIGINAL_FORMS:
+      * [${ url }](${ url } )
+  % endfor
+  % elif len(ORIGINAL_FORMS) == 1:
+  * [Download a blank "${ all_variables(special='metadata').get("title", "").strip() }"]( ${ ORIGINAL_FORMS[0] })
+  % endif
+#  * Visit the [${ AL_ORGANIZATION_TITLE } home page](${ AL_ORGANIZATION_HOMEPAGE }) and try another interview
+  % if al_show_email_to_user_on_errors and get_config("error notification email"):
+  * [Send us an email](mailto:${ get_config("error notification email") }?subject=User%20error%20report%3A%20${ all_variables(special='metadata').get("title") }%20${ user_info().filename }) (Note: you may not get a reply)
+  % endif
+  % for al_opt in al_custom_error_options:
+  * ${ al_opt }
+  % endfor
+
+  % if not get_config("verbose error messages") == False:
+  ${ collapse_template(al_formatted_error_message) }
+  % endif
+back button label: Back
+buttons:
+  - Exit: leave
+    url: ${ AL_ORGANIZATION_HOMEPAGE }
+  - Start over: restart
+---
+code: |
+  al_show_email_to_user_on_errors = get_config("assembly line", {}).get("show email to user on errors")
+---
+code: |
+  al_enable_incomplete_downloads = get_config("assembly line", {}).get("enable incomplete downloads")
+---
+code: |
+  al_enable_error_action_feedback_link = get_config("assembly line", {}).get("enable error action feedback link")
+---
+code: |
+  # Provide a list of strings
+  al_custom_error_options = get_config("assembly line", {}).get("custom error actions",[])
+---
+event: al_error_action_download_screen
+id: emergency download screen
+decoration: triangle-exclamation
+question: |
+  Here is your work in progress
+subquestion: |
+  **Warning**: these documents may not be complete. Look each document over carefully and enter
+  any information that is missing once you have downloaded the documents.
+
+  **It is possible that the missing information may make this document unenforceable.**
+
+  Here is your current progress on the "${ all_variables(special='metadata').get("title","").strip() }" documents you started:
+
+  ${ al_user_bundle.download_list_html(key="emergency_download") }
+buttons:
+  - Leave: leave
+  - Start over: restart
+---
+template: al_formatted_error_message
+subject: |
+  Technical information
+content: |
+  <h2 class="h4">${ word("Error") }</h2>
+  % if action_argument("error_message"):
+  ${ action_argument('error_message') }
+  % else:
+  The error details are no longer available.
+  Use the "back" button to retry the last action
+  and view more information about the error.
+  % endif
+
+  % if get_config("debug") and action_argument("error_history"):
+  <h2 class="h4">${ word("History") }</h2>
+  <pre>
+  ${ action_argument("error_history") }
+  </pre>
+  % endif
+
+  % if get_config("debug") and action_argument("error_trace"):
+  <h2 class="h4">${ word("Log") }</h2>
+  <pre>
+  ${ action_argument("error_trace")}
+  </pre>
+  % endif
+---
