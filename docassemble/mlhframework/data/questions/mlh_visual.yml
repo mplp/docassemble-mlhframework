@@ -62,11 +62,6 @@ continue button field: al_exit_logout_confirmation
 # Overrides bug page settings
 ################################### Custom error action ###############################
 ---
-# Only necessary to ignore playground "undefined names" warning
-objects:
-  - MAIN_METADATA: DAEmpty()
-  - ORIGINAL_FORMS: DAEmpty()
----
 id: custom error action
 event: al_custom_error_action
 decoration: bug
@@ -122,37 +117,6 @@ buttons:
     url: ${ AL_ORGANIZATION_HOMEPAGE }
   - Start over: restart
 ---
-code: |
-  al_show_email_to_user_on_errors = get_config("assembly line", {}).get("show email to user on errors")
----
-code: |
-  al_enable_incomplete_downloads = get_config("assembly line", {}).get("enable incomplete downloads")
----
-code: |
-  al_enable_error_action_feedback_link = get_config("assembly line", {}).get("enable error action feedback link")
----
-code: |
-  # Provide a list of strings
-  al_custom_error_options = get_config("assembly line", {}).get("custom error actions",[])
----
-event: al_error_action_download_screen
-id: emergency download screen
-decoration: triangle-exclamation
-question: |
-  Here is your work in progress
-subquestion: |
-  **Warning**: these documents may not be complete. Look each document over carefully and enter
-  any information that is missing once you have downloaded the documents.
-
-  **It is possible that the missing information may make this document unenforceable.**
-
-  Here is your current progress on the "${ all_variables(special='metadata').get("title","").strip() }" documents you started:
-
-  ${ al_user_bundle.download_list_html(key="emergency_download") }
-buttons:
-  - Leave: leave
-  - Start over: restart
----
 template: al_formatted_error_message
 subject: |
   Technical information
@@ -162,7 +126,7 @@ content: |
   ${ action_argument('error_message') }
   % else:
   The error details are no longer available.
-  Use the "back" button to retry the last action
+  Use the **Undo** button to retry the last action
   and view more information about the error.
   % endif
 

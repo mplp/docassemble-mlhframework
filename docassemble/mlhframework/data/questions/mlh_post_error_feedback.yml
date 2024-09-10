@@ -2,6 +2,23 @@
 include:
   - docassemble.mlhframework:mlh_feedback.yml
 ---
+id: intro
+decoration: bug
+question: |
+  ${ al_feedback_form_title } - Tell us what happened
+subquestion: |
+  Thank you for telling us about the error you found.
+  
+  The information you type here will be publicly available. That means anyone will be able to see it. Please **do not** include any personal information.
+  
+  ${ collapse_template(al_how_to_get_legal_help) }
+  
+fields:
+  - "**What would you like to tell us?**": details
+    rows: 4
+    input type: area
+continue button field: intro
+---
 id: end_results
 event: end_results
 question: |
