@@ -93,7 +93,7 @@ subquestion: |
 
   * Tap the **${ MLH_back_button_label }** button and try again
   % if al_enable_error_action_feedback_link:
-  * [:comment-dots: Tell us what happened](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_feedback.yml", github_repo=github_repo_name, github_user=github_user, package_version=package_version_number) } ){:target="_blank"}
+  * [:comment-dots: Tell us what happened](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_post_error_feedback.yml", github_repo=github_repo_name, github_user=github_user, package_version=package_version_number) } ){:target="_blank"}
   % endif
   % if al_enable_incomplete_downloads:
   * Try to [download your work in progress](${ url_action("al_error_action_download_screen") })
