@@ -6,7 +6,7 @@ if: |
   not get_config('debug')
 id: intro
 question: |
-  ${ al_feedback_form_title } - Tell us what happened
+  Tell us what happened
 subquestion: |
   Thank you for telling us about the error you found.
   
