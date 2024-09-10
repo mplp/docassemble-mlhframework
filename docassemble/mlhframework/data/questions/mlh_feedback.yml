@@ -154,8 +154,7 @@ subquestion: |
   Please close the tab where you encountered the bug and restart using the 
   **${ feedback_start_over_label }** button at the bottom of this page.
   % else:
-  You can now close this tab, go back to the interview, and continue where you left off.
-  You can also use the **${ feedback_resume_label }** button at the bottom of the page.
+  To go back to where you left off, close this tab and find the tab where you were answering questions. Or use the **${ feedback_resume_label }** button at the bottom of the page.
   % endif
   
   % if get_config('debug'):

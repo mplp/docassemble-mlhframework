@@ -1,0 +1,65 @@
+---
+include:
+  - docassemble.mlhframework:mlh_feedback.yml
+---
+if: |
+  not get_config('debug')
+id: intro
+question: |
+  Tell us what happened
+subquestion: |
+  Thank you for telling us about the error you found.
+  
+  The information you type here will be publicly available. That means anyone will be able to see it. Please **do not** include any personal information.
+  
+  ${ collapse_template(al_how_to_get_legal_help) }
+  
+fields:
+  - "**What would you like to tell us?**": details
+    rows: 4
+    input type: area
+continue button field: intro
+---
+id: end_results
+event: end_results
+question: |
+  Thank you for your feedback
+decoration: opinion
+subquestion: |
+  % if reason == "bug":
+  Please close the tab where you encountered the bug and restart using the 
+  **${ feedback_start_over_label }** button at the bottom of this page.
+  % else:
+  We will review your feedback and try to fix the error. To go back to the error page, close this tab and find the tab where you were answering questions. Or use the **${ feedback_resume_label }** button at the bottom of the page.
+  % endif
+  
+  % if get_config('debug'):
+  % if issue_url:
+  If you would like to track this issue, make updates, or add more information, you can 
+  [see it here](${issue_url}) on GitHub. 
+  You can also use GitHub to add screenshots or upload a sample document:
+  
+  * If you don't already have a GitHub account, you will need to create one. 
+  You can [create an account here](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free).
+  * Use [this link](${issue_url}) to go to the issue you reported in Github.
+  * Once at the GitHub issue, scroll down to where you can add a comment. 
+  * In this area, you can either attach an image, or you can copy and paste a screenshot directly into this area (as seen below).
+       ${ image_github_image_paste.show(width="100%") }
+  * You can also drag and drop to attach other file types, such as sample form output.
+  * Click the green **Comment** button - your image or attached file and any other comments will be included!
+  % endif
+  % else:
+  ${ collapse_template(mlh_how_to_get_legal_help) }
+  % endif
+action buttons:
+  - label: ${ feedback_start_over_label }
+    action: ${ interview_url(i=filename, new_session=1) }
+    color: warning
+    icon: sign-out-alt
+    show if: reason == "bug"
+  - label: ${ feedback_resume_label }
+    action: ${ interview_url(session=orig_session_id, i=filename) }
+    color: success
+    icon: backward
+    show if: reason != "bug"
+---
