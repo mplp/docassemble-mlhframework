@@ -2,8 +2,9 @@
 include:
   - docassemble.mlhframework:mlh_feedback.yml
 ---
+if: |
+  not get_config('debug')
 id: intro
-decoration: bug
 question: |
   ${ al_feedback_form_title } - Tell us what happened
 subquestion: |
