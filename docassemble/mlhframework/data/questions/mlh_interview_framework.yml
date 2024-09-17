@@ -438,9 +438,9 @@ event: MLH_download
 question: |
   Get your ${ MLH_form_type }
 subquestion: |
-  Thank you ${users}. You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Click the "Edit answers" button to fix any mistakes.
+  You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
 
-  ${ action_button_html(url_action('review_full'), label='Edit answers', color='info') }
+  ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
   
   ${ al_user_bundle.download_list_html() }
 
