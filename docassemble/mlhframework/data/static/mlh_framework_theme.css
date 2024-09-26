@@ -208,6 +208,6 @@ footer a {
 }
 
 /* Reduce white space at top of Survey Monkey embedded survey. */
-.survey-page-body .questions {
+.survey-page-body .questions .clearfix {
   padding-top: 0px !important;
 }
