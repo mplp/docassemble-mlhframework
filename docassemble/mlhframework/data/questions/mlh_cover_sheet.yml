@@ -52,9 +52,6 @@ code: |
 code: |
   cover_sheet_thanks = "Thank you so much! Your feedback will help us improve Michigan Legal Help and access to justice in Michigan."
 ---
-objects:
-  - QR_code: DAStaticFile.using(filename='survey_qr_code.png', alt_text='Survey QR Code')
----
 attachment:
   name: cover sheet 2.0
   variable name: cover_sheet_template_2[i]
