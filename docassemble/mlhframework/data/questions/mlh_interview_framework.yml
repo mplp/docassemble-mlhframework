@@ -465,12 +465,9 @@ subquestion: |
   ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
   
   <h2 class="h3">Take our quick survey!</h2>
-  Answer below or [open the survey in a new tab](survey_link_url_only).
+  Answer below or [open the survey in a new tab](${ survey_link_url_only }).
   ${ survey_embed_script }
 progress: 100
----
-code: |
-  resource_page_link = f"[{ resource_page_name }]({ resource_page_url_only })" 
 ---
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
