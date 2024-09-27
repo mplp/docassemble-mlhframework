@@ -433,20 +433,45 @@ subquestion: |
 continue button field: MLH_outro_saving_answers
 progress: 99
 ---
+##### Use this DownloadScreen if want to turn OFF embedded surveys #####
+#id: DownloadScreen
+#event: MLH_download
+#question: |
+#  Get your ${ MLH_form_type }
+#subquestion: |
+#  You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
+#
+#  ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
+#  
+#  ${ al_user_bundle.download_list_html() }
+#
+#  ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
+#progress: 100
+#---
+##### Use this DownloadScreen if want to turn ON embedded surveys #####
 id: DownloadScreen
 event: MLH_download
 question: |
   Get your ${ MLH_form_type }
 subquestion: |
   You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
+    
+  <h2 class="h3">Download or e-mail your forms</h2>
 
   ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
   
   ${ al_user_bundle.download_list_html() }
 
   ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
+  
+  <h2 class="h3">Take our quick survey!</h2>
+  Answer below or [open the survey in a new tab](survey_link_url_only).
+  survey_embed_script
 progress: 100
-
+---
+code: |
+  resource_page_link = f"[{ resource_page_name }]({ resource_page_url_only })" 
+---
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
