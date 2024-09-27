@@ -456,7 +456,7 @@ question: |
 subquestion: |
   You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
     
-  <h2 class="h3">Download or e-mail your forms</h2>
+  <h2 class="h3">Download or e-mail your ${ MLH_form_type }</h2>
 
   ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
   
@@ -466,7 +466,7 @@ subquestion: |
   
   <h2 class="h3">Take our quick survey!</h2>
   Answer below or [open the survey in a new tab](survey_link_url_only).
-  survey_embed_script
+  ${ survey_embed_script }
 progress: 100
 ---
 code: |
