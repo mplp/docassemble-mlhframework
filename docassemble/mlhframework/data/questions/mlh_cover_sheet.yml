@@ -41,10 +41,10 @@ code: |
   cover_sheet_share = "Share Your Experience with Us"
 ---
 code: |
-  cover_sheet_complete_2 = "We hope that dealing with your legal issue goes well. We’d like to know more about how things went after you used the MichiganLegalHelp website. To share your experience with us, please complete our survey. Using your smartphone or mobile device, scan the QR Code below to visit our survey."
+  cover_sheet_complete_2 = f"How was using MLH-Forms to create your { MLH_form_type }? To share your experience with us, please complete our survey."
 ---
 code: |
-  cover_sheet_survey_link = f"[visit our survey using this link]({ survey_link_url_only })"
+  cover_sheet_survey_link = f"[Visit our survey using this link]({ survey_link_url_only })"
 ---
 code: |
   survey_link_url_only = "https://michiganlegalhelp.org/survey"
@@ -68,7 +68,6 @@ attachment:
       - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
       - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
       - "survey_link_url_only": ${ survey_link_url_only }
-      - "cover_sheet_thanks": ${ cover_sheet_thanks }
 
 ---
 # retain old version for back-compatibility
