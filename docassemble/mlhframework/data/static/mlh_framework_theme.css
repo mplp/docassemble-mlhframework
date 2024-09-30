@@ -206,3 +206,8 @@ footer a {
   --bs-nav-link-color: var(--bs-navbar-hover-color);
   --bs-nav-link-hover-color: var(--bs-navbar-color);
 }
+
+/* Reduce white space at top of Survey Monkey embedded survey. */
+.survey-page-body .questions .clearfix {
+  padding-top: 0px !important;
+}
