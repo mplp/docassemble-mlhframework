@@ -2,10 +2,6 @@
 # included in a tool's ALDocumentBundle.
 # Note that any of the cover_sheet_X or similar strings can be overridden in a program's local yml.
 ---
-# This is no longer needed for cover sheet 2.0, leaving in for back-compatibility
-code: |
-  accessible_instructions_link = "[https://YOU_NEED_TO_SET_THE_VALUE_OF_accessible_instructions_link](https://michiganlegalhelp.org/)"
----
 code: |
   resource_page_link = f"[{ resource_page_name }]({ resource_page_url_only })" 
 ---
@@ -19,11 +15,10 @@ code: |
 #   resource_page_url_only = "https://michiganlegalhelp.org/node/242"
 #   resource_page_name = "Security Deposit Help for Tenants"
 # ---
-# TODO in future: this may need to be more flexible for situations with multiple instructions.
 ---
-# For back-compatibility only. Not needed for cover sheet 2.0
+# must be overwritten as long as we are using unique survey collectors for each tool
 code: |
-  cover_sheet_select_county = " and select a county."
+  survey_link_url_only = "https://michiganlegalhelp.org/survey"
 ---
 code: |
   cover_sheet_top_message = f"What to Do With Your { capitalize(MLH_form_type) }"
@@ -47,9 +42,6 @@ code: |
   cover_sheet_survey_link = f"[Visit the survey using this link]({ survey_link_url_only })"
 ---
 code: |
-  survey_link_url_only = "https://michiganlegalhelp.org/survey"
----
-code: |
   cover_sheet_thanks = "Thank you so much! Your feedback will help us improve MLH-Forms and access to justice in Michigan."
 ---
 attachment:
@@ -70,32 +62,9 @@ attachment:
       - "survey_link_url_only": ${ survey_link_url_only }
 
 ---
-# retain old version for back-compatibility
-attachment:
-  name: cover sheet
-  variable name: cover_sheet_template[i]
-  skip undefined: False
-  docx template file: cover_sheet.docx
-  tagged pdf: True
-  fields:
-      - "accessible_instructions_link": ${ accessible_instructions_link }
-      - "cover_sheet_select_county": ${ cover_sheet_select_county }
-      - "cover_sheet_complete_1": ${ cover_sheet_complete_1 }
-      - "cover_sheet_complete_1a": ${ cover_sheet_complete_1a }
-      - "cover_sheet_share": ${ cover_sheet_share }
-      - "cover_sheet_complete_2": ${ cover_sheet_complete_2 }
-      - "cover_sheet_survey_link": ${ cover_sheet_survey_link }
-      - "survey_link_url_only": ${ survey_link_url_only }
-      - "cover_sheet_thanks": ${ cover_sheet_thanks }
-
----
 #  Creates object that can be referenced in a program's local ALDocumentBundle (see example 1 below) if 
 #  including cover sheet as separate document, rather than as template within instructions document.
 objects:
-#  The first version is for back-compatibility only. Use cover_sheet_template_2 for new builds.
-  - cover_sheet_template: >-
-      ALDocument.using(title="Instructions", 
-      filename="Instructions - Do not file this", enabled=True, has_addendum=False)
   - cover_sheet_template_2: >-
       ALDocument.using(title="Instructions", 
       filename="Instructions - Do not file this", enabled=True, has_addendum=False)
