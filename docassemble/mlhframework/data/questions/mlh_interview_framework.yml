@@ -92,6 +92,9 @@ content: |
   * Information about your legal issue
   * Information about the people involved
 ---
+code: |
+  survey_embed_script = "YOU NEED TO OVERWRITE survey_embed_script WITH A UNIQUE SURVEY COLLECTOR FOR THIS INTERVIEW."
+---
 mandatory: true
 code: |
   review_empty_explainer = "This page starts out blank. As you answer more questions, they will show up here. Then you can edit your answers."
