@@ -165,7 +165,7 @@ subquestion: |
   * upload a document (like a form with an error on it), or 
   * check the status.
 
-  To add information on GitHub you need to [make an account](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free).Visit [GitHub Tips for MLH Testers](https://docs.google.com/document/d/11ReCxdZ3vfS3nGW6LQlhvZK3DFXD8WAs3S2nOCl_1oc) for more info on using Github to track issues. 
+  To add information on GitHub you need to [make an account](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free). Visit [GitHub Tips for MLH Testers](https://docs.google.com/document/d/11ReCxdZ3vfS3nGW6LQlhvZK3DFXD8WAs3S2nOCl_1oc) for more info on using Github to track issues. 
   % endif
   % else:
   ${ collapse_template(mlh_how_to_get_legal_help) }
