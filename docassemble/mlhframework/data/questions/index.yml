@@ -8,7 +8,12 @@ event: index
 question: |
   MLH-Forms
 subquestion: |
-  ${ action_button_html(url_of('login'), label='Sign in to return to saved forms', color='danger', size="md") }
+  Looking for **saved forms**?
+  % if not user_logged_in():
+  ${ action_button_html(url_of('login'), label='**Sign in**', color='danger', size="md") }
+  % else:
+  ${ action_button_html(url_of('interviews'), label='Go to **My Forms**', color='danger', size="md") }
+  % endif
   
   [Michigan Legal Help](https://michiganlegalhelp.org/) provides Do-It-Yourself forms for people facing legal issues without a lawyer.
   
