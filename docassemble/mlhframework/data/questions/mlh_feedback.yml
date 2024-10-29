@@ -151,7 +151,7 @@ question: |
 decoration: opinion
 subquestion: |
   % if reason == "bug":
-  Please close the tab where you encountered the bug and restart using the 
+  Please close the tab where you found the bug and restart using the 
   **${ feedback_start_over_label }** button at the bottom of this page.
   % else:
   To go back to where you left off, close this tab and find the tab where you were answering questions. Or use the **${ feedback_resume_label }** button at the bottom of the page.
@@ -159,18 +159,13 @@ subquestion: |
   
   % if get_config('debug'):
   % if issue_url:
-  If you would like to track this issue, make updates, or add more information, you can 
-  [see it here](${issue_url}) on GitHub. 
-  You can also use GitHub to add screenshots or upload a sample document:
+  [Open this issue in GitHub](${issue_url}) to 
   
-  * If you don't already have a GitHub account, you will need to create one. 
-  You can [create an account here](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free).
-  * Use [this link](${issue_url}) to go to the issue you reported in Github.
-  * Once at the GitHub issue, scroll down to where you can add a comment. 
-  * In this area, you can either attach an image, or you can copy and paste a screenshot directly into this area (as seen below).
-       ${ image_github_image_paste.show(width="100%") }
-  * You can also drag and drop to attach other file types, such as sample form output.
-  * Click the green **Comment** button - your image or attached file and any other comments will be included!
+  * add more information or screenshots,
+  * upload a document (like a form with an error on it), or 
+  * check the status.
+
+  To add information on GitHub you need to [make an account](https://github.com/join?plan=free&ref_cta=Join%2520for%2520free&ref_loc=cards&ref_page=%2Fpricing&source=pricing-card-free). Visit [GitHub Tips for MLH Testers](https://docs.google.com/document/d/11ReCxdZ3vfS3nGW6LQlhvZK3DFXD8WAs3S2nOCl_1oc) for more info on using Github to track issues. 
   % endif
   % else:
   ${ collapse_template(mlh_how_to_get_legal_help) }
