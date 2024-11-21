@@ -113,7 +113,7 @@ template: MLH_privacy_policy
 subject: ""
 content: |
   <h2 class="h4">Privacy Policy</h2>
-  Last updated: June 20, 2024
+  Last updated: November 21, 2024
 
   This Privacy Policy explains how Michigan Legal Help (“MLH”) collects your personal information when you use the michiganlegalhelp.org website and all tools or services that are part of MLH, (the “Site”) or when you otherwise interact with us. 
   
@@ -140,6 +140,8 @@ content: |
   *	Other information you choose to provide.
 
   If you fill out forms with a Do-It-Yourself tool **hosted by LawHelp Interactive (LHI)**, LHI’s privacy policy applies **instead** of this one while you are on LHI’s site. Please note: LHI may provide us with anonymous data about trends and usage of Do-It-Yourself tools, including user ZIP codes.
+
+  If you fill out forms hosted by FormAssembly, [FormAssembly’s privacy policy](https://www.formassembly.com/privacy-policy/) applies instead of this one while you are on FormAssembly’s site.
 
   Our Guide to Legal Help tool collects information about you and your potential legal matter in Michigan. We do not collect your name or contact information. The Guide will present options based on your responses. The options may include court forms or contact information for lawyer referral services. If you follow a link from the Guide to a different organization’s website, that organization’s privacy policy will apply while you are visiting their website.
 
@@ -172,6 +174,7 @@ content: |
   * Monitor and analyze trends, usage, and activities on our Site;
   * Personalize and improve the Site and provide content or features that match user profiles or interests or that are based on the information you provide or the actions you take; and
   * Carry out any other purpose for which the information was collected.
+  * Send any SMS messages after you opt-in to receive them. You may opt out of receiving SMS alerts by texting STOP at any time.
   
   **<h4 class="h6">Specific Uses for Information Entered in a Do-It-Yourself Form Tool on our Site</h4>**
   We will only use information you enter in a Do-It-Yourself form tool on our Site to:
@@ -185,9 +188,11 @@ content: |
   We delete information entered in a Do-It-Yourself form tool on our site 180 days after you last update it. You can also delete information immediately by clicking “Exit and delete my answers.” Even after your information is deleted, we may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
   
   <h3 class="h5">Sharing of Information</h3>
+  Any information obtained as part of SMS consent (phone numbers) will not be shared with third party affiliates for marketing purposes.
+  
   We may share any information we collect, including information entered in a Do-It-Yourself form tool on our Site: 
   
-  *	With vendors, consultants, and other service providers or volunteers who need access to such information to carry out work on our behalf;
+  *	With other service providers or volunteers who need access to such information to carry out work on our behalf;
   *	If we think we have to in order to comply with the law, including responding to lawful court orders, subpoenas, or warrants;
   *	If we believe your actions violate the spirit or language of our user agreements or policies, or to protect the rights, property, and safety of Michigan Legal Help, its employees, volunteers, or others;
   *	In connection with, or during negotiations of, any reorganization, formation of a successor organization, asset sale or transfer, financing or lending transaction, or in any other situation where personal information may be disclosed or transferred as one of the assets of the Site; 
@@ -214,7 +219,7 @@ content: |
   
   <h3 class="h5">Your Choices</h3>   
   **<h4 class="h6">Account Information</h4>**
-  You may request that we update, correct, or delete the information you provide to us by emailing us at michiganlegalhelp@mplp.org. However, note that we may retain certain information as required by law or for legitimate business purposes or legal requirements. We may also retain cached or archived copies of information about you for a certain period of time.
+  You may request that we update, correct, or delete the information you provide to us by submitting a message through [this form](https://michiganlegalhelp.org/privacy-policy-contact-form). However, note that we may retain certain information as required by law or for legitimate business purposes or legal requirements. We may also retain cached or archived copies of information about you for a certain period of time.
   
   **<h4 class="h6">Cookies and Similar Technologies</h4>**
   Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. If you choose to remove or reject cookies, this could affect the availability and functionality of our Site. You can also set up many browsers and email clients to block tracking pixels.
@@ -223,7 +228,7 @@ content: |
   You may opt out of receiving updates and newsletters by email by following the instructions in those emails, and you may opt out of receiving SMS alerts by texting STOP at any time. If you opt out of one type of communication, we may still send you other types of emails, such as those about your use of the Site or any donations or transactions.
   
   <h3 class="h5">Contact Us</h3>
-  If you have any questions about this Privacy Policy, please contact us at michiganlegalhelp@mplp.org. You can write to us at:
+  If you have any questions about this Privacy Policy, please contact us by submitting a message through [this form](https://michiganlegalhelp.org/privacy-policy-contact-form). You can write to us at:
 
   Michigan Legal Help<br />
   15 S. Washington Street<br />

@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 11/21/24  1.0.5 update privacy policy
 * 10/28/24  1.0.4 add sign-in button to "home" page; simplify tester feedback form
 * 10/7/24   1.0.3 add placeholder survey embed code
 * 10/1/24   1.0.2 download screen and coversheet updates to add new user surveys
