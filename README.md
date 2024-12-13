@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 12/13/24  1.0.6 update court addresses
 * 11/21/24  1.0.5 update privacy policy
 * 10/28/24  1.0.4 add sign-in button to "home" page; simplify tester feedback form
 * 10/7/24   1.0.3 add placeholder survey embed code
