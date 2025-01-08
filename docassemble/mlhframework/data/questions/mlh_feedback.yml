@@ -46,7 +46,7 @@ question: |
   MLH Tester feedback form
 decoration: opinion
 fields:
-  - "**Tester ID**": tester_name 
+  - "**Tester ID:**": tester_name 
     label above field: False
   - note: |
       (Enter your initials, first name, nickname, or codename, etc. Just something so we know who to follow up with if needed. This will appear on a public Github page with our interview code.)
