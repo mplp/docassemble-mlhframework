@@ -49,7 +49,7 @@ fields:
   - "**Tester ID:**": tester_name 
     label above field: False
   - note: |
-      (Enter your initials, first name, nickname, or codename, etc. Just something so we know who to follow up with if needed. This will appear on a public Github page with our interview code.)
+      ${ collapse_template(tester_name_explainer) }
   - "**What would you like to tell us about?**": reason
     input type: radio
     choices:
@@ -135,6 +135,12 @@ action buttons:
     action: ${ interview_url(session=orig_session_id, i=filename) }
     color: success
     icon: backward
+---
+template: tester_name_explainer
+subject: |
+  What is this?
+content: |
+  Enter your initials, first name, nickname, or codename, etc. Just something so we know who to follow up with if needed. This will appear on a public Github page with our interview code.
 ---
 template: mlh_how_to_get_legal_help
 subject: |
