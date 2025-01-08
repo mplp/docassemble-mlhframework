@@ -215,7 +215,7 @@ content: |
   % if filename:
   Form | `${ filename }`
   % endif
-  % if tester_name:
+  % if defined('tester_name'):
   Tester | '${ tester_name }`
   % endif
   
