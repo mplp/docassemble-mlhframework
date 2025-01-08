@@ -46,6 +46,10 @@ question: |
   MLH Tester feedback form
 decoration: opinion
 fields:
+  - "**Tester ID:**": tester_name 
+    label above field: False
+  - note: |
+      ${ collapse_template(tester_name_explainer) }
   - "**What would you like to tell us about?**": reason
     input type: radio
     choices:
@@ -132,6 +136,12 @@ action buttons:
     color: success
     icon: backward
 ---
+template: tester_name_explainer
+subject: |
+  What is this?
+content: |
+  Enter your initials, first name, nickname, or codename, etc. Just something so we know who to follow up with if needed. This will appear on a public Github page with our interview code.
+---
 template: mlh_how_to_get_legal_help
 subject: |
   Do you need more help?
@@ -211,6 +221,9 @@ content: |
   % endif
   % if filename:
   Form | `${ filename }`
+  % endif
+  % if defined('tester_name'):
+  Tester | ${ tester_name }
   % endif
   
   **Details:** 
