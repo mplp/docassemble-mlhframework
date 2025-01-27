@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 1/27/25   1.0.8 fix sign in/sign up text issue
 * 1/8/25    1.0.7 add name field to tester feedback form
 * 12/13/24  1.0.6 update court addresses
 * 11/21/24  1.0.5 update privacy policy

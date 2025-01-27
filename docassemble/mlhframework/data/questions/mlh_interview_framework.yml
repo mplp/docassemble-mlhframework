@@ -159,6 +159,13 @@ default screen parts:
     </span>
   back button color: secondary
 ---
+# creates template for adding sign-in message back to "under" screen part if needed
+template: sign_in_message
+content: |
+  % if not user_logged_in():
+    [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
+  % endif
+---
 # To create consistent language on generic continue buttons. If it is ever decided to change
 # that language, it only need to be done here.
 # This is also useful for referring to a button label within page text. For example:
@@ -399,6 +406,8 @@ fields:
       If you choose **Yes**, the forms will be signed "*/s/ ${users[0].name.full()}*" when you download them. 
 under: |
   ${ collapse_template(signature_info_template) }
+
+  ${ sign_in_message }
 progress: 98
 ---
 template: signature_info_template
