@@ -610,9 +610,7 @@ subquestion: |
   % if county_choice == "Ottawa":
   Ottawa County has two Circuit Court locations. One for domestic cases and one for everything else.
 
-  The **domestic** location is: 12240 Fillmore St,	Rm 50,	West Olive, MI 49460
-
-  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417  
+  ${ collapse_template(ottawa_circuit_locations) }
   % endif
 fields:
   - Select your court: court_index_for_specific_court_type
@@ -630,6 +628,14 @@ fields:
     show if:
       variable: unknown_circuit_location
       is: True
+---
+template: ottawa_circuit_locations
+subject: |
+  More information
+content: |
+  The **domestic** location is: 12240 Fillmore St,	Rm 50,	West Olive, MI 49460. Domestic cases include all family law cases, like divorce, child custody, and child support.
+
+  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417. All other cases happen at this courthouse.
 ---
 # Gets the count of the specified [court_type] courts for [county_choice] County
 # For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
