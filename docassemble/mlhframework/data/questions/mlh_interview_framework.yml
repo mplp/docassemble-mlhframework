@@ -535,6 +535,7 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
+mandatory: False
 question: |
   Display court info
 subquestion: |
@@ -557,7 +558,6 @@ continue button field: court_info_display
 
 ---
 id: court type choice
-mandatory: False
 question: |
   % if al_form_type == 'appeal':
   What court your case was originally filed in?
@@ -624,6 +624,7 @@ fields:
   - I don't know which to choose.: unknown_circuit_location
     required: False
     datatype: yesno
+    label above field: True
   - note: |
       If you don't know which location to choose, we will leave the court address and phone blank for you to fill in later.
     show if:
