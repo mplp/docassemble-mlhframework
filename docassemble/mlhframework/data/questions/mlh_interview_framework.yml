@@ -616,13 +616,19 @@ subquestion: |
   % endif
 fields:
   - Select your court: court_index_for_specific_court_type
-    code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
+    code: court_list.filter_courts_by_2_alt_label([county_choice], [court_type], column_1='address_county', column_2='type')
     show if:
       variable: unknown_circuit_location
       is: False
+    label above field: True
   - I don't know which to choose.: unknown_circuit_location
     required: False
     datatype: yesno
+  - note: |
+      If you don't know which location to choose, we will leave the court address and phone blank for you to fill in later.
+    show if:
+      variable: unknown_circuit_location
+      is: True
 ---
 # Gets the count of the specified [court_type] courts for [county_choice] County
 # For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
