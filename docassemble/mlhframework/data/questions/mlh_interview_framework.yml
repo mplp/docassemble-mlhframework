@@ -602,7 +602,27 @@ question: Which ${ capitalize(court_type) } Court in ${ county_choice } County i
 fields:
   - Select a Court: court_index_for_specific_court_type
     code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
+---
+if: court_type == "circuit"
+id: county court choice (circuit version)
+question: Which ${ county_choice } County Circuit Court location is this case in?
+subquestion: |
+  % if county_choice == "Ottawa":
+  Ottawa County has two Circuit Court locations. One for domestic cases and one for everything else.
 
+  The **domestic** location is: 12240 Fillmore St,	Rm 50,	West Olive, MI 49460
+
+  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417  
+  % endif
+fields:
+  - Select your court: court_index_for_specific_court_type
+    code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
+    show if:
+      variable: unknown_circuit_location
+      is: False
+  - I don't know which to choose.: unknown_circuit_location
+    required: False
+    datatype: yesno
 ---
 # Gets the count of the specified [court_type] courts for [county_choice] County
 # For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
