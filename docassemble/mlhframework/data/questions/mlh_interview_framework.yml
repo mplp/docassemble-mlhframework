@@ -613,22 +613,24 @@ subquestion: |
   ${ collapse_template(ottawa_circuit_locations) }
   % endif
 fields:
-  - Select your court: court_index_for_specific_court_type
+  - Pick your case type: court_index_for_specific_court_type
     code: court_list.filter_courts_by_2_alt_label([county_choice], [court_type], column_1='address_county', column_2='type')
     input type: radio
     show if:
       variable: unknown_circuit_location
       is: False
     label above field: True
+  - note: |
+      Select the right location for your case type now if you can. If you don't know, click "**I don't know which to choose.**" below. 
   - I don't know which to choose.: unknown_circuit_location
     required: False
     datatype: yesno
     label above field: True
   - note: |
-      If you don't know which location to choose, we will leave the court address and phone blank for you to fill in later.
+      OK, we will leave the court address and phone blank for you to fill in later. Or **uncheck** the statement above to choose the location based on your case type. 
     show if:
       variable: unknown_circuit_location
-      is: True
+      is: False
 ---
 template: ottawa_circuit_locations
 subject: |
@@ -636,7 +638,7 @@ subject: |
 content: |
   The **domestic** location is: 12240 Fillmore St,	Rm 50,	West Olive, MI 49460. Domestic cases include all family law cases, like divorce, child custody, and child support.
 
-  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417. All other cases happen at this courthouse.
+  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417. All other cases happen at this courthouse. For example, this includes name change, personal protection order (PPO), and foreclosure cases.
 ---
 # Gets the count of the specified [court_type] courts for [county_choice] County
 # For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
