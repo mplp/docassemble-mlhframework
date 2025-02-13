@@ -622,6 +622,9 @@ fields:
     label above field: True
   - note: |
       Select the right location for your case type now if you can. If you don't know, click "**I don't know which to choose.**" below. 
+    show if:
+      variable: unknown_circuit_location
+      is: False
   - I don't know which to choose.: unknown_circuit_location
     required: False
     datatype: yesno
@@ -630,7 +633,7 @@ fields:
       OK, we will leave the court address and phone blank for you to fill in later. Or **uncheck** the statement above to choose the location based on your case type. 
     show if:
       variable: unknown_circuit_location
-      is: False
+      is: True
 ---
 template: ottawa_circuit_locations
 subject: |
