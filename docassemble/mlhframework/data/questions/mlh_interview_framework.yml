@@ -516,6 +516,7 @@ subject: |
 content: |
   You can find the case number, county and court by looking at the top of court papers from your case such as the summons, complaint, petition, or answer in your case. 
 ---
+id: present district and circuit court list by county
 question: |
   % if al_form_type == 'starts_case':
   What court do you want to file in?
@@ -599,14 +600,16 @@ content: |
   * adoptions
   * guardianships and conservatorships for both adults and children
 ---
-# for forms that must be filed in circuit court, set court_index to circuit_court_index and change default ottawa_circuit_location if needed
-only sets: circuit_court_index
+# for forms that MUST be filed in circuit court, this selects the proper circuit court
+# set filing_court = "circuit_only" in individual interview and change default ottawa_circuit_location if needed
+if: filing_court == "circuit_only"
+only sets: court_index
 code: |
   court_type = "circuit"
   if court_count > 1:
-    circuit_court_index = next(court_list.filter_courts_by_3([county_choice], ['circuit'], [ottawa_circuit_location], column_1='address_county', column_2='type', column_3='address_city'))[0]
+    court_index = next(court_list.filter_courts_by_3([county_choice], ['circuit'], [ottawa_circuit_location], column_1='address_county', column_2='type', column_3='address_city'))[0]
   else:
-    circuit_court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
+    court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
 ---
 id: county court choice
 question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
