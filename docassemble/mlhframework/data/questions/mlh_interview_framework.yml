@@ -493,6 +493,10 @@ code: |
 code: |
     ottawa_circuit_location = "West Olive"
 ---
+# default, to be overriden in individual interviews: 
+code: |
+  filing_court = "unknown"
+---
 id: Choose a court
 question: |
   % if al_form_type == 'starts_case':
@@ -577,7 +581,6 @@ fields:
       - Circuit: circuit
       - District: district
       - Probate: probate
-continue button field: court_type_selection
 ---
 template: court_type_selection_template
 subject: |
