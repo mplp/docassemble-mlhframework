@@ -603,7 +603,6 @@ content: |
 # for forms that MUST be filed in circuit court, this selects the proper circuit court
 # set filing_court = "circuit_only" in individual interview and change default ottawa_circuit_location if needed
 if: filing_court == "circuit_only"
-only sets: court_index
 reconsider: court_count
 code: |
   court_type = "circuit"
