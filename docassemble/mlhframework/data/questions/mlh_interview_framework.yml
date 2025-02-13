@@ -604,6 +604,7 @@ content: |
 # set filing_court = "circuit_only" in individual interview and change default ottawa_circuit_location if needed
 if: filing_court == "circuit_only"
 only sets: court_index
+reconsider: court_count
 code: |
   court_type = "circuit"
   if court_count > 1:
