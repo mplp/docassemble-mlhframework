@@ -621,7 +621,7 @@ fields:
       is: False
     label above field: True
   - note: |
-      Select the right location for your case type now if you can. If you don't know, click "**I don't know which to choose.**" below. 
+      Select the right location for your case type now if you can. If you don't know, tap "**I don't know which to choose**" to leave the court address and phone blank for you to fill in later.
     show if:
       variable: unknown_circuit_location
       is: False
