@@ -614,13 +614,14 @@ code: |
   else:
     court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
 ---
+if: court_count > 1
 id: county court choice
 question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
 fields:
   - Select a Court: court_index_for_specific_court_type
     code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
 ---
-if: court_type == "circuit"
+if: court_count > 1 and court_type == "circuit"
 id: county court choice (circuit version)
 question: Which ${ county_choice } County Circuit Court location is this case in?
 subquestion: |
