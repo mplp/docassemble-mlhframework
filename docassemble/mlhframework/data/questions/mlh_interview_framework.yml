@@ -615,6 +615,7 @@ subquestion: |
 fields:
   - Select your court: court_index_for_specific_court_type
     code: court_list.filter_courts_by_2_alt_label([county_choice], [court_type], column_1='address_county', column_2='type')
+    input type: radio
     show if:
       variable: unknown_circuit_location
       is: False
