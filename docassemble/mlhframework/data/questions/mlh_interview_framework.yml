@@ -615,10 +615,25 @@ code: |
   else:
     court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
 ---
+if: filing_court == "any_narrowed_by_type"
+reconsider: court_count
+code: |
+  if court_count > 1 and court_type == 'circuit':
+    court_index = next(court_list.filter_courts_by_3([county_choice], ['circuit'], [ottawa_circuit_location], column_1='address_county', column_2='type', column_3='address_city'))[0]
+  if court_count > 1 and court_type == 'district':
+    court_index = next(court_list.filter_courts_by_3([county_choice], ['district'], [district_location], column_1='address_county', column_2='type', column_3='name'))[0]
+  else:
+    court_index = next(court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type'))[0]
+depends on:
+  - county_choice
+  - court_type
+  - district_location
+  - ottawa_circuit_location
+---
 id: county court choice
 question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
 fields:
-  - Select a Court: court_index_for_specific_court_type
+  - Select a Court: district_location
     code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
 ---
 if: court_type == "circuit"
@@ -631,7 +646,7 @@ subquestion: |
   ${ collapse_template(ottawa_circuit_locations) }
   % endif
 fields:
-  - Pick your case type: court_index_for_specific_court_type
+  - Pick your case type: ottawa_circuit_location
     code: court_list.filter_courts_by_2_alt_label([county_choice], [court_type], column_1='address_county', column_2='type')
     input type: radio
     show if:
