@@ -624,11 +624,6 @@ code: |
     court_index = district_location
   else:
     court_index = next(court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type'))[0]
-depends on:
-  - county_choice
-  - court_type
-  - district_location
-  - ottawa_circuit_location
 ---
 if: court_type == "district" and court_count > 1
 id: county court choice
