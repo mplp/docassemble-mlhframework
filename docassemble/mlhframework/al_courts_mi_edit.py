@@ -159,6 +159,32 @@ class ALCourtLoader(DAObject):
       return df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2)]['name'].items()
     else:
       return df['name'].items()
+
+  def filter_courts_by_2_alt_label(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department')->list:
+    """
+    Return a subset of courts filtered on 2 columns, only the alternative label column and index. 
+    
+    Work needed on the conditional statement and desired behavior if some arguments not specified.
+    """
+    df = self._load_courts()
+    if court_types_1 and court_types_2:
+      # Return only the alternative label for matching values in both specified columns
+      return df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2)]['alternative_label'].items()
+    else:
+      return df['name'].items()    
+      
+  def filter_courts_by_3(self, court_types_1: list, court_types_2: list, court_types_3: list, column_1='department', column_2='department', column_3='department')->list:
+    """
+    Return a subset of courts filtered on 3 columns, only the name column and index. 
+    
+    Work needed on the conditional statement and desired behavior if some arguments not specified.
+    """
+    df = self._load_courts()
+    if court_types_1 and court_types_2 and court_types_3:
+      # Return only the names for matching values in all 3 specified columns
+      return df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2) & df[column_3].isin(court_types_3)]['name'].items()
+    else:
+      return df['name'].items()
     
   def as_court(self, intrinsicName, index, ensure_lat_long=True):
     """
