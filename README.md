@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 2/25/25   1.0.9 update address defaults; add function to remove unneeded punctuation
 * 1/27/25   1.0.8 fix sign in/sign up text issue
 * 1/8/25    1.0.7 add name field to tester feedback form
 * 12/13/24  1.0.6 update court addresses
