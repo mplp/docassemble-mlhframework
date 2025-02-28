@@ -611,6 +611,7 @@ reconsider: court_count
 code: |
   court_type = "circuit"
   if court_count > 1:
+  ## because Ottawa is the only circuit court with multiple locations, this is currently customized for Ottawa specifically ##
     court_index = next(court_list.filter_courts_by_3([county_choice], ['circuit'], [ottawa_circuit_location], column_1='address_county', column_2='type', column_3='address_city'))[0]
   else:
     court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
@@ -618,19 +619,20 @@ code: |
 if: filing_court == "any_narrowed_by_type"
 reconsider: court_count
 code: |
+  ## because Ottawa is the only circuit court with multiple locations, this is currently customized for Ottawa specifically ##
   if court_count > 1 and court_type == 'circuit' and not unknown_circuit_location:
     court_index = ottawa_circuit_location
-  elif court_count > 1 and court_type == 'district':
-    court_index = district_location
+  elif court_count > 1 and (court_type == 'district' or court_type == 'probate'):
+    court_index = specific_court_location
   else:
     court_index = next(court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type'))[0]
 # if Ottawa and unknown_circuit_location, this will default to using the domestic Ottawa circuit court index. This is OK because the form will not display the address and phone.
 ---
-if: court_type == "district" and court_count > 1
-id: county court choice
+if: court_count > 1 and (court_type == "district" or court_type == 'probate')
+id: specific court court choice by type and county
 question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
 fields:
-  - Select a Court: district_location
+  - Select a Court: specific_court_location
     code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
 ---
 if: court_type == "circuit" and court_count > 1
