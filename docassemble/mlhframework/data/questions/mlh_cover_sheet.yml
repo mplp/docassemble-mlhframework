@@ -30,6 +30,12 @@ code: |
   # TODO in future: more customization may be helpful for tools with multiple sets of instructions.
 ---
 code: |
+  has_whats_next_text = False
+---
+code: |
+  whats_next_text_message = "||||||||THIS NEEDS TO BE CUSTOMIZED||||||||"
+---
+code: |
   cover_sheet_complete_1a = f"For more information or online instructions, visit:"
 ---
 code: |
