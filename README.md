@@ -3,7 +3,8 @@
 A docassemble extension.
 
 ## Author
-* 2/12/25   1.0.9 allow multiple circ court addresses in a county; change default addresses to US-only
+* 3/11/25   1.0.10 update cover sheets
+* 2/25/25   1.0.9 update address defaults; add function to remove unneeded punctuation
 * 1/27/25   1.0.8 fix sign in/sign up text issue
 * 1/8/25    1.0.7 add name field to tester feedback form
 * 12/13/24  1.0.6 update court addresses

@@ -7,6 +7,7 @@ include:
 ---
 modules:
   - .al_courts_mi_edit
+  - .MLH_functions
   - docassemble.demo.accordion # for review screen accordions
 ---
 features:
