@@ -20,6 +20,15 @@ code: |
 code: |
   survey_link_url_only = "https://michiganlegalhelp.org/survey"
 ---
+# "else" covers when MLH_form_type is "forms" as well as providing a fallback
+code: |
+  if MLH_form_type == "form":
+    cover_sheet_header = "Your form is ready. Well done!"
+  elif MLH_form_type == "letter":
+    cover_sheet_header = "Your letter is ready. Well done!"
+  else:
+    cover_sheet_header = "Your forms are ready. Well done!"
+---
 code: |
   cover_sheet_top_message = f"What to Do With Your { capitalize(MLH_form_type) }"
 ---
