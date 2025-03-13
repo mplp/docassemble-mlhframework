@@ -388,8 +388,7 @@ subject: Can I e-file?
 content: |
   Only some courts and case types allow e-filing using ${ MLH_MiFILE } or another e-filing system. 
   
-  To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
-  The article tells you how to find out which courts have e-filing and what kinds of cases those courts accept by e-filing.
+  [Find out if your court has electronic filing for your case type.](https://sw0lylcelhb.typeform.com/to/HXBVb68q) For more information, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing).
   
   ${ MLH_case_type_language }
 
