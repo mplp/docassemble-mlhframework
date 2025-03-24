@@ -489,10 +489,6 @@ code: |
   # al_form_type = "appeal" 
   # leave this in & choose type to test in this interview, comment out to pull into other interviews
 ---
-# sets default Ottawa Circuit court location to their family courthouse. Change to "Grand Haven" in individual interview if it's not a family case type. 
-code: |
-    ottawa_circuit_location = "West Olive"
----
 # default, to be overriden in individual interviews: 
 code: |
   filing_court = "unknown"
@@ -605,7 +601,7 @@ content: |
   * guardianships and conservatorships for both adults and children
 ---
 # for forms that MUST be filed in circuit court, this selects the proper circuit court
-# set filing_court = "circuit_only" in individual interview and change default ottawa_circuit_location if needed
+# set filing_court = "circuit_only" in individual interview and set ottawa_circuit_location to the correct location "West Olive" for family cases and "Grand Haven" for others.
 if: filing_court == "circuit_only"
 reconsider: court_count
 code: |
