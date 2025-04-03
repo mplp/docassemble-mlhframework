@@ -388,8 +388,7 @@ subject: Can I e-file?
 content: |
   Only some courts and case types allow e-filing using ${ MLH_MiFILE } or another e-filing system. 
   
-  To find out if your court has e-filing, read the [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing) article.
-  The article tells you how to find out which courts have e-filing and what kinds of cases those courts accept by e-filing.
+  [Find out if your court has electronic filing for your case type](https://sw0lylcelhb.typeform.com/to/HXBVb68q). For more information, read [What is E-Filing?](https://michiganlegalhelp.org/resources/mifile/what-e-filing)
   
   ${ MLH_case_type_language }
 
@@ -490,6 +489,10 @@ code: |
   # al_form_type = "appeal" 
   # leave this in & choose type to test in this interview, comment out to pull into other interviews
 ---
+# default, to be overriden in individual interviews: 
+code: |
+  filing_court = "unknown"
+---
 id: Choose a court
 question: |
   % if al_form_type == 'starts_case':
@@ -513,6 +516,7 @@ subject: |
 content: |
   You can find the case number, county and court by looking at the top of court papers from your case such as the summons, complaint, petition, or answer in your case. 
 ---
+id: present district and circuit court list by county
 question: |
   % if al_form_type == 'starts_case':
   What court do you want to file in?
@@ -536,6 +540,7 @@ code: |
   the_court = court_list.as_court('the_court',court_index)
 ---
  # Change this to True to test in this interview.
+mandatory: False
 question: |
   Display court info
 subquestion: |
@@ -558,7 +563,6 @@ continue button field: court_info_display
 
 ---
 id: court type choice
-mandatory: False
 question: |
   % if al_form_type == 'appeal':
   What court your case was originally filed in?
@@ -595,15 +599,77 @@ content: |
   * estates (distributing property after someone dies)
   * adoptions
   * guardianships and conservatorships for both adults and children
-
-
 ---
-id: county court choice
+# for forms that MUST be filed in circuit court, this selects the proper circuit court
+# set filing_court = "circuit_only" in individual interview and set ottawa_circuit_location to the correct location "West Olive" for family cases and "Grand Haven" for others.
+if: filing_court == "circuit_only"
+reconsider: court_count
+code: |
+  court_type = "circuit"
+  if court_count > 1:
+  ## because Ottawa is the only circuit court with multiple locations, this is currently customized for Ottawa specifically ##
+    court_index = next(court_list.filter_courts_by_3([county_choice], ['circuit'], [ottawa_circuit_location], column_1='address_county', column_2='type', column_3='address_city'))[0]
+  else:
+    court_index = next(court_list.filter_courts_by_2([county_choice], ['circuit'], column_1='address_county', column_2='type'))[0]
+---
+if: filing_court == "any_narrowed_by_type"
+reconsider: court_count
+code: |
+  ## because Ottawa is the only circuit court with multiple locations, this is currently customized for Ottawa specifically ##
+  if court_count > 1 and court_type == 'circuit' and not unknown_circuit_location:
+    court_index = ottawa_circuit_location
+  elif court_count > 1 and (court_type == 'district' or court_type == 'probate'):
+    court_index = specific_court_location
+  else:
+    court_index = next(court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type'))[0]
+# if Ottawa and unknown_circuit_location, this will default to using the domestic Ottawa circuit court index. This is OK because the form will not display the address and phone.
+---
+if: court_count > 1 and (court_type == "district" or court_type == 'probate')
+id: specific court choice by type and county
 question: Which ${ capitalize(court_type) } Court in ${ county_choice } County is this case in?
 fields:
-  - Select a Court: court_index_for_specific_court_type
+  - Select a Court: specific_court_location
     code: court_list.filter_courts_by_2([county_choice], [court_type], column_1='address_county', column_2='type')
+---
+if: court_type == "circuit" and court_count > 1
+id: county court choice (circuit version)
+question: Which ${ county_choice } County Circuit Court location is this case in?
+subquestion: |
+  % if county_choice == "Ottawa":
+  Ottawa County has two Circuit Court locations. One for domestic cases and one for everything else.
 
+  ${ collapse_template(ottawa_circuit_locations) }
+  % endif
+fields:
+  - Pick your case type: ottawa_circuit_location
+    code: court_list.filter_courts_by_2_alt_label([county_choice], [court_type], column_1='address_county', column_2='type')
+    input type: radio
+    show if:
+      variable: unknown_circuit_location
+      is: False
+    label above field: True
+  - note: |
+      Select the right location for your case type now if you can. If you don't know, tap "**I don't know which to choose**" to leave the court address and phone blank for you to fill in later.
+    show if:
+      variable: unknown_circuit_location
+      is: False
+  - I don't know which to choose.: unknown_circuit_location
+    required: False
+    datatype: yesno
+    label above field: True
+  - note: |
+      OK, we will leave the court address and phone blank for you to fill in later. Or **uncheck** the statement above to choose the location based on your case type. 
+    show if:
+      variable: unknown_circuit_location
+      is: True
+---
+template: ottawa_circuit_locations
+subject: |
+  More information
+content: |
+  The **domestic** location is: 12240 Fillmore St,	Rm 50,	West Olive, MI 49460. Domestic cases include all family law cases, like divorce, child custody, and child support.
+
+  The **general** (everything else) location is: 414 Washington Ave., Suite 300,	Grand Haven, MI 49417. All other cases happen at this courthouse. For example, this includes name change, personal protection order (PPO), and foreclosure cases.
 ---
 # Gets the count of the specified [court_type] courts for [county_choice] County
 # For example, as of Feb 2024, filter_courts_by_2('Kent', 'district') will return 6
