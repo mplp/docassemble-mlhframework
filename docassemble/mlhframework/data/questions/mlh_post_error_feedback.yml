@@ -18,6 +18,9 @@ fields:
   - "**What would you like to tell us?**": details
     rows: 4
     input type: area
+  - Your e-mail address:: feedback_email
+    datatype: email
+    required: False
 continue button field: intro
 ---
 id: end_results
