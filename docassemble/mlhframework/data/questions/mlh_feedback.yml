@@ -27,9 +27,9 @@ decoration: opinion
 question: |
   ${ al_feedback_form_title } - Tell us how we're doing
 subquestion: |
-  Thank you for telling us about your experience with this website.
+  Thank you for telling us about your experience with this website. This feedback form is for sending Michigan Legal Help feedback about technical issues or your experience with the ${ MLH_interview_short_title } tool.
   
-  The information you type here will be publicly available. That means anyone will be able to see it. Please **do not** include any personal information.
+  Your feedback will go to Michigan Legal Help, **not the court**. Please **do not** include any personal information. If there is something you want the court to know, go back to the ${ MLH_interview_short_title } questions and include the information there. 
   
   ${ collapse_template(al_how_to_get_legal_help) }
   
@@ -37,6 +37,9 @@ fields:
   - "**What would you like to tell us?**": details
     rows: 4
     input type: area
+  - Your e-mail address: feedback_email
+    datatype: email
+    required: False
 continue button field: intro
 ---
 if: |
@@ -224,6 +227,9 @@ content: |
   % endif
   % if defined('tester_name'):
   Tester | ${ tester_name }
+  % endif
+  % if defined('feedback_email'):
+  Tester | ${ feedback_email }
   % endif
   
   **Details:** 
