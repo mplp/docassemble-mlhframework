@@ -233,7 +233,7 @@ content: |
   Tester | ${ tester_name }
   % endif
   % if defined('feedback_email'):
-  Tester | ${ feedback_email }
+  User e-mail | ${ feedback_email }
   % endif
   
   **Details:** 
