@@ -27,10 +27,14 @@ decoration: opinion
 question: |
   ${ al_feedback_form_title } - Tell us how we're doing
 subquestion: |
-  Thank you for telling us about your experience with this website. This feedback form is for sending Michigan Legal Help feedback about technical issues or your experience with the ${ MLH_interview_short_title } tool.
+  Thank you for your feedback. This feedback form is for telling Michigan Legal Help about technical issues or your experience using our site to create forms.
+
+  Please **do not** include any personal information. 
+
+  % if filename == "docassemble.MLHPPOAndProposedOrder:data/questions/ppo_and_proposed_order.yml":
+  Your feedback will go to Michigan Legal Help, **not the court**. If there is something you want the court to know, go back to the Personal Protection Order (PPO) questions and include the information there. 
   
-  Your feedback will go to Michigan Legal Help, **not the court**. Please **do not** include any personal information. If there is something you want the court to know, go back to the ${ MLH_interview_short_title } questions and include the information there. 
-  
+  % endif  
   ${ collapse_template(al_how_to_get_legal_help) }
   
 fields:
