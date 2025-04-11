@@ -27,7 +27,7 @@ decoration: opinion
 question: |
   ${ al_feedback_form_title } - Tell us how we're doing
 subquestion: |
-  Thank you for your feedback. This feedback form is for telling Michigan Legal Help about technical issues or your experience using our site to create forms.
+  This feedback form is for telling Michigan Legal Help about technical issues or your experience using our site to create forms.
 
   Please **do not** include any personal information. 
 
@@ -44,6 +44,8 @@ fields:
   - Your e-mail address:: feedback_email
     datatype: email
     required: False
+  - note: |
+      Thank you for your feedback!
 continue button field: intro
 ---
 if: |
