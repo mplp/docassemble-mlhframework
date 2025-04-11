@@ -27,16 +27,25 @@ decoration: opinion
 question: |
   ${ al_feedback_form_title } - Tell us how we're doing
 subquestion: |
-  Thank you for telling us about your experience with this website.
+  This feedback form is for telling Michigan Legal Help about technical issues or your experience using our site to create forms.
+
+  Please **do not** include any personal information. 
+
+  % if filename == "docassemble.MLHPPOAndProposedOrder:data/questions/ppo_and_proposed_order.yml":
+  Your feedback will go to Michigan Legal Help, **not the court**. If there is something you want the court to know, go back to the Personal Protection Order (PPO) questions and include the information there. 
   
-  The information you type here will be publicly available. That means anyone will be able to see it. Please **do not** include any personal information.
-  
+  % endif  
   ${ collapse_template(al_how_to_get_legal_help) }
   
 fields:
   - "**What would you like to tell us?**": details
     rows: 4
     input type: area
+  - Your e-mail address:: feedback_email
+    datatype: email
+    required: False
+  - note: |
+      Thank you for your feedback!
 continue button field: intro
 ---
 if: |
@@ -224,6 +233,9 @@ content: |
   % endif
   % if defined('tester_name'):
   Tester | ${ tester_name }
+  % endif
+  % if defined('feedback_email'):
+  User e-mail | ${ feedback_email }
   % endif
   
   **Details:** 
