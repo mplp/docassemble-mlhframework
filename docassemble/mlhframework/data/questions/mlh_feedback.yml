@@ -203,17 +203,19 @@ action buttons:
 ---
 template: generic_report[i]
 subject: |
-  % if get_config('debug'):
+  % if get_config('debug') and variable:
+  Tester feedback: ${i} (`${ variable }`)
+  % elif get_config('debug'):
   Tester feedback: ${i}
   % else:
   User feedback
   % endif
-  % if variable:
-  (`${ variable }`)
-  % endif
 content: |
   &nbsp; | &nbsp;
   -------|------------------------------------
+  % if filename:
+  Form | `${ filename }`
+  % endif
   % if question_id:
   Question ID | `${ question_id }`
   % elif defined('page_title'): 
@@ -223,13 +225,10 @@ content: |
   Variable sought | `${ variable }`
   % endif
   % if package_version:
-  Package version | `${ package_version }`
+  Version | `${ package_version }`
   % endif
   % if defined('maturity_level'):
   Maturity target | ${ maturity_level }
-  % endif
-  % if filename:
-  Form | `${ filename }`
   % endif
   % if defined('tester_name'):
   Tester | ${ tester_name }
