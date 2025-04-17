@@ -205,7 +205,7 @@ template: generic_report[i]
 subject: |
   % if get_config('debug') and variable:
   Tester feedback: ${i} (`${ variable }`)
-  % elif get_config('debug') and not variable:
+  % elif get_config('debug'):
   Tester feedback: ${i}
   % else:
   User feedback
