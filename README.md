@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 4/17/25   1.0.13 simplify feedback form output
 * 4/10/25   1.0.12 tweak feedback form and add email collection
 * 4/3/25    1.0.11 add court logic for 2nd Ottawa circuit location; update "Can I e-file?" info
 * 3/11/25   1.0.10 update cover sheets
