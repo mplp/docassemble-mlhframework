@@ -843,15 +843,15 @@ content: |
   [View the original version of this form](${ ORIGINAL_FORMS[0] }).
   % endif
   
-  % if all_variables(special='metadata').get('authors'):
-  Michigan Legal Help made this free tool. Main author(s): ${ comma_and_list(all_variables(special='metadata').get('authors')) }. This tool uses code from the Document Assembly Line Project. 
-  % endif
-  
-  % if package_updated_on:
-    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`. Last updated on ${ package_updated_on }. [:fab-fa-github: View code on GitHub](${ github_url }).  
-  % else:
-    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`.
-  % endif
+  [Michigan Legal Help](https://michiganlegalhelp.org/about-us) made this free tool. The goal of the Michigan Legal Help website is to provide accurate and easy-to-understand legal information.
+
+  **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`. This tool also uses code from the Document Assembly Line Project, version `${ al_version }`.
+# Removing the below for now because it's pulling up info from wrong github repo. See issue 174.
+#  % if package_updated_on:
+#    **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`; AssemblyLine version `${ al_version }`. Last updated on ${ package_updated_on }. [:fab-fa-github: View code on GitHub](${ github_url }).  
+#  % else:
+#  **Version Information:** "${all_variables(special='metadata').get('title','').rstrip()}" version `${ package_version_number }`. This tool also uses code from the Document Assembly Line Project, version `${ al_version }`.
+#  % endif
 ---
 #######################
 sets:
