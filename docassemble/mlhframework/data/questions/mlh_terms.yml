@@ -113,7 +113,7 @@ template: MLH_privacy_policy
 subject: ""
 content: |
   <h2 class="h4">Privacy Policy</h2>
-  Last updated: November 21, 2024
+  Last updated: July 21, 2025
 
   This Privacy Policy explains how Michigan Legal Help (“MLH”) collects your personal information when you use the michiganlegalhelp.org website and all tools or services that are part of MLH, (the “Site”) or when you otherwise interact with us. 
   
@@ -185,7 +185,7 @@ content: |
   *	Provide technical support to you if requested; and
   *	Provide anonymous data about trends and usage on Michigan Legal Help, including user ZIP codes.
   
-  We delete information entered in a Do-It-Yourself form tool on our site 180 days after you last update it. You can also delete information immediately by clicking “Exit and delete my answers.” Even after your information is deleted, we may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
+  We delete information entered in a Do-It-Yourself form tool on our site a certain number of days after you last update it. For the Personal Protection Order tool, we delete after 60 days. For all other tools, we delete after 180 days. You can also delete information immediately by clicking “Exit and delete my answers.” Even after your information is deleted, we may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
   
   <h3 class="h5">Sharing of Information</h3>
   Any information obtained as part of SMS consent (phone numbers) will not be shared with third party affiliates for marketing purposes.
