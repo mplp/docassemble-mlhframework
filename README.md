@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 8/11/25   1.0.16 add "github_user" entry to avoid spammy log messages
 * 7/21/25   1.0.15 Edit terms and conditions to reflect PPO deletion after 60 days
 * 5/29/25   1.0.14 About page updates; minor terms of use update
 * 4/17/25   1.0.13 simplify feedback form output

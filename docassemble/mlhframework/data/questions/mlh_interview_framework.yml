@@ -55,6 +55,10 @@ code: |
 
   MLH_esign_tag = "(e-signed as allowed by MCR 1.109)"
 ---
+# adding github_user because otherwise, AL code finds it in the config ("default repository owner") and gives a spammy log message
+code: |
+  github_user = 'mplp'
+---
 #######
 # These blocks contains MLH Organization-level variables that will vary from tool to tool.
 # These are the organization defaults.
