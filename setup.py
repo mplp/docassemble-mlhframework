@@ -53,7 +53,7 @@ setup(name='docassemble.mlhframework',
       license='MIT',
       url='https://docassemble.org',
       packages=find_namespace_packages(),
-      install_requires=[],
+      install_requires=['docassemble.ALToolbox>=0.12.0', 'docassemble.AssemblyLine @ git+https://github.com/SuffolkLITLab/docassemble-AssemblyLine.git@main', 'docassemble.GithubFeedbackForm>=0.4.1.1'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/mlhframework/', package='docassemble.mlhframework'),
      )
