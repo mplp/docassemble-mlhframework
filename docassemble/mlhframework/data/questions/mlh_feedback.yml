@@ -14,10 +14,6 @@ code: |
   # Will be the name of the Github label added to new issues:
   al_github_label = 'MLH user feedback'
 ---
-# adding github_user because otherwise, AL code finds it in the config ("default repository owner") and gives a spammy log message
-code: |
-  github_user = 'mplp'
----
 objects:
   - image_github_image_paste: |
       DAStaticFile.using(
