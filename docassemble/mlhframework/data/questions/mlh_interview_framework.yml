@@ -494,6 +494,7 @@ subquestion: |
   After you tap **${MLH_continue_button_label}**, it may take a few minutes to finish making your ${ MLH_form_type }.
 
   You **do not** need to refresh your screen. Hang in there!
+progress: 99
 ---
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
