@@ -485,10 +485,20 @@ subquestion: |
   ${ survey_embed_script }
 progress: 100
 ---
-# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
+# as needed, we can also use this to make it clear there may be a delay before download screen. Especially important if you go right from a substantive question to download screen.
+id: patience, assembling
+continue button field: MLH_patience_assembling
+question: |
+  Almost done
+subquestion: |
+  After you tap **${MLH_continue_button_label}**, it may take a few minutes to finish making your ${ MLH_form_type }.
+
+  You **do not** need to refresh your screen. Hang in there!
+progress: 99
 ---
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Court Loader - Begin # # # # # # # # # # # # # #
 code: |
   # al_form_type = "appeal" 
   # leave this in & choose type to test in this interview, comment out to pull into other interviews
@@ -527,7 +537,7 @@ question: |
   % elif al_form_type == 'appeal':
   What trial court was your case originally filed in?
   % else:
-  Please choose the court where your case is.
+  Please choose the court where your case is
   % endif
 subquestion: |
   % if al_form_type != 'starts_case':
@@ -591,13 +601,13 @@ content: |
 
   **District Courts** handle cases involving $25,000 or less. This includes small claims cases and most eviction, land contract, and debt collection cases.
 
-  **Circuit Courts** handle
+  **Circuit Courts** handle:
   
   * domestic relations cases such as divorce, custody, and paternity
   * personal protection orders
   * some other cases that involve more than $25,000
 
-  **Probate Courts** handle
+  **Probate Courts** handle:
   
   * wills 
   * estates (distributing property after someone dies)
