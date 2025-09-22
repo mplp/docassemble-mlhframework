@@ -1,6 +1,11 @@
+license = "MIT"
+license-files = [
+    "LICENSE",
+]
+
 [build-system]
 requires = [
-    "setuptools>=80.9.0",
+    "setuptools==80.9.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -12,14 +17,10 @@ readme = "README.md"
 authors = [
     { name = "Emily K. Miller", email = "ekressmiller@lsscm.org" },
 ]
-license = "MIT"
-license-files = [
-    "LICENSE",
-]
 dependencies = [
     "docassemble.ALToolbox>=0.12.0",
     "docassemble.AssemblyLine @ git+https://github.com/SuffolkLITLab/docassemble-AssemblyLine.git@main",
-    "docassemble.GithubFeedbackForm>=0.5.5",
+    "docassemble.GithubFeedbackForm>=0.5.6",
 ]
 
 [project.urls]
