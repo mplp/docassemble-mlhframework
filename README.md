@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 9/22/25   1.0.18 minor language edits; email-forms-to-self and error screen improvements
 * 8/14/25   1.0.17 minor language edits and add "patience, assembling" screen
 * 8/11/25   1.0.16 add "github_user" entry to avoid spammy log messages
 * 7/21/25   1.0.15 Edit terms and conditions to reflect PPO deletion after 60 days

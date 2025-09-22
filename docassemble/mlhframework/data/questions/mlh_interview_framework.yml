@@ -1108,3 +1108,16 @@ content: |
   
   If your case is in Wayne County, you can use this [Wayne County Request for Confidential Address form](https://www.3rdcc.org/Documents/FamilyDomestic/FOC/Miscellaneous/FD-FOC%204061%20Req%20for%20Confidential%20Address-Notice%20to%20FOC%20Alt%20Address%5E%5E%5E.pdf). If your case is in another county, you cannot file the Wayne County form, but you can use it as a template to create your own statement. Or you can contact the Friend of the Court in your county and ask if they have a local form you can use.
 ---
+### overwrite standard "email forms to self" email from al_document.yml
+generic object: ALDocumentBundle
+template: x.send_email_template
+subject: |
+  % if len(x) > 1:
+  Your ${ x.document_label } documents from ${ al_app_name } are ready
+  % else:
+  Your ${ x.document_label } document from ${ al_app_name } is ready
+  % endif
+content: |
+  Your ${ x.document_label } document is attached.
+  
+  Visit ${ resource_page_link } to learn more.
