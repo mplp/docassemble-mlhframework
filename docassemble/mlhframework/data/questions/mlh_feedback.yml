@@ -4,9 +4,6 @@
 include:
   - docassemble.GithubFeedbackForm:feedback.yml
 ---
-modules:
-  - .MLH_functions
----
 metadata:
   title: MLH-Forms
 #  exit url: https://da-prod.mplp.org/
