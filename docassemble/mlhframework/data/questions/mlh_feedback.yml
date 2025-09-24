@@ -240,6 +240,51 @@ content: |
   
   ${ details }
 ---
+########################## Send to GitHub code ##########################
+# editing to stop filtering out feedback that contains URLs
+only sets:
+  - note_issue
+need:
+  - should_send_to_github
+  - question_id
+  - variable
+  - package_version
+  - filename
+code: |
+  if task_performed('issue noted'):
+    pass
+  elif is_likely_spam(issue_template.content, filter_urls=False):
+    log("Not saving feedback because it looks like spam")
+    mark_task_as_performed('issue noted', persistent=True)
+    issue_url = saved_uuid = None
+    note_issue = False # End block early
+  else:
+    saved_uuid # Trigger the code to save locally on the server and optionally link the session answers. We do this regardless of whether we send to GitHub
+    if showifdef('would_be_on_panel'):
+      add_panel_participant(panel_email)
+
+    if should_send_to_github:
+      issue_url # Trigger the code to save as a GitHub issue
+      if issue_url and saved_uuid:
+        # Link the GitHub issue to the saved feedback in database
+        set_feedback_github_url(saved_uuid, issue_url)
+      else:
+        log(f"This form was not able to add an issue on the {github_user}/{github_repo} repo. Check your config.")
+        if al_error_email:
+          log(f"Unable to create issue on repo {github_repo}, falling back to emailing {al_error_email}")
+          send_email(
+              to=al_error_email,
+              subject=f"{github_repo} - {issue_template.subject_as_html(trim=True)}",
+              template=issue_template
+          )
+        else:
+          log(f"~~~USER FEEDBACK~~~ {github_repo} - {issue_template.subject_as_html(trim=True)} - {issue_template.content_as_html(trim=True)}")
+    else:
+      issue_url = None
+    mark_task_as_performed('issue noted', persistent=True)
+
+  note_issue = True
+---
 # Un-comment this block in order to test the above code WITHOUT actually
 # creating a new GitHub issue each time the feedback form is used.
 # BE SURE to re-comment this when you install it!
