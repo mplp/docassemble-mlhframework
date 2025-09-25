@@ -132,7 +132,9 @@ content: |
 
   % if get_config("debug") and action_argument("error_history"):
   <h2 class="h4">${ word("History") }</h2>
-  ${ indent(action_argument("error_trace")) }
+  <pre>
+  ${ action_argument("error_history") }
+  </pre>
   % endif
 
   % if get_config("debug") and action_argument("error_trace"):
