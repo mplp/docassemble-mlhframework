@@ -230,12 +230,12 @@ id: terms of use       # for now this is separate, but could incorporate in anot
 question: |
   Terms of Use and Privacy Policy
 fields:
-  - note: |          
-      Please review the Terms of Use:
-      ${ display_template(MLH_terms_of_use, scrollable=False) } 
-  - note: |         
-      Please review the Privacy Policy:
-      ${ display_template(MLH_privacy_policy, scrollable=False) } 
+#  - note: |          
+#      Please review the Terms of Use:
+#      ${ display_template(MLH_terms_of_use, scrollable=True) } 
+#  - note: |         
+#      Please review the Privacy Policy:
+#      ${ display_template(MLH_privacy_policy, scrollable=True) } 
   - I accept the Terms of Use and Privacy Policy: acknowledged_information_use
     datatype: yesnowide
     grid: 8
