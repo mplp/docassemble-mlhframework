@@ -230,12 +230,12 @@ id: terms of use       # for now this is separate, but could incorporate in anot
 question: |
   Terms of Use and Privacy Policy
 fields:
-  - note: |          
-      Please review the Terms of Use:
-      ${ MLH_terms_of_use.content_as_html() } 
-  - note: |         
-      Please review the Privacy Policy:
-      ${ MLH_privacy_policy.content_as_html() } 
+  - My area: test
+    datatype: area
+    default: ${ MLH_terms_of_use.content_as_html() }
+  - my second area: test2
+    datatype: area
+    default: ${ MLH_privacy_policy.content_as_html() } 
   - I accept the Terms of Use and Privacy Policy: acknowledged_information_use
     datatype: yesnowide
     grid: 8
