@@ -2,7 +2,7 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
   - mlh_cover_sheet.yml
-  - mlh_terms.yml
+#  - mlh_terms.yml
   - mlh_visual.yml
 ---
 modules:
@@ -231,7 +231,7 @@ question: |
   Terms of Use and Privacy Policy
 fields:
   - note: |   
-      Terms of Use     
+      <h2 class="h4">Terms of Use</h2>     
       Last updated: May 29, 2025
     
       By using this website, michiganlegalhelp.org, (the “Site”) or the features and services made available through the Site, you accept and agree to these Terms of Use.  By accessing this Site in any way, you agree to and are bound by the policies contained on this page (the “Terms”). **Please read these Terms carefully** before using this Site. The Site is owned by Michigan Legal Help. 
@@ -240,7 +240,7 @@ fields:
       
       You may not use the Site for any purpose that is illegal or not allowed by these Terms.
     
-      Trademark, Copyright, and Intellectual Property Laws
+      <h3 class="h5">Trademark, Copyright, and Intellectual Property Laws</h3>
       “Michigan Legal Help Content” includes content that is provided by Michigan Legal Help:
       
       * On this Site;
@@ -253,7 +253,7 @@ fields:
       
       You agree not to download, display or use any Michigan Legal Help Content in any publications, in public performances, on websites other than this Site for any other commercial purpose, in connection with products or services that are not those of Michigan Legal Help, or in any manner that is likely to cause confusion among consumers, that disparages or discredits Michigan Legal Help, that dilutes the strength of  Michigan Legal Help’s property, or that otherwise infringes Michigan Legal Help’s or its licensors’ intellectual property rights. You further agree not to misuse in any other way any Michigan Legal Help Content or third-party content that appears on this Site.
     
-       Information, Not Legal Advice
+       <h3 class="h5">Information, Not Legal Advice</h3>
       Michigan Legal Help provides **information** to help people solve Michigan legal problems. 
       
       Michigan Legal Help Content is **not legal advice**. Legal information is not the same as legal advice. Legal advice is the application of law to a person’s specific circumstances. Michigan Legal Help Content is not a substitute for the advice or representation of a lawyer. 
@@ -262,7 +262,7 @@ fields:
       
       The use of this Site or other Michigan Legal Help Content **does not** create an attorney-client relationship between Michigan Legal Help and any user.
     
-      Use of the Site
+      <h3 class="h5">Use of the Site</h3>
       When you use the Site, you must **NOT**:
       
       *	Use any electronic communication feature of the Site for any purpose that is unlawful, tortious, abusive, intrusive on another’s privacy, harassing, libelous, defamatory, embarrassing, obscene, threatening, or hateful.
@@ -270,7 +270,7 @@ fields:
       *	Use the Site for any commercial purpose unless expressly approved by Michigan Legal Help in writing.
       *	Upload, e-mail, or otherwise transmit any material or information that contains viruses or any other computer code, files, or programs which might interrupt, limit, or interfere with the functionality of any computer software or hardware or telecommunications equipment or network, or that may otherwise adversely affect the operation of the Site, or any feature on the Site.
     
-      Accounts, Security, Passwords
+      <h3 class="h5">Accounts, Security, Passwords</h3>
       To fill out forms with a Do-It-Yourself tool hosted on our Site, you can choose to:
       
       *	Sign up for an account, or 
@@ -287,12 +287,12 @@ fields:
       
       If you choose not to make an account, you may not be able to access certain content or features of the Do-It-Yourself tool.
     
-      Legal Claims Against Michigan Legal Help
+      <h3 class="h5">Legal Claims Against Michigan Legal Help</h3>
       By using this Site in any way, you agree to indemnify, defend and hold harmless Michigan Legal Help, its parents, subsidiaries, officers, employees, agents, and contractors, partners and each of their officers, employees, agents and volunteers from and against any actual or alleged claims, demands, causes of action, judgments, damages, losses, liabilities, and all costs and expenses of defense (including reasonable attorneys’ fees and court costs) arising out of or relating to: (a) your breach of these terms; (b) your violation of any local, state, federal or international law, rule or regulation; (c) a claim by a third party that is based on your use of the Site or the Michigan Legal Help Content; (d) information or material posted or transmitted through your computer or account, even if not submitted by you; (e) any misrepresentation made by you; (f) any dispute between you and another user of the Site; (g) the theft, misappropriation or disclosure of your password; or (h) your authorization of anyone else to use your password. 
       
       You will cooperate as fully and as reasonably required in Michigan Legal Help’s defense of any claim. Michigan Legal Help reserves the right, at their own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, and you shall not, in any event, settle any matter without the written consent of Michigan Legal Help.
     
-      Representations, and Limitations of Liability
+      <h3 class="h5">Representations, and Limitations of Liability</h3>
       Michigan Legal Help offers the information and content on this Site for informational purposes only and makes no guarantees about its completeness, accuracy, timeliness, or safety. References to any third-party products, services, or opinions do not constitute endorsement. You acknowledge that any reliance on user-posted content is at your own risk. The Site may contain errors, security vulnerabilities, or technical malfunctions, and we are not responsible for any resulting damages. We recommend exercising caution when using email or submitting information online to the Site. This Site may be temporarily unavailable due to maintenance or malfunction of computer equipment.
       
       **The Site and Michigan Legal Help Content are made available on an “as is,” “as available,” and “with all faults” basis. Michigan Legal Help disclaims all warranties, express or implied, including, without limitation, the warranties of merchantability, quality, fitness for a particular purpose and non-infringement, with respect to the Site and Michigan Legal Help Content.**
@@ -307,24 +307,24 @@ fields:
       
       **In no event will Michigan Legal Help be liable to you or anyone else for loss or injury, including, without limitation, death or personal injury. If your jurisdiction doesn’t allow the limitation or exclusion of warranties, those sections of the above may not apply to you.**
       
-      Text Messaging
+      <h3 class="h5">Text Messaging</h3>
       If you sign up to get text messages on or through the Site, you expressly consent to receive recurring automated text messages from Michigan Legal Help. These texts may include questions, instructions, feedback surveys, or other helpful information.
       
       Signing up for text messages from Michigan Legal Help is completely optional. Message and data rates may apply. For assistance, text HELP. To stop these text messages, reply STOP to the phone number from which you received the text message (a confirmation message will be sent), or send an email requesting opt-out to MichiganLegalHelp@mplp.org. For our privacy policy, please see below.
       
       Michigan Legal Help does not guarantee the availability or performance of the text message service and cannot control any transmission delays and message failures that may occur. Not all carriers are covered and supported carriers may change. Message frequency varies. Michigan Legal Help may modify or stop text message services, with or without notice.  
     
-      Location Based Services
+      <h3 class="h5">Location Based Services</h3>
       If you choose to use our Site, you consent to Michigan Legal Help and/or its third-party provider accessing your approximate geographic location. You also grant Michigan Legal Help permission to use this information to improve its products or to provide services or technologies to you. For more information, please see our Privacy Policy.
       
-      Linking to Other Websites
+      <h3 class="h5">Linking to Other Websites</h3>
       When using the Site, you may be directed to content on other websites. Michigan Legal Help **cannot** guarantee that the external sites we link to are completely accurate or that they apply to every situation.
       
       External websites are governed by their own terms of use, and Michigan Legal Help is not responsible for the contents of linked websites, including government websites. MLH does not control external websites and is not responsible for any link contained in a linked site. 
       
       One of the websites that may be linked to by the Site is Law Help Interactive (LHI). When you use LHI, you are no longer on our Site and are subject to different terms of use. Please note the difference and take the time to read and understand LHI’s terms of use.
     
-      Miscellaneous
+      <h3 class="h5">Miscellaneous</h3>
       Both you and Michigan Legal Help agree that no partnership is formed between you and Michigan Legal Help. Neither you, nor Michigan Legal Help has the power or the authority to obligate or bind the other.
       
       These Terms will be governed by and construed in accordance with the internal laws of Michigan without regard to conflicts of laws principles. By using this Site, you hereby agree that any and all disputes regarding these Terms will be subject to the courts located in Lansing, Michigan. You agree that, to the extent permitted by applicable law, any and all disputes, claims, and causes of action arising out of or connected with this platform and/or these terms, will be resolved individually, without resort to any form of class action. These Terms operate to the fullest extent allowed by law.
@@ -340,7 +340,7 @@ fields:
 #      ${ display_template(MLH_terms_of_use, scrollable=True) } 
   - note: |         
 
-      Privacy Policy
+      <h2 class="h4">Privacy Policy</h2>
       Last updated: July 21, 2025
     
       This Privacy Policy explains how Michigan Legal Help (“MLH”) collects your personal information when you use the michiganlegalhelp.org website and all tools or services that are part of MLH, (the “Site”) or when you otherwise interact with us. 
@@ -350,8 +350,8 @@ fields:
       We may change this Privacy Policy. If we make changes, we will notify you by changing the date at the top of the policy. We encourage you to review the Privacy Policy whenever you access the Site.
     
     
-      Collection of Information
-      **Information You Choose to Give Us**
+      <h3 class="h5">Collection of Information</h3>
+      **<h4 class="h6">Information You Choose to Give Us</h4>**
       We collect personal information you provide directly to us. For example, we collect information if you: 
       
       *	Fill out a form, 
@@ -373,7 +373,7 @@ fields:
     
       Our Guide to Legal Help tool collects information about you and your potential legal matter in Michigan. We do not collect your name or contact information. The Guide will present options based on your responses. The options may include court forms or contact information for lawyer referral services. If you follow a link from the Guide to a different organization’s website, that organization’s privacy policy will apply while you are visiting their website.
     
-      **Information We Collect Automatically When You Use the Site**
+      **<h4 class="h6">Information We Collect Automatically When You Use the Site</h4>**
       When you access our Site, we automatically collect information about you, including:
       
       **Log Information**: We collect information about your use of the Site, including the type of browser you use, access times, pages viewed, your IP address, your approximate geographic location, and the page you visited before getting to our Site.
@@ -389,10 +389,10 @@ fields:
     
       For more information about cookies, and how to disable them, please see “Your Choices” below.
     
-      Use of Information
+      <h3 class="h5">Use of Information</h3>
       The Site is based in the United States and the information we collect is governed by U.S. law. By accessing or using the Site or otherwise providing information to us, you consent to the processing and transfer of information in and to the U.S. and other countries.
       
-      **General Information Uses**
+      **<h4 class="h6">General Information Uses</h4>**
       We may use information about you for various purposes, including to:
     
       * Provide, maintain, and improve our Site;
@@ -404,7 +404,7 @@ fields:
       * Carry out any other purpose for which the information was collected.
       * Send any SMS messages after you opt-in to receive them. You may opt out of receiving SMS alerts by texting STOP at any time.
       
-      **Specific Uses for Information Entered in a Do-It-Yourself Form Tool on our Site**
+      **<h4 class="h6">Specific Uses for Information Entered in a Do-It-Yourself Form Tool on our Site</h4>**
       We will only use information you enter in a Do-It-Yourself form tool on our Site to:
       
       *	Create an account and allow you to access it;
@@ -415,7 +415,7 @@ fields:
       
       We delete information entered in a Do-It-Yourself form tool on our site a certain number of days after you last update it. For the Personal Protection Order tool, we delete after 60 days. For all other tools, we delete after 180 days. You can also delete information immediately by clicking “Exit and delete my answers.” Even after your information is deleted, we may keep anonymous data such as ZIP codes to help us understand how the Site is being used.
       
-      Sharing of Information
+      <h3 class="h5">Sharing of Information</h3>
       Any information obtained as part of SMS consent (phone numbers) will not be shared with third party affiliates for marketing purposes.
       
       We may share any information we collect, including information entered in a Do-It-Yourself form tool on our Site: 
@@ -429,37 +429,37 @@ fields:
       
       We may also share aggregated or anonymized information that does not directly identify you. 
       
-      Links to Other Websites
+      <h3 class="h5">Links to Other Websites</h3>
       Our Site contains links to other websites. Any personal information you provide on such linked pages is provided directly to that third party and is subject to that third party’s privacy policy. This Privacy Policy does not apply to such linked sites, and we are not responsible for the content or privacy and security practices and policies of these websites. We encourage you to learn about their privacy and security practices and policies before providing them with personal information.
       
-      Social Media Sharing Features
+      <h3 class="h5">Social Media Sharing Features</h3>
       The Site may offer social media sharing features and other integrated tools (such as the Facebook “Like” button), which let you share actions you take on our Site with other media, and vice versa. These features let you share information with your friends or the public, depending on your social media privacy settings. For more information about the purpose and scope of data collection in connection with social media sharing features, please visit the privacy policies of the social media companies that provide these features.
       
-      Advertising and Analytics Services Provided by Others 
+      <h3 class="h5">Advertising and Analytics Services Provided by Others</h3>  
       We may allow third parties to use cookies, web beacons, or other technologies or otherwise collect information about you to provide analytics and advertising services, including serving ads on the Site or other sites based on your visits to the Site and other sites across the Internet and various mobile applications. These entities may collect or receive information about your use of the Site and other websites and mobile applications, including your IP address, geographic location, browser, device information, pages viewed, time spent on pages, links clicked, and conversion information. This information may be used by the Site and others to, among other things, analyze and track data, determine the popularity of certain content, deliver advertising and content targeted to your interests and better understand your online activity.
     
       For example, we may use Google Analytics or other remarketing tools to advertise online. This enables third-party vendors, including Google, to show our ads on sites across the Internet. Such third-party vendors, including Google, may use first-party cookies (such as the Google Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on your past visits to our Site. For information on how you can opt out of Google’s use of cookies for interest-based ads please visit Google’s Ads Settings.
     
       For more information about Internet-based ads, or to opt out of having your web browsing information used for behavioral advertising purposes, please visit [https://www.aboutads.info/choices](https://www.aboutads.info/choices)
     
-      Security 
+      <h3 class="h5">Security</h3> 
       Michigan Legal Help takes reasonable measures to help protect information about you from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. No system is completely safe. Because using the internet presents data security risks, we encourage you to use caution when sharing information online. Do not share your password with other people and select passwords that are secure. 
       
-      Your Choices   
-      **Account Information**
+      <h3 class="h5">Your Choices</h3>   
+      **<h4 class="h6">Account Information</h4>**
       You may request that we update, correct, or delete the information you provide to us by submitting a message through [this form](https://michiganlegalhelp.org/privacy-policy-contact-form). However, note that we may retain certain information as required by law or for legitimate business purposes or legal requirements. We may also retain cached or archived copies of information about you for a certain period of time.
       
-      **Cookies and Similar Technologies**
+      **<h4 class="h6">Cookies and Similar Technologies</h4>**
       Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. If you choose to remove or reject cookies, this could affect the availability and functionality of our Site. You can also set up many browsers and email clients to block tracking pixels.
       
-      **Promotional Communications**
+      **<h4 class="h6">Promotional Communications</h4>**
       You may opt out of receiving updates and newsletters by email by following the instructions in those emails, and you may opt out of receiving SMS alerts by texting STOP at any time. If you opt out of one type of communication, we may still send you other types of emails, such as those about your use of the Site or any donations or transactions.
       
-      Contact Us
+      <h3 class="h5">Contact Us</h3>
       If you have any questions about this Privacy Policy, please contact us by submitting a message through [this form](https://michiganlegalhelp.org/privacy-policy-contact-form). You can write to us at:
     
-      Michigan Legal Help
-      15 S. Washington Street
+      Michigan Legal Help<br />
+      15 S. Washington Street<br />
       Ypsilanti, MI 48197
       
       Please include your e-mail address, name, address and telephone number when you contact us. This helps us handle your request correctly.
