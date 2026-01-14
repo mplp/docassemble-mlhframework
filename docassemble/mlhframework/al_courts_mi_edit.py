@@ -186,7 +186,7 @@ class ALCourtLoader(DAObject):
     else:
       return df['name'].items()
 
-  def get_court_info_by_2_criteria(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department', return_column='department')->str:
+  def get_court_info_by_2(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department', return_column='department')->str:
     """
     Return court info filtered on 2 columns, only the desired column contents. 
     
@@ -198,7 +198,9 @@ class ALCourtLoader(DAObject):
         filtered_df = df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2)]
         
         if not filtered_df.empty:
-            return filtered_df[return_column].iloc[0]
+            value = filtered_df[return_column].iloc[0]
+            # Return empty string if value is NaN
+            return "" if pd.isna(value) else value
         else:
             return "Unknown"
     else:
