@@ -186,7 +186,7 @@ class ALCourtLoader(DAObject):
     else:
       return df['name'].items()
 
-def get_court_info_by_2_criteria(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department', return_column='department')->str:
+  def get_court_info_by_2_criteria(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department', return_column='department')->str:
     """
     Return court info filtered on 2 columns, only the desired column contents. 
     
