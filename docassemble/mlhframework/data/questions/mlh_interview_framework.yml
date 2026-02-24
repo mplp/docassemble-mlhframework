@@ -464,6 +464,8 @@ progress: 99
 #subquestion: |
 #  You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
 #
+#  ${ optional_download_message }
+#
 #  ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
 #  
 #  ${ al_user_bundle.download_list_html() }
@@ -479,7 +481,7 @@ question: |
 subquestion: |
   You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
 
-  { optional_download_message }
+  ${ optional_download_message }
     
   <h2 class="h3">Download or e-mail your ${ MLH_form_type }</h2>
 
