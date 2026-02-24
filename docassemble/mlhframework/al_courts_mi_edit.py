@@ -185,27 +185,7 @@ class ALCourtLoader(DAObject):
       return df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2) & df[column_3].isin(court_types_3)]['name'].items()
     else:
       return df['name'].items()
-
-  def get_court_info_by_2(self, court_types_1: list, court_types_2: list, column_1='department', column_2='department', return_column='department')->str:
-    """
-    Return court info filtered on 2 columns, only the desired column contents. 
     
-    Work needed on the conditional statement and desired behavior if some arguments not specified.
-    """
-    df = self._load_courts()
-    if court_types_1 and court_types_2:
-        # Filter for matching values in both specified columns
-        filtered_df = df[df[column_1].isin(court_types_1) & df[column_2].isin(court_types_2)]
-        
-        if not filtered_df.empty:
-            value = filtered_df[return_column].iloc[0]
-            # Return empty string if value is NaN
-            return "" if pd.isna(value) else value
-        else:
-            return "Unknown"
-    else:
-        return "Error"
-
   def as_court(self, intrinsicName, index, ensure_lat_long=True):
     """
     Return the court at the specified index as an ALCourt object

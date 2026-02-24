@@ -3,7 +3,6 @@
 A docassemble extension.
 
 ## Author
-* 2/24/26   1.0.19 add function for court spreadsheet; edit Guide blurb; add download screen message
 * 9/22/25   1.0.18 adjust spam filtering on feedback form; email-forms-to-self and error screen improvements; minor language edits
 * 8/14/25   1.0.17 minor language edits and add "patience, assembling" screen
 * 8/11/25   1.0.16 add "github_user" entry to avoid spammy log messages

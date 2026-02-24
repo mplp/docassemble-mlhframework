@@ -45,7 +45,7 @@ code: |
 
   # The below variables can be used to quickly and consistently include common links and language.
   MLH_GUIDE = "[Guide to Legal Help](https://michiganlegalhelp.org/guide-to-legal-help)"
-  MLH_GUIDE_FULL = f"You can use the {MLH_GUIDE} to search for a lawyer or legal services."
+  MLH_GUIDE_FULL = f"You can use the {MLH_GUIDE} to search for a lawyer or legal services in your area."
   MLH_MiFILE = "[MiFILE](https://mifile.courts.michigan.gov)"
   MLH_CASE_TYPE_CODE_LIST = "[Case Type Code List](https://courts.michigan.gov/Administration/SCAO/Resources/Documents/standards/cf_casetypecodes.pdf)"
 
@@ -96,9 +96,6 @@ template: MLH_materials              # default list of needed info. Keep as bull
 content: |
   * Information about your legal issue
   * Information about the people involved
----
-code: |
-  optional_download_message = ""
 ---
 code: |
   survey_embed_script = "YOU NEED TO OVERWRITE survey_embed_script WITH A UNIQUE SURVEY COLLECTOR FOR THIS INTERVIEW."
@@ -464,8 +461,6 @@ progress: 99
 #subquestion: |
 #  You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
 #
-#  ${ optional_download_message }
-#
 #  ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
 #  
 #  ${ al_user_bundle.download_list_html() }
@@ -480,8 +475,6 @@ question: |
   Get your ${ MLH_form_type }
 subquestion: |
   You can **view**, **download**, or **e-mail** your ${ MLH_form_type } to yourself below. Tap the "✎ Review / Edit" button to fix any mistakes.
-
-  ${ optional_download_message }
     
   <h2 class="h3">Download or e-mail your ${ MLH_form_type }</h2>
 
