@@ -14,7 +14,6 @@ authors = [
 ]
 dependencies = [
     "docassemble.ALToolbox>=0.14.0",
-    "docassemble.AssemblyLine @ git+https://github.com/SuffolkLITLab/docassemble-AssemblyLine.git@bates_number_to_aldoc",
     "docassemble.GithubFeedbackForm @ git+https://github.com/SuffolkLITLab/docassemble-GithubFeedbackForm.git@main",
 ]
 
