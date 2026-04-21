@@ -213,12 +213,15 @@ footer a {
 }
 
 /* Make headers follow a sensible size hierarchy */
-h1 {
+h1#daMainQuestion, h1 {
   font-size: calc(1.3rem + 0.6vw);
 }
 h2 {
   font-size: calc(1.275rem + 0.3vw);
 }
 h3 {
-  font-size: 1.25rem;
+  font-size: calc(1.24rem + 0.1vw);
+}
+h4 {
+  font-size: calc(1.15rem + 0.05vw);
 }
