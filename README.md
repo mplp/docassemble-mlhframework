@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 4/23/26   1.0.20 minor language changes and address a bug when referencing device()
 * 2/24/26   1.0.19 add function for court spreadsheet; edit Guide blurb; add download screen message
 * 9/22/25   1.0.18 adjust spam filtering on feedback form; email-forms-to-self and error screen improvements; minor language edits
 * 8/14/25   1.0.17 minor language edits and add "patience, assembling" screen
