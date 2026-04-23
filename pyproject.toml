@@ -1,24 +1,20 @@
 [build-system]
 requires = [
-    "setuptools>=80.9.0",
+    "setuptools==80.9.0",
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "docassemble.mlhframework"
-version = "1.0.20"
+version = "1.0.19"
 description = "A docassemble extension."
 readme = "README.md"
 authors = [
     { name = "Emily K. Miller", email = "ekressmiller@lsscm.org" },
 ]
 dependencies = [
-    "docassemble.ALToolbox @ git+https://github.com/SuffolkLITLab/docassemble-ALToolbox.git@main",
+    "docassemble.ALToolbox>=0.14.0",
     "docassemble.GithubFeedbackForm @ git+https://github.com/SuffolkLITLab/docassemble-GithubFeedbackForm.git@main",
-]
-license = "MIT"
-license-files = [
-    "LICENSE",
 ]
 
 [project.urls]

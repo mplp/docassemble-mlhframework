@@ -277,7 +277,7 @@ subquestion: |
   
   <h2 class="h5">Saving Your Work</h2>
   To save your work, sign in or sign up for an account. Tap the "Sign in" or "Sign up" link below the **Continue** button. Or go to the
-  % if device() is None or device().is_mobile:
+  % if device().is_mobile:
   :bars:
   % endif
   **menu** at the top of the screen and tap "Sign in or sign up to save answers".
@@ -377,7 +377,7 @@ subquestion: |
   ${ collapse_template(efiling_info_template) }
   % if MLH_multiple_forms:
   
-    This tool produces multiple forms for your case. At the end of this tool, on the last page, you can:
+    This tool produces multiple forms for your case. On the download page at the end of this tool:
   
     * **email the forms to yourself** or
     * **download all the forms** and keep the files somewhere safe.
@@ -447,7 +447,7 @@ subquestion: |
   You can save your answers so that you can come back to this tool later. This will allow you to make changes to your ${ MLH_form_type } without starting over.
 
   Below the **Continue** button, tap "Sign in" if you have an account or "Sign up" to make one. You can also go to the
-  % if device() is None or device().is_mobile:
+  % if device().is_mobile:
   :bars:
   % endif
   menu at the top of the screen and tap "Sign in or sign up to save answers".
@@ -1061,7 +1061,7 @@ template: person_lawyer_template
 subject: |
   What if I don't know?
 content: |
-  Look at the first page of a court document filed by ${ x }, like a complaint, petition, or answer. The top of the first page is the “caption” which has the basic case information. If ${ x } has a lawyer, that information might be found here.
+  Look at the first page of an existing court document, like a complaint, petition, or answer. The top of the first page is the “caption” which has the basic case information. If ${ x } has a lawyer, that information might be found here.
   
   You can also check the signature area of any court documents that you received.
   
