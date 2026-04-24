@@ -219,6 +219,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   color: var(--bs-heading-color);
 }
 
+/* leave larger H1 settings for profile, sign in, sign up pages, etc. */
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
@@ -228,30 +229,40 @@ h1, .h1 {
   }
 }
 
-h2, .h2 {
-  font-size: calc(1.325rem + 0.9vw);
-}
-@media (min-width: 1200px) {
-  h2, .h2 {
-    font-size: 2rem;
-  }
-}
-
-h3, .h3 {
+/* specially set this so that DA "questions" don't take on H3 styling */
+h1#daMainQuestion {
   font-size: calc(1.3rem + 0.6vw);
 }
 @media (min-width: 1200px) {
-  h3, .h3 {
+  h1#daMainQuestion {
     font-size: 1.75rem;
   }
 }
 
+h2, .h2 {
+  font-size: calc(1.25rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  h2, .h2 {
+    font-size: 1.5rem;
+  }
+}
+
+h3, .h3 {
+  font-size: calc(1.2rem + 0.1vw);
+}
+@media (min-width: 1200px) {
+  h3, .h3 {
+    font-size: 1.32rem;
+  }
+}
+
 h4, .h4 {
-  font-size: calc(1.275rem + 0.3vw);
+  font-size: calc(1.125rem + 0.05vw);
 }
 @media (min-width: 1200px) {
   h4, .h4 {
-    font-size: 1.5rem;
+    font-size: 1.19rem;
   }
 }
 
