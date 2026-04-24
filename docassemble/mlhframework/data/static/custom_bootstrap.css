@@ -219,11 +219,22 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   color: var(--bs-heading-color);
 }
 
-h1#daMainQuestion, h1, .h1 {
+/* leave larger H1 settings for profile, sign in, sign up pages, etc. */
+h1, .h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* specially set this so that DA "questions" don't take on H3 styling */
+h1#daMainQuestion {
   font-size: calc(1.3rem + 0.6vw);
 }
 @media (min-width: 1200px) {
-  h1#daMainQuestion, h1, .h1 {
+  h1#daMainQuestion {
     font-size: 1.75rem;
   }
 }
