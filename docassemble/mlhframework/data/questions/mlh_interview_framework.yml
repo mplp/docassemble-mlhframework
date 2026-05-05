@@ -495,9 +495,9 @@ subquestion: |
   
   <h2 class="h3">Take our quick survey!</h2>
   Answer below or [open the survey in a new tab](${ survey_link_url_only }).
-  # <div id="survey_monkey1"></div>  #we can switch this over once all tools have the necessary JS to use new method
   ${ survey_embed_script }
 progress: 100
+# <div id="survey_monkey1"></div>  #we can switch out ${ survey_embed_script } with this once all tools have the necessary JS to use new method
 ---
 # as needed, we can also use this to make it clear there may be a delay before download screen. Especially important if you go right from a substantive question to download screen.
 id: patience, assembling
