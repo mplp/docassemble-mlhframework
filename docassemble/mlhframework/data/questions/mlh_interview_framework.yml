@@ -18,6 +18,8 @@ features:
   small screen navigation: False  # turn off nav panel on small screens
   progress bar: True
   progress bar method: stepped
+  javascript:
+    - insert_survey_monkey_script.js
 ---
 objects:
   - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="")
@@ -493,7 +495,7 @@ subquestion: |
   
   <h2 class="h3">Take our quick survey!</h2>
   Answer below or [open the survey in a new tab](${ survey_link_url_only }).
-  ${ survey_embed_script }
+  <div id="survey_monkey1"></div>
 progress: 100
 ---
 # as needed, we can also use this to make it clear there may be a delay before download screen. Especially important if you go right from a substantive question to download screen.
