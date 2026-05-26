@@ -19,6 +19,7 @@ features:
   progress bar: True
   progress bar method: stepped
   javascript:
+    - survey_monkey_script.js #referencing files in individual interviews
     - insert_survey_monkey_script.js
 ---
 objects:
@@ -495,7 +496,7 @@ subquestion: |
   
   <h2 class="h3">Take our quick survey!</h2>
   Answer below or [open the survey in a new tab](${ survey_link_url_only }).
-  ${ survey_embed_script }
+  <div id="survey_monkey1"></div>
 progress: 100
 # <div id="survey_monkey1"></div>  #we can switch out ${ survey_embed_script } with this once all tools have the necessary JS to use new method
 ---
