@@ -107,7 +107,9 @@ content: |
   If Michigan Legal Help fails to act with respect to your breach or anyone else’s breach on any occasion, Michigan Legal Help is not waiving its right to act with respect to future or similar breaches.
   
   If any provision of these Terms is unlawful, void or for any reason unenforceable, then that provision shall be deemed severable from these terms of use and shall not affect the validity and enforceability of any remaining provisions. These Terms constitute the entire agreement between you and Michigan Legal Help regarding the use of the Site. By using the Site, you represent that you are capable of entering into a binding agreement, and that you agree to be bound by these Terms.
-
+### Note one intentional difference from main site version:
+### Main site version: "For more information on privacy, please visit our Privacy Policy."
+### MLH-Forms version: "For our privacy policy, please see below."
 ---
 template: MLH_privacy_policy  
 subject: ""
