@@ -3,7 +3,6 @@
 A docassemble extension.
 
 ## Author
-* 6/16/26   1.0.23 update heading level styling
 * 5/18/26   1.0.22 update Genesee FOC address
 * 5/5/26    1.0.21 improve embed method options for surveymonkey surveys
 * 4/23/26   1.0.20 minor language changes and address a bug when referencing device()
