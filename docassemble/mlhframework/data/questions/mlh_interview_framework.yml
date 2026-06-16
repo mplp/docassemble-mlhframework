@@ -254,15 +254,15 @@ id: MLH intro saving answers logged in
 question: |
   Using this tool
 subquestion: |
-  <h2 class="h5">Changing an Answer</h2>
+  ## Changing an Answer
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
   
-  <h2 class="h5">Saving Your Work</h2>
+  ## Saving Your Work
   You are already signed in. Just tap the **${MLH_continue_button_label}** button to save your progress. 
   
   Go to the menu at the top of the screen and select “My Forms” to go back to a saved form.
   
-  <h2 class="h5">Help Text</h2>
+  ## Help Text
   Tap {green underlined words} for a definition or more information.   
 terms:
   green underlined words: |
@@ -274,10 +274,10 @@ id: MLH intro saving answers logged out
 question: |
   Using this tool
 subquestion: |
-  <h2 class="h5">Changing an Answer</h2>
+  ## Changing an Answer
   If you make a mistake, you can use the **${ MLH_back_button_label }** button below to go back. You can also see and edit earlier answers by tapping the "✎ Review / Edit" link.
   
-  <h2 class="h5">Saving Your Work</h2>
+  ## Saving Your Work
   To save your work, sign in or sign up for an account. Tap the "Sign in" or "Sign up" link below the **Continue** button. Or go to the
   % if device() is None or device().is_mobile:
   :bars:
@@ -286,7 +286,7 @@ subquestion: |
   
   To go back to a saved form, log in. Then go to the menu at the top of the screen and select “My Forms.”
   
-  <h2 class="h5">Help Text</h2>
+  ## Help Text
   Tap {green underlined words} for a definition or more information. 
 terms:
   green underlined words: |
@@ -485,7 +485,7 @@ subquestion: |
 
   ${ optional_download_message }
     
-  <h2 class="h3">Download or e-mail your ${ MLH_form_type }</h2>
+  ## Download or e-mail your ${ MLH_form_type }
 
   ${ action_button_html(url_action('review_full'), label='✎ Review / Edit', color='info') }
   
@@ -493,7 +493,7 @@ subquestion: |
 
   ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
   
-  <h2 class="h3">Take our quick survey!</h2>
+  ## Take our quick survey!
   Answer below or [open the survey in a new tab](${ survey_link_url_only }).
   ${ survey_embed_script }
 progress: 100
