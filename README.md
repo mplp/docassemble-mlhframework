@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 8/3/26    1.0.24 reduce suffix options; update MLH email in terms
 * 6/16/26   1.0.23 update heading level styling
 * 5/18/26   1.0.22 update Genesee FOC address
 * 5/5/26    1.0.21 improve embed method options for surveymonkey surveys
