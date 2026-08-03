@@ -114,20 +114,6 @@ code: |
   snapshot_dv_question = False       # override if interview asks whether there's domestic violence
   snapshot_dv_present = "unknown"    # if interview asks about DV, set True if DV present, False if not
 ---
-# override the AL default
-variable name: al_name_suffixes
-data:
-  - Jr
-  - Junior
-  - Sr
-  - Senior
-  - I
-  - II
-  - III
-  - IV
-  - V
-  - VI
----
 ######
 ---
 # default welcome info; keep relatively short. If lots of preconditions/warnings, make separate screen
@@ -1145,4 +1131,3 @@ content: |
   Your ${ x.document_label } document is attached.
   
   Visit ${ resource_page_link } to learn more.
----
