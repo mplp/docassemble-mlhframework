@@ -1,6 +1,6 @@
 ---
 template: MLH_terms_of_use  
-subject: ""
+subject: Terms of Use
 content: |
   ## Terms of Use
   Last updated: May 29, 2025
@@ -112,7 +112,7 @@ content: |
 ### MLH-Forms version: "For our privacy policy, please see below."
 ---
 template: MLH_privacy_policy  
-subject: ""
+subject: Privacy Policy
 content: |
   ## Privacy Policy
   Last updated: July 21, 2025
