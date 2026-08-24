@@ -184,8 +184,8 @@ default screen parts:
 ---
 id: button labels for reference in interview text
 code: |
-  MLH_continue_button_label = word("Continue")
-  MLH_back_button_label = word("Undo")
+  MLH_continue_button_label = "Continue"
+  MLH_back_button_label = "Undo"
 ---
 # creates template for adding sign-in message back to "under" screen part if needed
 template: sign_in_message
