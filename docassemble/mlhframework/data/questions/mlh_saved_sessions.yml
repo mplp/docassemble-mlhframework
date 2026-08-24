@@ -13,7 +13,7 @@ question: |
   You can try again.
   % endif
 subquestion: |
-  Tap **${ MLH_continue_button_label }** to keep answering any unanswered questions and finish the interview.
+  Tap **${ word(MLH_continue_button_label) }** to keep answering any unanswered questions and finish the interview.
 back button: False
 
 ---
@@ -28,5 +28,5 @@ question: |
   Your answer set was not loaded. You can try again.
   % endif
 subquestion: |
-  Tap **${ MLH_continue_button_label }** to keep answering any unanswered questions and finish the interview.
+  Tap **${ word(MLH_continue_button_label) }** to keep answering any unanswered questions and finish the interview.
 back button: False

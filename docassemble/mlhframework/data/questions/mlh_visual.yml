@@ -19,7 +19,7 @@ subquestion: |
   also see any changes that person makes.
   % endif
   
-  Tap **${ MLH_continue_button_label }** to go back to your form in progress.
+  Tap **${ word(MLH_continue_button_label) }** to go back to your form in progress.
 back button: False
 ---
 id: start a new session
@@ -35,9 +35,7 @@ subquestion: |
   % endif
   
   Tap **Start over** to start a new copy of the form you are working on,
-  or **${ MLH_back_button_label }** if you want to keep working.
-back button label: |
-  ${ MLH_back_button_label }
+  or **${ word(MLH_back_button_label) }** if you want to keep working.
 continue button label: |
   Start over
 continue button field: al_start_over_confirmation
@@ -52,9 +50,7 @@ subquestion: |
   will also be removed.
   
   Tap **Exit and delete my answers** to delete your progress,
-  or **${ MLH_back_button_label }** if you want to keep working.
-back button label: |
-  ${ MLH_back_button_label }
+  or **${ word(MLH_back_button_label) }** if you want to keep working.
 continue button label: |
   Exit and delete my answers
 continue button field: al_exit_logout_confirmation
@@ -86,7 +82,7 @@ subquestion: |
 
   You can try one of these next steps:
 
-  * Tap the **${ MLH_back_button_label }** button and try again
+  * Tap the **${ word(MLH_back_button_label) }** button and try again
   % if al_enable_error_action_feedback_link:
   * [:comment-dots: Tell us what happened](${ feedback_link(user_info(), i="docassemble.mlhframework:mlh_post_error_feedback.yml", github_repo=github_repo_name, github_user=github_user, package_version=package_version_number) } ){:target="_blank"}
   % endif
@@ -111,7 +107,6 @@ subquestion: |
   % if not get_config("verbose error messages") == False:
   ${ collapse_template(al_formatted_error_message, collapsed=(not get_config("debug"))) }
   % endif
-back button label: Back
 buttons:
   - Exit: leave
     url: ${ AL_ORGANIZATION_HOMEPAGE }
