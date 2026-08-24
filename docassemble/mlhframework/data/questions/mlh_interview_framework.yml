@@ -146,10 +146,9 @@ metadata:
 ---
 # Override what's in al_visual.yml
 default screen parts:
-  #back button label: Back
-  #continue button label: Continue
-  # BH: it appears that this cannot be set by set_parts(). Will need to default a value here
-  # based on desired label, (i.e. "Back" or "Undo")
+  back button label: ${word("Undo")}
+  continue button label: ${word("Continue")}
+  # labels must match those in following code block
   #corner back button label: Back  
   
   exit link: exit                    # sets behavior of Exit buttons
@@ -183,23 +182,17 @@ default screen parts:
     </span>
   back button color: secondary
 ---
+id: button labels for reference in interview text
+code: |
+  MLH_continue_button_label = "Continue"
+  MLH_back_button_label = "Undo"
+---
 # creates template for adding sign-in message back to "under" screen part if needed
 template: sign_in_message
 content: |
   % if not user_logged_in():
     [:key: Sign in](${url_of('login', next=interview_url())}) or [sign up](${url_of('register', next=interview_url())}) to save your progress.
   % endif
----
-# To create consistent language on generic continue buttons. If it is ever decided to change
-# that language, it only need to be done here.
-# This is also useful for referring to a button label within page text. For example:
-# “Just click the ${MLH_continue_button_label} button to save your progress.”
-mandatory: true
-code: |
-  MLH_continue_button_label = "Continue"
-  MLH_back_button_label = "Undo"
-
-  set_parts(continue_button_label = MLH_continue_button_label, back_button_label = MLH_back_button_label)
 
 # # # # # # # # # # # # # # # # Standard Intro Pages # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # Standard Intro Pages # # # # # # # # # # # # # # # #
