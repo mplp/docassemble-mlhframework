@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 10/5/26   1.0.27 update court info
 * 8/24/26   1.0.26 update method of setting button labels to address translatability
 * 8/19/26   1.0.25 add subjects to terms and priacy policy templates for accessibility
 * 8/3/26    1.0.24 reduce suffix options; update MLH email in terms
