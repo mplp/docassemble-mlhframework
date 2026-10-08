@@ -3,6 +3,7 @@
 A docassemble extension.
 
 ## Author
+* 10/8/26   1.0.28 adjust survey iframe appearance
 * 10/5/26   1.0.27 update court info
 * 8/24/26   1.0.26 update method of setting button labels to address translatability
 * 8/19/26   1.0.25 add subjects to terms and priacy policy templates for accessibility

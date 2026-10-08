@@ -211,3 +211,10 @@ footer a {
 .survey-page-body .questions .clearfix {
   padding-top: 0px !important;
 }
+
+/* Adust Survey Monkey embedded surveys. */
+.surveyiframe {
+  width: 100%;
+  height: 30.5em;
+  border: 1px solid var(--bs-secondary);
+}
