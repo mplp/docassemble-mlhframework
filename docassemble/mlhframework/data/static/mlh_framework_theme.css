@@ -197,8 +197,10 @@ footer a {
   --bs-btn-font-size: 1.125rem;
   
 }
+
 #danavbar-collapse a.btn-primary[href*="/user/register"] {
   --bs-btn-font-size: 1.125rem;
+}
 
 /* Make "Sign in" button on desktop white when hovering, slight change when hovering */
 /* Note as of 5/29/24 this may now be unnecessary because both sign and sign up are buttonsnow. */
@@ -210,4 +212,11 @@ footer a {
 /* Reduce white space at top of Survey Monkey embedded survey. */
 .survey-page-body .questions .clearfix {
   padding-top: 0px !important;
+}
+
+/* Adjust SurveyMonkey embedded surveys. */
+.surveyiframe {
+  width: 100%;
+  height: 30.5em;
+  border: 1px solid var(--bs-secondary);
 }
