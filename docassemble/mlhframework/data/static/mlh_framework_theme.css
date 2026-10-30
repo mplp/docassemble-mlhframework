@@ -132,6 +132,20 @@ body {
   font-size: 0.98rem;
 }
 
+/* Changes color of 'question mark' help icon to be minimally compliant with WCAG standards */
+div.dachoicehelp,
+div.dachoicehelp a,
+div.dachoicehelp a i,
+div.dachoicehelp a svg {
+  color: #60A14A !important;
+}
+
+/* Enforces WCAG-compliant color from the rule above whenever the Font Awesome library (used by Docassemble) 
+uses an SVG image to display the 'question mark' help icon */
+div.dachoicehelp a svg {
+  fill: currentColor !important;
+}
+
 /* Manually use browser focus-visible, since bootstrap focus is the same color
   as the top bar */
 .navbar .nav-link:focus-visible {
@@ -197,8 +211,10 @@ footer a {
   --bs-btn-font-size: 1.125rem;
   
 }
+
 #danavbar-collapse a.btn-primary[href*="/user/register"] {
   --bs-btn-font-size: 1.125rem;
+}
 
 /* Make "Sign in" button on desktop white when hovering, slight change when hovering */
 /* Note as of 5/29/24 this may now be unnecessary because both sign and sign up are buttonsnow. */
