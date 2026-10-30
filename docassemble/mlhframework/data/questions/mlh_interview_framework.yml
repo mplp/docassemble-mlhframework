@@ -18,8 +18,8 @@ features:
   small screen navigation: False  # turn off nav panel on small screens
   progress bar: True
   progress bar method: stepped
-  javascript:
-    - insert_survey_monkey_script.js
+  javascript: # we can get rid of this and line 105 and supporting js files once all tools have transitioned to new survey iframe method
+    - insert_survey_monkey_script.js 
 ---
 objects:
   - al_logo: DAStaticFile.using(filename="mlh_logo_M_only_40_px.png", alt_text="")
@@ -500,11 +500,14 @@ subquestion: |
 
   ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
   
-  ## Take our quick survey!
+  ${ sign_in_message }
+
+under: |
+  <h2 id="survey-title">Take our quick survey!</h2>
   Answer below or [open the survey in a new tab](${ survey_link_url_only }).
-  ${ survey_embed_script }
+
+  <iframe class="surveyiframe" src="${survey_link_url_only}" aria-labelledby="survey-title"></iframe>
 progress: 100
-# <div id="survey_monkey1"></div>  #we can switch out ${ survey_embed_script } with this once all tools have the necessary JS to use new method
 ---
 # as needed, we can also use this to make it clear there may be a delay before download screen. Especially important if you go right from a substantive question to download screen.
 id: patience, assembling
